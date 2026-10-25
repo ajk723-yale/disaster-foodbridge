@@ -211,13 +211,17 @@ def slides():
         <tr><td>Light</td><td>{usd(scen('light','W30','per_user_month'),2)}–{usd(scen('light','W12','per_user_month'),2)}</td><td>{usd(scen('light','W30','100_users_month'),0)}–{usd(scen('light','W12','100_users_month'),0)}</td><td>{usd(scen('light','W30','10000_users_month'),0)}–{usd(scen('light','W12','10000_users_month'),0)}</td></tr>
         <tr><td>Heavy</td><td>{usd(scen('heavy','W30','per_user_month'),2)}–{usd(scen('heavy','W12','per_user_month'),2)}</td><td>{usd(scen('heavy','W30','100_users_month'),0)}–{usd(scen('heavy','W12','100_users_month'),0)}</td><td>{usd(scen('heavy','W30','10000_users_month'),0)}–{usd(scen('heavy','W12','10000_users_month'),0)}</td></tr>
       </table>
-      <p class="tiny">Light = 10 questions, 5 reports, 1 photo per user per day; heavy = 60, 30, 10 photos + 20 follow-ups.
-      Ranges: cache writes billed at the 30-minute vs 12-hour rate.</p>
+      <div class="assume">
+        <div><b>Light</b> 10 questions · 5 reports · 1 photo + 1 follow-up</div>
+        <div><b>Heavy</b> 60 questions · 30 reports · 10 photos + 20 follow-ups</div>
+        <div class="muted">per user per day · range = cache writes billed at the 30-min vs 12-hour rate</div>
+      </div>
     </div>
     <div class="panel">
       <div class="ph">Verified fix: reuse the photo prompt</div>
       {cache_svg()}
-      <p class="tiny">Cost of each later follow-up question on the same photo: −{abs(later['change_W30_pct']):.0f}% / −{abs(later['change_W12_pct']):.0f}%. Answer-quality checks: 8 of 8 passed before and after.</p>
+      <p class="tiny">Each later question on the same photo: <b>−{abs(later['change_W30_pct']):.0f}% / −{abs(later['change_W12_pct']):.0f}%</b> cost.
+      Answer checks: <b>8 of 8</b> before and after.</p>
     </div>
   </div>
   <p class="src">Estimates at OpenAI’s published gpt-6-luna rates from logged token counts — <b>not bills</b>. Course Portkey/Azure billing unknown; cache replays not counted as savings. [report §5]</p>
@@ -338,7 +342,11 @@ CSS = f"""
 .reveal th {{ text-align: right; color: {MUTED}; font-weight: 600; padding: 4px 6px; border-bottom: 1px solid {LINE}; }}
 .reveal td {{ text-align: right; padding: 8px 6px; border-bottom: 1px solid {LINE}; font-variant-numeric: tabular-nums; }}
 .reveal td:first-child, .reveal th:first-child {{ text-align: left; font-weight: 700; color: {TEXT}; }}
-.tiny {{ font-size: 17px; color: {MUTED}; margin: 10px 0 0; }}
+.tiny {{ font-size: 19px; color: {MUTED}; margin: 10px 0 0; line-height: 1.35; }}
+.tiny b {{ color: {TEXT}; }}
+.assume {{ margin-top: 12px; font-size: 19px; line-height: 1.45; color: #e6dfe4; }}
+.assume b {{ display: inline-block; width: 70px; color: {PINK}; }}
+.assume .muted {{ color: {MUTED}; font-size: 17px; margin-top: 4px; }}
 .banner {{ margin-top: 18px; background: #241a10; border: 1px solid #8a5a1a; border-radius: 12px; padding: 14px 18px; font-size: 22px; }}
 .lim ul, .lim ol {{ margin: 0; padding-left: 30px; font-size: 27px; }}
 .lim li {{ margin-bottom: 18px; }}

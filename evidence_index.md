@@ -463,7 +463,20 @@ The P37 dashboard (section 21) was replaced; its screenshots S21–S23 show the 
 | 9 slides (≤ 10) | `Reveal.getTotalSlides()` = 9 | ✅ |
 | Arrow-key navigation and fullscreen (`F`) | Browser test (arrows); `F` → `requestFullscreen` intercepted | ✅; ⚠️ real fullscreen not exercised headlessly |
 | No clipping or overlap on any slide at 1280×720 | Per-slide screenshots and automated check (all 9 pass) | ✅ |
-| Slide figures match the report and evidence | Claims table in `slides_review_p47.md` | ✅ |
+| Slide figures match the report and evidence | Claims table in `slides_review_p47.md`; P49 cross-check (20 items in both documents) | ✅ |
+| P49: Light profile on slide 7 includes the daily follow-up; Motivation wording revised; report still 13 pages | `slides_review_p47.md` and `report_review_p44.md` "P49 corrections"; `report_print_check_p44.pdf` | ✅ |
+
+## 31. Final fresh-clone test (P50)
+
+| Claim | Evidence | Status |
+|---|---|---|
+| A fresh clone installs and starts within 10 minutes using the README commands | `evidence/audit/fresh_clone_test_p50.md` §1: 23 s of setup commands + ≤ 8 s to launch (clean `env -i`, no pip cache) | ✅ (human reading time not included) |
+| The README Quick start works with the key in the parent `.env` | §2: `cp .env.example .env` hides the parent key → HTTP 401; works after deleting the copied `.env` | ❌ README fix needed |
+| Dashboard shows the sample data in the clone | §3: 596 / 1,003 / 407, 4 actions, fictional map | ✅ |
+| One real, uncached chat request with the correct tool and figures | §4; `fresh_clone_p50_usage.jsonl` run `563da346c58c` (2 calls, MISS) | ✅ |
+| Intake, photo analysis + follow-up, and Review & finalize work in the clone | §5; usage file (all MISS); record `ext-97a0ebac23`, analysis `photo-e393cad2cf`, plan `93c8305626fa` | ✅ (clone data only) |
+| The clone does not depend on the development folder | §6: lsof, process environment, loaded `.env` files, config paths, path grep; development `data/live` untouched | ✅ |
+| Python / dependency compatibility | §7: Python 3.14.7 installs, `pip check` clean, 222 tests pass; 3.13 dry-run resolve only | ✅ 3.14; ⚠️ 3.13 not run |
 
 ## Screenshots
 

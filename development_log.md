@@ -59,6 +59,7 @@ Supporting evidence for each claim is listed in [evidence_index.md](evidence_ind
 | 37 | Final report (report.html, 11 printed pages) | P44 | 222 passed |
 | 38 | Report revisions (motivation, single-run trace, impact framing; 13 pages) | P45 | 222 passed |
 | 39 | Final presentation (slides.html, 9 slides) | P47 | 222 passed |
+| 40 | Report and slide corrections; consistency check | P49 | 222 passed |
 
 ---
 
@@ -2175,7 +2176,55 @@ and fullscreen, and be inspected for clipping and readability.
 
 ---
 
-## Current limitations (consolidated, as of P47)
+## Stage 40 — Report and slide corrections, consistency check (P49)
+
+- **Report, Motivation:** the defensive sentence was replaced with "That crisis-coordination work shaped three
+  convictions that guided this project". The paragraph ends "Shelter food allocation is a new area in which to apply
+  these lessons"; there is no implication that the author managed shelter food allocation.
+- **Report, Figure 2:** the caption adds the run total (4,467 input / 577 output tokens). This was found by the
+  consistency check: the slides quoted the total, the report only the per-call values.
+- **Slides, slide 7:**
+  - the Light profile now lists "1 photo + 1 follow-up" (the estimates already included it; numbers unchanged);
+  - the assumptions are shown as labeled Light / Heavy lines;
+  - small text is larger, and the cache caption is shorter.
+- **Verified:**
+  - the report prints to **13 US Letter pages**;
+  - **9 slides**, all passing the automated overflow / overlap / clipping check;
+  - slide 7 and report pages 1 and 4 were inspected;
+  - 20 key figures and phrases match between report and slides.
+- Not committed (not requested).
+
+---
+
+## Stage 41 — Final fresh-clone test reproducing the grading setup (P50)
+
+- **Setup:** clone of `main` (`e07a942`, which lacks the uncommitted P49 edits) in a new temporary folder; a temporary
+  parent `.env` with only `PORTKEY_API_KEY` (never printed; deleted afterwards); every command under `env -i`, with no
+  pip cache and a new venv.
+- **Time:** the README commands plus the clone took **23 s** (pip install 20 s), and the launch to the first HTTP 200
+  took ≤ 8 s. Total is about 31 s, within the 10-minute rule; human reading and typing time is not included.
+- **README defects found (not fixed, report only):**
+  1. `cp .env.example .env` puts the placeholder key in the project `.env`. The project file is read first, so it
+     hides the parent key and every AI action fails with HTTP 401. **Workaround: delete the copied `.env`.**
+  2. There is no clone command.
+  3. The README says `cd final_project`, but the clone folder is `disaster-foodbridge`.
+- **Worked (after the workaround), all model calls Portkey MISS:**
+  - Dashboard: 596 / 1,003 / 407, 4 actions, fictional map.
+  - Chat: one `calculate_allocation` call returning 206 / 39 / 351 and 407, fingerprint `9ac32e32…`.
+  - Report intake: extract, correct, approve (`ext-97a0ebac23`).
+  - Photo analysis (cropped synthetic image) and one follow-up.
+  - Review & finalize: plan `93c8305626fa` and its saved draft request.
+- **Independence:**
+  - no open files, packages, environment variables, or hard-coded paths from the development folder;
+  - development `data/live/` was not touched;
+  - 222 tests pass in the clone;
+  - requirements also resolve on Python 3.13 (dry run only; the app was not run on 3.13).
+- Evidence: `evidence/audit/fresh_clone_test_p50.md`, `evidence/audit/fresh_clone_p50_usage.jsonl`.
+- Not committed (not requested).
+
+---
+
+## Current limitations (consolidated, as of P49)
 
 Not implemented (stubs or missing):
 - AI extraction works (P25) and is reviewed and approved in Report intake (P26). Warehouse photo analysis works

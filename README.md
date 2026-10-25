@@ -20,16 +20,33 @@ test images.
 
 The app starts without a key, but the AI features then show a "PORTKEY_API_KEY is not set" message.
 
+**Key in a `.env` one folder above the repository (grading setup).** Run these commands from the folder that
+contains your `.env` (the line `PORTKEY_API_KEY=...`). The clone goes inside that folder, so the app finds the key in
+its parent folder. No `.env` is needed inside the repository.
+
 ```bash
-cd final_project
+git clone https://github.com/ajk723-yale/disaster-foodbridge.git
+cd disaster-foodbridge
 python3.14 -m venv .venv
 .venv/bin/pip install -r requirements.txt
-cp .env.example .env            # then edit .env and set PORTKEY_API_KEY
 .venv/bin/python app.py
 ```
 
 Open **http://localhost:8050**. Stop the app with `Ctrl+C` in that terminal. Debug mode and the auto-reloader are
 off, so there is a single process.
+
+Do **not** copy `.env.example` to `.env` in this setup. The app reads the repository's `.env` before the parent's,
+so a copied file with the placeholder key would hide the real key, and the AI features would fail with HTTP 401.
+
+**Using your own API key instead.** If there is no `.env` above the repository, create one inside it and put your
+key there:
+
+```bash
+cp .env.example .env
+```
+
+Then open `.env` and replace `your-portkey-api-key-here` with your key. `.env` is listed in `.gitignore`, so git
+does not stage it; do not force-add it. Instead of a file, you can also `export PORTKEY_API_KEY=...` in your shell.
 
 **Where the key can live.** The app reads `.env` from the project folder first, then from its parent folder (for
 example a course folder that holds several projects). A variable already set in your shell wins over both files. The

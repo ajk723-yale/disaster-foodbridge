@@ -58,3 +58,16 @@
 - Fullscreen was verified at the code-call level only.
 - Testing used Chrome; other browsers were not tested.
 - No speaker notes.
+
+## P49 corrections
+
+- **Slide 7:** the Light profile now reads "10 questions · 5 reports · 1 photo + 1 follow-up". The estimates already
+  included the follow-up (`report_figures_p44.py` light profile: followup 1), so no number changed.
+- **Slide 7 clarity:**
+  - the scenario assumptions are two labeled lines (Light / Heavy) plus a short note on the range;
+  - small text went from 17 to 19 px;
+  - the cache caption is shorter, with bold key numbers.
+- **Re-check:** 9 slides; all pass the automated overflow / footnote-overlap / clipped-number check; slide 7 inspected
+  by screenshot.
+- **Report–slides consistency:** 20 key figures and phrases appear in both documents; the slides' rounded monthly
+  totals match the report's exact values.

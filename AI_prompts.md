@@ -497,3 +497,44 @@ My actual prompts to the AI coding assistant (Claude Code), recorded verbatim in
 > Commit and push slides.html and its supporting evidence and documentation to the existing GitHub repository.
 > Before committing, run a final security check to ensure no API keys, secrets, personal information, or live working data are included.
 > Verify that the GitHub push succeeds and the repository remains private. Don't modify the app, report, or slides.
+
+## Prompt 49
+
+> Make these corrections.
+> 1.In the Motivation section of report.html, replace the slightly defensive wording "That work was not food distribution, and I have never managed food distribution" with a more natural explanation that my government crisis-coordination experience informed the project, without implying I personally managed shelter food allocation.
+> 2.On slide 7 of slides.html, ensure the Light usage scenario includes the one daily photo follow-up specified in the report. Keep the numerical estimates unchanged if they are correct.
+> 3.Review slide 7 for readability because it contains several metrics, assumptions and a cost table. Improve visual clarity only if needed, without adding slides or removing essential evidence.
+> Check consistency between report.html and slides.html after these corrections. Verify the report remains 10–15 printed US Letter pages and the slides remain at most 10.
+
+## Prompt 50
+
+> Perform the final fresh-clone test of Disaster FoodBridge, reproducing the teaching staff's setup as closely as possible.
+> The assignment requires the app to run within 10 minutes by following the published README, with the teaching staff's .env file located one directory above the cloned repository.
+> So,
+> 1.Clone the latest GitHub main branch into a completely new temporary directory. Do not use the existing development folder, virtual environment, live data, or local caches.
+> 2.Create a temporary parent-level .env file containing only PORTKEY_API_KEY, using the existing key securely without printing or logging its value. Do not copy .env into the repository.
+> 3.Starting with a clean environment, follow the published README exactly, without using undocumented setup steps. Measure and record the actual setup time.
+> 4.Confirm that the application launches successfully and that its dashboard displays the included synthetic sample data.
+> 5.Test one real Chat Agent request using gpt-6-luna through Portkey. Use a newly worded question to avoid a cached response replay. Verify the actual tool call, returned allocation figures, and model usage records. Do not treat a Portkey cache HIT as proof of a fresh model execution.
+> 6.Test the main application workflows at least once: report intake, warehouse photo analysis, and Review & Finalize. Use synthetic test data only. Avoid changing any original development data or approved records.
+> 7.Verify that the cloned application does not depend on files, packages, environment variables, or absolute paths from the original development folder.
+> 8.Report below:
+> -Total elapsed setup time and whether it satisfies the 10-minute rule.
+> -Exact README commands followed.
+> -Python and dependency compatibility.
+> -Whether the dashboard and AI workflows worked.
+> -Any errors, missing instructions, or manual workarounds required.
+> -Whether the fresh clone is ready for grading.
+
+## Prompt 51
+
+> Yes. fix the README setup instructions based on the fresh-clone test. Make these changes below.
+> 1.Update README.md Quick Start so that it works correctly with the teaching staff's .env located one directory above the repository.
+> 2.Remove the cp .env.example .env step from the grader setup instructions.
+> 3.Include the correct GitHub clone command and cd disaster-foodbridge.
+> 4.Explain separately how someone using their own API key can create a local .env, without committing it.
+> 5.Preserve the current app code and behavior.
+> After editing the README, perform another completely fresh-clone test using only the revised instructions. Confirm that a real, uncached gpt-6-luna request succeeds with the parent-level .env, without any workaround.
+> Measure the setup time and document the result.
+> Also include the already completed Prompt 49 report/slide corrections and the fresh-clone test documentation in the next commit.
+> Before committing, scan all staged files for secrets and private data. If everything passes, commit and push the changes to the existing private GitHub repository.

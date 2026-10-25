@@ -72,3 +72,12 @@ above is against the prompt.
 - **Impact.** Two panels separate "What was measured: technical validation" from "What was not measured: real-world
   impact" (no external municipal staff testing, no human time measured, no exercise or real use). The subsection
   headings say "technical validation", and the title page notes it. All measured values are unchanged.
+
+## P49 corrections
+
+- **Motivation:** "That work was not food distribution, and I have never managed food distribution" was replaced with
+  "That crisis-coordination work shaped three convictions…". The paragraph closes with "a new area in which to apply
+  these lessons"; nothing implies the author managed shelter food allocation.
+- **Figure 2 caption** now also gives the run total (4,467 input / 577 output tokens), which the slides quote, so the
+  same figure can be found in both documents.
+- **Print check:** still **13 pages** (`report_print_check_p44.pdf` regenerated).

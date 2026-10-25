@@ -371,14 +371,13 @@ screenshot ID and the development step (prompt number in <code>AI_prompts.md</co
 
 <!-- 2. MOTIVATION -->
 <h2><span class="num">2</span>Motivation</h2>
-<p>My interest in this problem comes from professional experience supporting government coordination related to the
-Fukushima nuclear accident. That work was not food distribution, and I have never managed food distribution. It did
-shape three convictions that guided this project. First, crisis decisions often have to be made before the
+<p>My interest in this problem grew out of professional experience supporting government coordination related to the
+Fukushima nuclear accident. That crisis-coordination work shaped three convictions that guided this project. First, crisis decisions often have to be made before the
 information is complete, so what is missing should be visible rather than quietly filled in. Second, information
 passes between organizations that keep their own records on their own schedules, so it matters which version of a
 figure has been checked, and by whom. Third, when a decision affects people, a named person must be accountable for
-it, with the basis on record. Shelter food allocation is a new application of these lessons, chosen because it is
-concrete, recurring, and easy to get wrong in exactly these ways.</p>
+it, with the basis on record. Shelter food allocation is a new area in which to apply these lessons, chosen because it
+is concrete, recurring, and easy to get wrong in exactly these ways.</p>
 <p>After a large earthquake or flood, a city may run dozens of evacuation shelters and a few warehouses. Twice a day
 someone has to decide how many meals go where. The arithmetic is simple; the inputs are not. Each shelter reports at
 a different time, some reports are retyped from phone calls, a newer report may be waiting for someone to check it,
@@ -443,7 +442,8 @@ the reply text. The tool result was re-computed from the same data and its plan 
 <i>[E: report/agent_app_run_p45.json]</i>.</p>
 {fig(trace_svg(), f"<b>Figure 2. Trace of run ddf9fc62fb5a.</b> Tokens and latency are measured per model call; both calls "
      f"reached the model (Portkey MISS, not a cached replay). In call 2, {TRACE['calls'][1]['reasoning_tokens']} of the "
-     f"{TRACE['calls'][1]['output_tokens']} output tokens were reasoning tokens.")}
+     f"{TRACE['calls'][1]['output_tokens']} output tokens were reasoning tokens. Run total: "
+     f"{n(TRACE['usage_total']['input_tokens'])} input / {n(TRACE['usage_total']['output_tokens'])} output tokens.")}
 {fig(img("S39_p45_stage38_traced-run-ddf9fc62-reply-top.jpg", "Chat reply with DRAFT heading and Plan A / Plan B",
          "5.4in", (105, 92, 695, 438)),
      "<b>Figure 3. Run ddf9fc62fb5a:</b> the question and the start of the reply: the DRAFT notice and Plan A "
