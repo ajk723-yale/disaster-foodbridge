@@ -147,3 +147,6 @@ hides the parent-folder key, and all AI features fail with HTTP 401. Two smaller
 - the README says `cd final_project` instead of `cd disaster-foodbridge`.
 
 Ready for grading once the Quick start is corrected, or if graders skip the copy step.
+
+*Follow-up (P51):* the README defects above were fixed in commit `87fd5d8`. A new fresh clone using only the revised
+instructions worked without the workaround; see `fresh_clone_test_p51.md`.

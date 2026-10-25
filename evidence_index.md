@@ -471,12 +471,22 @@ The P37 dashboard (section 21) was replaced; its screenshots S21–S23 show the 
 | Claim | Evidence | Status |
 |---|---|---|
 | A fresh clone installs and starts within 10 minutes using the README commands | `evidence/audit/fresh_clone_test_p50.md` §1: 23 s of setup commands + ≤ 8 s to launch (clean `env -i`, no pip cache) | ✅ (human reading time not included) |
-| The README Quick start works with the key in the parent `.env` | §2: `cp .env.example .env` hides the parent key → HTTP 401; works after deleting the copied `.env` | ❌ README fix needed |
+| The README Quick start works with the key in the parent `.env` | §2: `cp .env.example .env` hides the parent key → HTTP 401; works after deleting the copied `.env` | ❌ in P50; ✅ fixed in P51 (section 32) |
 | Dashboard shows the sample data in the clone | §3: 596 / 1,003 / 407, 4 actions, fictional map | ✅ |
 | One real, uncached chat request with the correct tool and figures | §4; `fresh_clone_p50_usage.jsonl` run `563da346c58c` (2 calls, MISS) | ✅ |
 | Intake, photo analysis + follow-up, and Review & finalize work in the clone | §5; usage file (all MISS); record `ext-97a0ebac23`, analysis `photo-e393cad2cf`, plan `93c8305626fa` | ✅ (clone data only) |
 | The clone does not depend on the development folder | §6: lsof, process environment, loaded `.env` files, config paths, path grep; development `data/live` untouched | ✅ |
 | Python / dependency compatibility | §7: Python 3.14.7 installs, `pip check` clean, 222 tests pass; 3.13 dry-run resolve only | ✅ 3.14; ⚠️ 3.13 not run |
+
+## 32. README fix and fresh-clone re-test (P51)
+
+| Claim | Evidence | Status |
+|---|---|---|
+| The README Quick start works with the key in a `.env` one folder above the repository, without any workaround | `evidence/audit/fresh_clone_test_p51.md` §1–2: revised commands verbatim against GitHub `87fd5d8`; only the parent `.env` loaded | ✅ |
+| Setup within 10 minutes | §1: 23.0 s of setup commands + 10.4 s to the first page = 33.4 s | ✅ (human reading time not included) |
+| A real, uncached `gpt-6-luna` request succeeds in the re-tested clone | §4; `fresh_clone_p51_usage.jsonl` run `e248b4f67067` (2 calls, HTTP 200, MISS); tools `get_warehouse_inventory` and `calculate_shelter_needs`; 596 / 1,003 | ✅ |
+| Own-key setup documented separately, `.env` not committed | `README.md` "Using your own API key instead"; `.gitignore` | ✅ |
+| App code unchanged by the README fix | `git diff --name-only e07a942 87fd5d8` lists no `app.py`, `src/`, or `tests/` file | ✅ |
 
 ## Screenshots
 

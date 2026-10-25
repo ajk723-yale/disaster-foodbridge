@@ -2208,6 +2208,8 @@ and fullscreen, and be inspected for clipping and readability.
      hides the parent key and every AI action fails with HTTP 401. **Workaround: delete the copied `.env`.**
   2. There is no clone command.
   3. The README says `cd final_project`, but the clone folder is `disaster-foodbridge`.
+
+  All three were fixed in P51 (Stage 42).
 - **Worked (after the workaround), all model calls Portkey MISS:**
   - Dashboard: 596 / 1,003 / 407, 4 actions, fictional map.
   - Chat: one `calculate_allocation` call returning 206 / 39 / 351 and 407, fingerprint `9ac32e32…`.
@@ -2221,6 +2223,32 @@ and fullscreen, and be inspected for clipping and readability.
   - requirements also resolve on Python 3.13 (dry run only; the app was not run on 3.13).
 - Evidence: `evidence/audit/fresh_clone_test_p50.md`, `evidence/audit/fresh_clone_p50_usage.jsonl`.
 - Not committed (not requested).
+
+---
+
+## Stage 42 — README Quick start fixed; fresh-clone re-test (P51)
+
+- **README Quick start** (documentation only; no app code changed):
+  - the grading setup now starts with `git clone https://github.com/ajk723-yale/disaster-foodbridge.git` and
+    `cd disaster-foodbridge`, run from the folder that holds the `.env`;
+  - the `cp .env.example .env` step was removed from this setup, with a note on why it would hide the parent key;
+  - a separate paragraph explains the own-key setup (`cp .env.example .env`, edit the key; `.env` is git-ignored,
+    do not force-add it; or `export` the variable).
+- **Commit `87fd5d8`** (pushed before the re-test so the README's clone command could be followed exactly):
+  - the README fix;
+  - the P49 report and slide corrections;
+  - the P50 test documentation and prompt log.
+
+  A staged-file scan found the real key in 0 files. The only key-like string was the documented placeholder; there
+  were no emails, local paths, `.env`, or live data.
+- **Re-test from GitHub** (new temporary folder, temporary parent `.env` deleted afterwards, `env -i`, no pip cache):
+  - setup commands took 23.0 s, and the launch to the first page took 10.4 s. **Total 33.4 s**, with no workaround;
+  - only the parent `.env` was loaded;
+  - the dashboard showed 596 / 1,003 / 407;
+  - one new chat question used `get_warehouse_inventory` and `calculate_shelter_needs` and answered 596 available /
+    1,003 unmet; both calls were Portkey **MISS**;
+  - 222 tests passed in the clone.
+- Evidence: `evidence/audit/fresh_clone_test_p51.md`, `evidence/audit/fresh_clone_p51_usage.jsonl`.
 
 ---
 
