@@ -455,6 +455,16 @@ The P37 dashboard (section 21) was replaced; its screenshots S21–S23 show the 
 | Impact section separates technical validation from real-world impact | `report.html` §7 panels; `evidence/report/report_review_p44.md` "P45 revisions" | ✅ |
 | Report still prints within 10–15 US Letter pages | `evidence/report/report_print_check_p44.pdf`: 13 pages | ✅ |
 
+## 30. Final presentation (P47)
+
+| Claim | Evidence | Status |
+|---|---|---|
+| `slides.html` is self-contained (reveal.js inlined, images embedded) and opens from `file://` | `slides.html`; `scripts/build_slides_p47.py`; `evidence/report/slides_review_p47.md` | ✅ |
+| 9 slides (≤ 10) | `Reveal.getTotalSlides()` = 9 | ✅ |
+| Arrow-key navigation and fullscreen (`F`) | Browser test (arrows); `F` → `requestFullscreen` intercepted | ✅; ⚠️ real fullscreen not exercised headlessly |
+| No clipping or overlap on any slide at 1280×720 | Per-slide screenshots and automated check (all 9 pass) | ✅ |
+| Slide figures match the report and evidence | Claims table in `slides_review_p47.md` | ✅ |
+
 ## Screenshots
 
 Location: [`evidence/screenshots/`](evidence/screenshots/). These are byte-for-byte copies of the screenshots captured
@@ -515,6 +525,9 @@ column says what each image can't be used to prove.
 | S38 | [S38_p45_stage38_app-run-warnings-tool-activity.jpg](evidence/screenshots/S38_p45_stage38_app-run-warnings-tool-activity.jpg) | P45 / 38 | ⚠️ | Same HIT run: special diets, warnings, tool activity (2 calls) | **Portkey cache HIT**; not used in the report |
 | S39 | [S39_p45_stage38_traced-run-ddf9fc62-reply-top.jpg](evidence/screenshots/S39_p45_stage38_traced-run-ddf9fc62-reply-top.jpg) | P45 / 38 | ✅ | **Traced run `ddf9fc62fb5a`** (both calls MISS): "Please draft a food allocation plan for the next 24 hours." → "DRAFT — for staff review; not finalized", Plan A 206/39/351 with shortfalls 141/27/239, Plan B 347/66/590, "Additional general meals to procure: 407" | Lower part of the reply is in S40 |
 | S40 | [S40_p45_stage38_traced-run-ddf9fc62-warnings-tool-activity.jpg](evidence/screenshots/S40_p45_stage38_traced-run-ddf9fc62-warnings-tool-activity.jpg) | P45 / 38 | ✅ | Same run: special diets (halal unknown), 4 data warnings, "Tool activity (1)" with `calculate_allocation` and its result summary | — |
+| S41 | [S41_p47_stage39_dashboard-situation-actions-current.jpg](evidence/screenshots/S41_p47_stage39_dashboard-situation-actions-current.jpg) | P47 / 39 | ✅ | Current Dashboard: 596 / 1,003 / 407, 59% coverage bar, 4 actions with next steps | Used on slide 5 (cropped) |
+| S42 | [S42_p47_stage39_allocation-plan-current.jpg](evidence/screenshots/S42_p47_stage39_allocation-plan-current.jpg) | P47 / 39 | ✅ | Current allocation plan: Plan A / Plan B bars; special diets with halal "unknown" (post-P41 display) | Used on slide 5 (cropped to the plan bars) |
+| S43 | [S43_p47_stage39_map-SH-03-current.jpg](evidence/screenshots/S43_p47_stage39_map-SH-03-current.jpg) | P47 / 39 | ✅ | Current map (two-line fictional label) with SH-03 selected: 590 unmet, 351 Plan A, 239 short | Used on slide 5 (cropped) |
 
 **Not captured** (no screenshot exists): the P26 extracted fields before correction and the refused approval; the P6 thinking dots and error bubble; the P8 HTTP 400 error bubble; P17's first
 run with empty-link placeholders; the P21 "Not finalized" guard messages; the P22 saved request with the wrong status line.

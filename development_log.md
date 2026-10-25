@@ -58,6 +58,7 @@ Supporting evidence for each claim is listed in [evidence_index.md](evidence_ind
 | 36 | Submission cleanup; private GitHub repository | P43 | 222 passed |
 | 37 | Final report (report.html, 11 printed pages) | P44 | 222 passed |
 | 38 | Report revisions (motivation, single-run trace, impact framing; 13 pages) | P45 | 222 passed |
+| 39 | Final presentation (slides.html, 9 slides) | P47 | 222 passed |
 
 ---
 
@@ -2133,7 +2134,48 @@ steps). It should cite real sources, trace one actual agent run, use real screen
 
 ---
 
-## Current limitations (consolidated, as of P45)
+## Stage 39 — Final presentation (slides.html) (P47)
+
+**Objective.** A self-contained reveal.js presentation (at most 10 slides, aiming for 9) built from the final report
+and its evidence, for a non-technical audience. It must work offline by double-clicking, with arrow-key navigation
+and fullscreen, and be inspected for clipping and readability.
+
+**Implemented**
+- `scripts/build_slides_p47.py` builds `slides.html`:
+  - reveal.js 5.2.1 (MIT) JS and CSS are inlined;
+  - dark styling taken from the app (black, pink accents);
+  - AI / code / staff colors (orange / blue / pink) validated for the dark surface;
+  - a plain-English "how it works" diagram (read → confirm → calculate → decide, plus "AI explains");
+  - screenshots cropped and embedded as base64;
+  - all numbers from `report_figures_p44.json` and the cited evidence.
+- **Slides (9):** title; problem; solution; how it works; demo (new screenshots **S41–S43** of the current
+  Dashboard, allocation plan, and map); intake & vision (S15, S18); tokenomics; safety & impact (S20); limits & next
+  steps.
+
+**Verified** (details in `evidence/report/slides_review_p47.md`)
+- `Reveal.getTotalSlides()` = 9.
+- Arrow keys navigate.
+- `F` calls `requestFullscreen` (intercepted; real fullscreen needs a user key press).
+- The file loads from `file://` in headless Chrome.
+- No external resources.
+- Every slide was inspected at 1280×720 (screenshots plus an automated overflow / overlap / clipped-number check):
+  all pass.
+- **Fixed during inspection:**
+  - bold weight, empty space, footnote collisions, slide 5 overflow, and the slide 7 and slide 8 layouts;
+  - a split f-string that would have shown raw placeholders;
+  - an over-strong headline ("well under a tenth of a cent" → "about a tenth of a cent or less"; the maximum is
+    $0.00096).
+
+**Limitations**
+- Screenshot detail is small at slide size.
+- Fullscreen was verified at the code level only.
+- Tested in Chrome only.
+- No speaker notes.
+- Not committed (not requested).
+
+---
+
+## Current limitations (consolidated, as of P47)
 
 Not implemented (stubs or missing):
 - AI extraction works (P25) and is reviewed and approved in Report intake (P26). Warehouse photo analysis works

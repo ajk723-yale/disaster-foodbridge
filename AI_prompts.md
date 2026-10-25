@@ -467,3 +467,33 @@ My actual prompts to the AI coding assistant (Claude Code), recorded verbatim in
 > Commit and push report.html and its supporting evidence and documentation to the existing GitHub repository.
 > Verify that the push succeeds and the repository remains private with no secrets or live data included.
 > Then stop. Don't start the slides or make further report changes yet.
+
+## Prompt 47
+
+> Create the final presentation for Disaster FoodBridge.
+> Use the finalized report.html as the primary source of content and evidence. Create a professional, self-contained slides.html using reveal.js, with no more than 10 slides.
+> Aim for 9 slides:
+> 1.Title: project name, my name, and one-sentence pitch.
+> 2.The problem: emergency food allocation with incomplete shelter reports and changing inventory.
+> 3.Our solution: what Disaster FoodBridge does differently.
+> 4.How it works: a clear visual diagram distinguishing AI agents, deterministic tools, and human approval.
+> 5.Product demo: actual screenshots showing the Dashboard, allocation plans, and map.
+> 6.Report intake and vision: how AI reads reports and warehouse photos while staff retain control.
+> 7.Tokenomics: measured API usage, estimated costs, and the verified caching optimization.
+> 8.Safety and impact: real attack-defense results, calculation accuracy, reliability, and processing times.
+> 9.Limitations and next steps: what still needs to be tested before real-world deployment.
+> Use real screenshots and verified figures from the report and evidence folders. Don't invent new claims or results.
+> Design the slides for a short presentation:
+> -Large, readable text and minimal prose.
+> -Strong visual hierarchy, diagrams, charts, and screenshots.
+> -Consistent styling inspired by the existing app, without excessive decoration.
+> -Explain technical concepts in plain English for a nontechnical audience.
+> Make slides.html self-contained, including images and all required reveal.js assets, so it works by double-clicking the file without an internet connection. Ensure arrow-key navigation and fullscreen mode work.
+> Test the presentation in a browser, inspect every slide for clipping and readability, and verify the slide count is no more than 10.
+> Tell me the slide count, file location, key evidence used, and any limitations.
+
+## Prompt 48
+
+> Commit and push slides.html and its supporting evidence and documentation to the existing GitHub repository.
+> Before committing, run a final security check to ensure no API keys, secrets, personal information, or live working data are included.
+> Verify that the GitHub push succeeds and the repository remains private. Don't modify the app, report, or slides.
