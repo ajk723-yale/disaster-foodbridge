@@ -1,0 +1,16 @@
+{
+  "note": "Made-up free-text shelter reports for testing AI extraction only. Not operational data.",
+  "received_at": "2026-10-24T16:30+09:00",
+  "reports": [
+    {"id": "E1", "case": "complete, English, timezone stated",
+     "text": "Shelter report - Kita Community Center (SH-02), 24 Oct 2026, 14:30 JST.\nCurrent headcount: 72 evacuees.\nWe have 60 ready-to-eat meals on hand.\n2 people need allergy-free meals; we still have 4 allergy-free meals.\nReporter: Ito"},
+    {"id": "E2", "case": "incomplete and vague",
+     "text": "Higashi gym here. More people arrived this morning, maybe around 250 now? Rice is running low, enough for tonight probably. Some families asked for halal food, not sure how many."},
+    {"id": "E3", "case": "contradictory headcount",
+     "text": "SH-03 Higashi Junior High Gym, 2026-10-24 15:00.\nEvacuees: 210.\nFood on hand: 30 meals.\n4 infants need formula; formula left for 12 feedings.\nUpdate from the night team: total people currently in the gym is 260."},
+    {"id": "E4", "case": "Japanese, no timezone stated",
+     "text": "南小学校（SH-01）より報告。10月24日16時現在、避難者は148名です。食料は弁当80食あります。乳児3名分のミルクが必要で、ミルクは残り2回分です。"},
+    {"id": "E5", "case": "time later than receipt; special-diet count exceeds headcount",
+     "text": "Nishi Public Hall report, 2026-10-25 08:00. 45 people here. 50 elderly evacuees need soft food. 20 meals left."}
+  ]
+}

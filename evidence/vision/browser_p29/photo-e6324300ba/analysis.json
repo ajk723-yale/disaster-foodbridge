@@ -1,0 +1,114 @@
+{
+  "analysis_id": "photo-e6324300ba",
+  "status": "AI photo analysis for staff review; inventory records not changed",
+  "warehouse_id": "WH-B",
+  "taken_at": null,
+  "analyzed_at": "2026-10-24T20:14:33.291059+00:00",
+  "model": "gpt-6-luna",
+  "image": {
+    "original_name": "synthetic_wh_b_bay1.png",
+    "media_type": "image/png",
+    "bytes": 30327,
+    "sha256": "4a8c94b87ca3bcbd823e8523dd78e86fbc6a090ad123fccc33ec6a71eeec922f",
+    "stored_file": "image.png"
+  },
+  "analysis": {
+    "observed_facts": [
+      "A sign at the upper left reads “WAREHOUSE B - BAY 1.”",
+      "There are 36 light-colored cartons arranged in six columns and six rows on the left.",
+      "Three brown cartons are visible on the right.",
+      "The brown cartons each visibly state “50 packs per carton.”"
+    ],
+    "uncertain_estimates": [
+      "Staff report that the photo was taken in warehouse WH-B; the image itself shows the wording “WAREHOUSE B - BAY 1.”"
+    ],
+    "items": [
+      {
+        "label_text": "ALLERGEN-\nFREE\nCURRY RICE",
+        "label_readability": "clear",
+        "description": "Light-colored cartons with the same printed label.",
+        "location_in_photo": "Left side, arranged in six columns and six rows above a shelf",
+        "unit_seen": "carton",
+        "count_basis": "counted",
+        "visible_count": 36,
+        "estimate_low": null,
+        "estimate_high": null,
+        "units_per_container_on_label": null,
+        "uncertainty": null
+      },
+      {
+        "label_text": "ALPHA RICE\n(RETORT)\n50 packs\nper carton",
+        "label_readability": "clear",
+        "description": "Brown cartons with the same printed label.",
+        "location_in_photo": "Right side, standing on a separate shelf",
+        "unit_seen": "carton",
+        "count_basis": "counted",
+        "visible_count": 3,
+        "estimate_low": null,
+        "estimate_high": null,
+        "units_per_container_on_label": 50,
+        "uncertainty": null
+      }
+    ],
+    "view_coverage": "The image shows one labeled bay area and the cartons visible on two shelves. The edges of the image do not show the full warehouse; no other storage areas or stock beyond this view can be assessed.",
+    "image_quality_issues": []
+  },
+  "comparison": {
+    "warehouse_id": "WH-B",
+    "inventory_record_ids": [
+      "inv-006",
+      "inv-007"
+    ],
+    "findings": [
+      {
+        "label_text": "ALLERGEN-\nFREE\nCURRY RICE",
+        "unit_seen": "carton",
+        "count_basis": "counted",
+        "visible_count": 36,
+        "estimate": [
+          null,
+          null
+        ],
+        "item_id": "ITM-AF",
+        "item_name": "Allergen-free curry rice",
+        "recorded_quantity": 30.0,
+        "recorded_unit": "pack",
+        "counted_at": "2026-10-24T07:00:00+09:00",
+        "visible_in_record_units": null,
+        "visible_basis": null,
+        "status": "needs_review",
+        "message": "36 carton visible (counted) vs 30 pack recorded; units differ, but if each carton is one pack this exceeds the record; staff should check"
+      },
+      {
+        "label_text": "ALPHA RICE\n(RETORT)\n50 packs\nper carton",
+        "unit_seen": "carton",
+        "count_basis": "counted",
+        "visible_count": 3,
+        "estimate": [
+          null,
+          null
+        ],
+        "item_id": "ITM-RICE",
+        "item_name": "Alpha rice (retort)",
+        "recorded_quantity": 120.0,
+        "recorded_unit": "pack",
+        "counted_at": "2026-10-24T10:00:00+09:00",
+        "visible_in_record_units": 150,
+        "visible_basis": "counted × 50 per container (from label, unverified)",
+        "status": "possible_discrepancy",
+        "message": "at least 150 pack visible (counted × 50 per container (from label, unverified)) but 120 recorded; check the count or the record"
+      }
+    ],
+    "not_visible": [],
+    "summary": {
+      "needs_review": 1,
+      "possible_discrepancy": 1
+    },
+    "note": "Compared with the latest validated inventory records. A photo is not evidence of total stock; inventory records were not changed."
+  },
+  "usage": {
+    "requests": 1,
+    "input_tokens": 1867,
+    "output_tokens": 629
+  }
+}

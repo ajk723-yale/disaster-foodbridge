@@ -1,0 +1,4 @@
+# Optional: only for the evaluation scripts that draw synthetic test images, and for linting.
+-r requirements.txt
+pillow==13.0.0
+pyflakes==4.0.3

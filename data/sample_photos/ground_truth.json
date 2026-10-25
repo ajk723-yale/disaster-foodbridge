@@ -1,0 +1,47 @@
+{
+  "note": "SYNTHETIC test images drawn by scripts/make_sample_warehouse_photos.py; not real photos.",
+  "images": {
+    "synthetic_wh_a_aisle2.png": {
+      "warehouse_id": "WH-A",
+      "visible": [
+        {
+          "label": "CANNED BREAD 24 cans / case",
+          "units": 6,
+          "unit": "case"
+        },
+        {
+          "label": "INSTANT MISO SOUP 20 cups",
+          "units": 8,
+          "unit": "box"
+        },
+        {
+          "label": "LIQUID INFANT FORMULA",
+          "units": 12,
+          "unit": "pack"
+        },
+        {
+          "label": "(blurred, unreadable carton)",
+          "units": 1,
+          "unit": "carton"
+        }
+      ],
+      "notes": "Partial view: shelving continues out of frame. Inventory (latest validated) WH-A: canned bread 10 cases, liquid infant formula 20 packs, alpha rice 300 packs, water 500 bottles. Miso soup is not in the inventory."
+    },
+    "synthetic_wh_b_bay1.png": {
+      "warehouse_id": "WH-B",
+      "visible": [
+        {
+          "label": "ALLERGEN-FREE CURRY RICE",
+          "units": 36,
+          "unit": "pack"
+        },
+        {
+          "label": "ALPHA RICE (RETORT) 50 packs per carton",
+          "units": 3,
+          "unit": "carton (label: 50 packs each)"
+        }
+      ],
+      "notes": "Inventory (latest validated) WH-B: allergen-free curry rice 30 packs (36 visible, so more than recorded), alpha rice 120 packs (3 cartons x 50 = 150 if the label is accurate)."
+    }
+  }
+}

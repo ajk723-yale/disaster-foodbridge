@@ -1,0 +1,6 @@
+=========================== short test summary info ============================
+FAILED tests/test_dashboard.py::test_several_unexpected_warnings_never_crash_and_all_are_shown
+FAILED tests/test_dashboard.py::test_no_stock_special_diet_is_labeled_a_shortage
+FAILED tests/test_dashboard.py::test_unknown_demand_is_distinct_from_confirmed_zero
+FAILED tests/test_dashboard.py::test_items_without_any_validated_count_are_labeled_accurately
+4 failed, 7 deselected in 1.81s

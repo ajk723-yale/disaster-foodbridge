@@ -1,0 +1,16 @@
+{
+  "label": "FICTIONAL TRAINING LAYOUT - NOT REAL LOCATIONS",
+  "fictional": true,
+  "purpose": "Made-up positions so the dashboard map can be demonstrated with the sample data. The sample shelter and inventory records contain no coordinates (checked in P39).",
+  "coordinate_system": "x and y on an invented schematic grid (arbitrary units). Not latitude/longitude and not tied to any real place. Distances between points are not road distances and must not be used for routes, distances, or travel times.",
+  "created": "2026-10-24 (P39)",
+  "layout_note": "Placed loosely by the direction in each sample name (Kita = north, Minami = south, Higashi = east, Nishi = west); otherwise arbitrary.",
+  "locations": [
+    {"id": "SH-01", "kind": "shelter", "x": 4.6, "y": 1.2},
+    {"id": "SH-02", "kind": "shelter", "x": 5.2, "y": 8.6},
+    {"id": "SH-03", "kind": "shelter", "x": 8.8, "y": 5.0},
+    {"id": "SH-04", "kind": "shelter", "x": 1.2, "y": 5.4},
+    {"id": "WH-A", "kind": "warehouse", "x": 3.4, "y": 4.2},
+    {"id": "WH-B", "kind": "warehouse", "x": 6.6, "y": 6.2}
+  ]
+}

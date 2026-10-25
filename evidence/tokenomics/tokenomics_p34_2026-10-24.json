@@ -1,0 +1,287 @@
+{
+  "sources": [
+    "evidence/tokenomics/usage_log_snapshot_p34.jsonl",
+    "evidence/usage/usage_log_p33.jsonl"
+  ],
+  "entries": 30,
+  "assumptions": [
+    "L1 Rates: OpenAI's published standard-tier rates (pricing file); Portkey/Azure billing to the course account is not verified and Portkey's own fees, if any, are not included.",
+    "L2 Token categories per call: uncached input = input_tokens - cached_read_tokens - cache_write_tokens; reasoning tokens are part of output_tokens and are not added again.",
+    "L3 Cache-write duration: the API did not return the 30-minute / 12-hour split, so writes are priced under two scenarios (W30, W12).",
+    "L4 Portkey HITs (header x-portkey-cache-status = HIT) replay the original call's usage and are priced under two scenarios (HIT_FREE, HIT_AS_REPLAYED); they are never counted as provider usage by default.",
+    "L5 Calls without a usable usage object (failed calls) are counted but not priced."
+  ],
+  "write_ttl_scenarios": {
+    "W30": "cache writes at the 30-minute rate (the guide's default; the app sets no TTL)",
+    "W12": "cache writes at the 12-hour rate (upper bound)"
+  },
+  "hit_scenarios": {
+    "HIT_FREE": "Portkey response-cache HITs are not billed by the model provider ($0); consistent with the HIT responses lacking Azure headers, not verified",
+    "HIT_AS_REPLAYED": "HITs billed as if their replayed usage were new (upper bound)"
+  },
+  "summary_by_workflow": {
+    "chat": {
+      "calls": 12,
+      "provider_calls": 10,
+      "portkey_hits": 2,
+      "failed": 0,
+      "unknown_cache_status": 0,
+      "mean_tokens_provider_calls": {
+        "uncached_input": 3,
+        "cached_read": 1651.5,
+        "cache_write": 557.4,
+        "output": 111.2
+      },
+      "mean_reasoning_tokens": 45.9,
+      "mean_cost_provider_call_usd": {
+        "W30": 0.00014209,
+        "W12": 0.00021176500000000002
+      },
+      "hit_cost_usd": {
+        "HIT_FREE": 0.0,
+        "HIT_AS_REPLAYED": 0.00011983
+      },
+      "total_cost_usd": {
+        "W30+HIT_FREE": 0.0014209,
+        "W30+HIT_AS_REPLAYED": 0.00154073,
+        "W12+HIT_FREE": 0.00211765,
+        "W12+HIT_AS_REPLAYED": 0.00229048
+      }
+    },
+    "extraction": {
+      "calls": 5,
+      "provider_calls": 3,
+      "portkey_hits": 2,
+      "failed": 0,
+      "unknown_cache_status": 0,
+      "mean_tokens_provider_calls": {
+        "uncached_input": 945,
+        "cached_read": 0,
+        "cache_write": 0,
+        "output": 213.33333333333334
+      },
+      "mean_reasoning_tokens": 0,
+      "mean_cost_provider_call_usd": {
+        "W30": 0.0002011666666666667,
+        "W12": 0.0002011666666666667
+      },
+      "hit_cost_usd": {
+        "HIT_FREE": 0.0,
+        "HIT_AS_REPLAYED": 0.0003901
+      },
+      "total_cost_usd": {
+        "W30+HIT_FREE": 0.0006035000000000001,
+        "W30+HIT_AS_REPLAYED": 0.0009936,
+        "W12+HIT_FREE": 0.0006035000000000001,
+        "W12+HIT_AS_REPLAYED": 0.0009936
+      }
+    },
+    "photo_analysis": {
+      "calls": 4,
+      "provider_calls": 2,
+      "portkey_hits": 2,
+      "failed": 0,
+      "unknown_cache_status": 0,
+      "mean_tokens_provider_calls": {
+        "uncached_input": 126,
+        "cached_read": 0,
+        "cache_write": 1441,
+        "output": 794.5
+      },
+      "mean_reasoning_tokens": 363.5,
+      "mean_cost_provider_call_usd": {
+        "W30": 0.000589975,
+        "W12": 0.0007701
+      },
+      "hit_cost_usd": {
+        "HIT_FREE": 0.0,
+        "HIT_AS_REPLAYED": 0.00123245
+      },
+      "total_cost_usd": {
+        "W30+HIT_FREE": 0.00117995,
+        "W30+HIT_AS_REPLAYED": 0.0024124000000000003,
+        "W12+HIT_FREE": 0.0015402,
+        "W12+HIT_AS_REPLAYED": 0.0031569
+      }
+    },
+    "photo_followup": {
+      "calls": 4,
+      "provider_calls": 4,
+      "portkey_hits": 0,
+      "failed": 0,
+      "unknown_cache_status": 0,
+      "mean_tokens_provider_calls": {
+        "uncached_input": 3,
+        "cached_read": 0,
+        "cache_write": 1669.5,
+        "output": 43
+      },
+      "mean_reasoning_tokens": 21.5,
+      "mean_cost_provider_call_usd": {
+        "W30": 0.0002304875,
+        "W12": 0.00043917500000000004
+      },
+      "hit_cost_usd": {
+        "HIT_FREE": 0,
+        "HIT_AS_REPLAYED": 0
+      },
+      "total_cost_usd": {
+        "W30+HIT_FREE": 0.00092195,
+        "W30+HIT_AS_REPLAYED": 0.00092195,
+        "W12+HIT_FREE": 0.0017567000000000001,
+        "W12+HIT_AS_REPLAYED": 0.0017567000000000001
+      }
+    },
+    "safety_screen": {
+      "calls": 5,
+      "provider_calls": 3,
+      "portkey_hits": 2,
+      "failed": 0,
+      "unknown_cache_status": 0,
+      "mean_tokens_provider_calls": {
+        "uncached_input": 381,
+        "cached_read": 0,
+        "cache_write": 0,
+        "output": 15.666666666666666
+      },
+      "mean_reasoning_tokens": 0,
+      "mean_cost_provider_call_usd": {
+        "W30": 4.5933333333333336e-05,
+        "W12": 4.5933333333333336e-05
+      },
+      "hit_cost_usd": {
+        "HIT_FREE": 0.0,
+        "HIT_AS_REPLAYED": 9.28e-05
+      },
+      "total_cost_usd": {
+        "W30+HIT_FREE": 0.00013780000000000002,
+        "W30+HIT_AS_REPLAYED": 0.00023060000000000002,
+        "W12+HIT_FREE": 0.00013780000000000002,
+        "W12+HIT_AS_REPLAYED": 0.00023060000000000002
+      }
+    }
+  },
+  "cache_write_reuse": {
+    "chat": {
+      "cache_write_tokens": 5574,
+      "cached_read_tokens": 16515,
+      "write_premium_usd_w30": 0.00013934999999999997
+    },
+    "extraction": {
+      "cache_write_tokens": 0,
+      "cached_read_tokens": 0,
+      "write_premium_usd_w30": 0.0
+    },
+    "photo_analysis": {
+      "cache_write_tokens": 2882,
+      "cached_read_tokens": 0,
+      "write_premium_usd_w30": 7.204999999999999e-05
+    },
+    "photo_followup": {
+      "cache_write_tokens": 6678,
+      "cached_read_tokens": 0,
+      "write_premium_usd_w30": 0.00016694999999999997
+    },
+    "safety_screen": {
+      "cache_write_tokens": 0,
+      "cached_read_tokens": 0,
+      "write_premium_usd_w30": 0.0
+    }
+  },
+  "chat_cost_per_question": {
+    "W30": [
+      0.00011983,
+      0.00018279,
+      0.00016929,
+      0.000374875,
+      0.000574115
+    ],
+    "W12": [
+      0.00017283,
+      0.00023529000000000003,
+      0.00026879000000000003,
+      0.0005,
+      0.00094074
+    ]
+  },
+  "comparison_with_p32": {
+    "chat (per question)": {
+      "p32_point": 0.00046248461538461543,
+      "p32_bounds": [
+        0.0002582123076923077,
+        0.0005192269230769231
+      ],
+      "p34_W30": 0.00028418,
+      "p34_W12": 0.00042353000000000003,
+      "change_W30_pct": -38.553631721637316
+    },
+    "extraction (per call)": {
+      "p32_point": 0.0002648470588235294,
+      "p32_bounds": [
+        0.0002538141176470588,
+        0.00026791176470588235
+      ],
+      "p34_W30": 0.0002011666666666667,
+      "p34_W12": 0.0002011666666666667,
+      "change_W30_pct": -24.044213456526876
+    },
+    "safety_screen (per call)": {
+      "p32_point": 8.154444444444445e-05,
+      "p32_bounds": [
+        8.154444444444445e-05,
+        8.154444444444445e-05
+      ],
+      "p34_W30": 4.5933333333333336e-05,
+      "p34_W12": 4.5933333333333336e-05,
+      "change_W30_pct": -43.67079983648999
+    },
+    "photo_analysis (per call)": {
+      "p32_point": 0.0005389500000000001,
+      "p32_bounds": [
+        0.00037092000000000006,
+        0.000585625
+      ],
+      "p34_W30": 0.000589975,
+      "p34_W12": 0.0007701,
+      "change_W30_pct": 9.467483068930305
+    },
+    "photo_followup (per call)": {
+      "p32_point": 0.0002381375,
+      "p32_bounds": [
+        6.58325e-05,
+        0.000286
+      ],
+      "p34_W30": 0.0002304875,
+      "p34_W12": 0.00043917500000000004,
+      "change_W30_pct": -3.212429793711613
+    }
+  },
+  "why_changed": [
+    "Method: P32 had only per-question totals, so it priced all input at the uncached rate (point) with all-cached / all-written bounds, and counted possible Portkey repeats as billed (A2, A5). P34 prices each logged call from the token categories the API reported, and separates Portkey HITs (priced only in scenarios).",
+    "Chat (-): P34 questions used more input (4,424 vs 2,514 tokens per question, 2.0 requests each) but 75% of chat input was a cached read at 0.1x; output fell from 422 to 222 tokens. Different questions were asked, so part of the change is the question mix.",
+    "Extraction (-): no caching in either run (prompts below 1,024 tokens); output was lower (213 vs 334 tokens). Most P32 records came from the P30/P31 injection evaluation (attack reports produced long outputs); P34 used three ordinary reports.",
+    "Safety screen (-): no caching in either run (prompts below 1,024 tokens); output was lower (16 vs 81 tokens). Most P32 records came from the P30/P31 injection evaluation (attack reports produced long outputs); P34 used three ordinary reports.",
+    "Photo analysis: most input (1,441 of 1,567 tokens) was a cache write at 1.25x (W30) or 2.5x (W12) and none was read back, so input cost is above P32's all-uncached point estimate; the net change also reflects output (794 vs 704 tokens). Under W12 both photo workflows cost more than P32's point estimate.",
+    "Photo follow-up: most input (1,670 of 1,672 tokens) was a cache write at 1.25x (W30) or 2.5x (W12) and none was read back, so input cost is above P32's all-uncached point estimate; the net change also reflects output (43 vs 93 tokens). Under W12 both photo workflows cost more than P32's point estimate.",
+    "Sample size: P34 has 2-5 provider calls per workflow; differences of this size can come from the inputs chosen, not only from pricing method."
+  ],
+  "scenario_totals_usd": {
+    "W30+HIT_FREE": 0.0042641,
+    "W30+HIT_AS_REPLAYED": 0.00609928,
+    "W12+HIT_FREE": 0.00615585,
+    "W12+HIT_AS_REPLAYED": 0.00842828
+  },
+  "optimization_to_test": {
+    "name": "Make photo follow-ups reuse the prompt cache",
+    "observation": "4 provider follow-up calls each wrote about 1,670 tokens to the prompt cache and read 0, although the questions on the same photo share the instructions, earlier analysis, and image. Today the stable content and the question are sent as one user message.",
+    "change_to_test": "Send the stable part (earlier analysis + image) as its own message before the question, so the cached prefix ends before the part that changes; measure cached_read_tokens on the 2nd and later questions about the same photo.",
+    "estimated_saving_per_later_followup_usd": 0.0001919925,
+    "estimated_saving_pct_of_followup_W30": 83.29844351645967,
+    "quality_and_safety": "Same content and instructions, only split into messages; prompt caching returns fresh model outputs (unlike Portkey's response cache), so answers should not go stale. Must be checked by re-asking the same questions and comparing answers, and by confirming the image is still treated as untrusted content. The first question on a photo still pays the write.",
+    "not_chosen": [
+      "Skipping or sampling the safety screen: about 19% of a report-intake cost at P34 rates, but it would weaken the P31 defense.",
+      "Leaning on Portkey's response cache: free repeats, but a cached answer can be stale when the shelter or inventory data behind an identical question has changed.",
+      "Lower reasoning effort or shorter outputs: savings on output tokens, but extraction and vision accuracy would need re-evaluation first."
+    ]
+  }
+}

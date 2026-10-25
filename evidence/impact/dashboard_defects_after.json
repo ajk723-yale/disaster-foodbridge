@@ -1,0 +1,530 @@
+{
+  "label": "after",
+  "scenarios": [
+    {
+      "scenario": "F1_R3_state",
+      "description": "P40 R3 final state: halal 5 people, 0 halal stock (2 unmatched warnings)",
+      "expected": "dashboard builds; halal shortage listed as an action; every warning shown",
+      "special_diet_statuses": {
+        "allergy_free": {
+          "status": "ok",
+          "known_unmet": 6,
+          "available": 30
+        },
+        "halal": {
+          "status": "no_stock",
+          "known_unmet": 15,
+          "available": 0
+        },
+        "infant_formula": {
+          "status": "ok",
+          "known_unmet": 1,
+          "available": 16
+        }
+      },
+      "data_warnings": [
+        "SH-03 (general): 40 meals (cmt-003) left before the shelter's latest report but delivery is not confirmed; counted as on its way. If it has arrived, confirm delivery so it isn't counted twice",
+        "SH-02: a newer report is pending validation; figures use the last validated report",
+        "SH-04: no validated report yet, so its needs are not calculated",
+        "halal: 'halal' is short by 15 meals; staff must decide distribution",
+        "newer inventory count for WH-A/ITM-BREAD is still pending validation (2026-10-24T11:20:00+09:00); the plan uses its last validated count"
+      ],
+      "dashboard_builds": true,
+      "error": null,
+      "actions": [
+        {
+          "kind": "special_diet_shortage",
+          "severity": "shortage",
+          "title": "Not enough halal meals: 15 short"
+        },
+        {
+          "kind": "missing_report",
+          "severity": "uncertain",
+          "title": "Nishi Public Hall (SH-04) has no validated report"
+        },
+        {
+          "kind": "pending_report",
+          "severity": "uncertain",
+          "title": "Kita Community Center (SH-02): newer report waiting for validation"
+        },
+        {
+          "kind": "pending_inventory_count",
+          "severity": "uncertain",
+          "title": "Newer stock count for Canned bread at WH-A is not validated"
+        },
+        {
+          "kind": "other_note",
+          "severity": "uncertain",
+          "title": "Data note: SH-03 (general): 40 meals (cmt-003) left before the shelter's latest report but delivery is not confirmed; counted as on its way. If it has arrived, confirm delivery so it isn't counted twice"
+        }
+      ],
+      "special_table_text": "Special diets (separate from general meals) Diet Needed (known) In stock Status Allergy-free 6 30 Enough in stock Halal 15 0 ⛔ 15 short (none in stock) Infant formula 1 16 Enough in stock",
+      "data_notes_listed": [
+        "SH-03 (general): 40 meals (cmt-003) left before the shelter's latest report but delivery is not confirmed; counted as on its way. If it has arrived, confirm delivery so it isn't counted twice",
+        "SH-02: a newer report is pending validation; figures use the last validated report",
+        "SH-04: no validated report yet, so its needs are not calculated",
+        "halal: 'halal' is short by 15 meals; staff must decide distribution",
+        "newer inventory count for WH-A/ITM-BREAD is still pending validation (2026-10-24T11:20:00+09:00); the plan uses its last validated count"
+      ],
+      "every_warning_listed_in_data_notes": true,
+      "map_status": {
+        "SH-01": "shortage",
+        "SH-02": "shortage",
+        "SH-03": "shortage",
+        "SH-04": "no_report",
+        "WH-A": "ok",
+        "WH-B": "ok"
+      }
+    },
+    {
+      "scenario": "F1_R7_state",
+      "description": "P40 R7 state: no validated inventory (several unmatched warnings)",
+      "expected": "dashboard builds; special-diet shortages listed; every warning shown",
+      "special_diet_statuses": {
+        "allergy_free": {
+          "status": "no_stock",
+          "known_unmet": 6,
+          "available": 0
+        },
+        "halal": {
+          "status": "missing_info",
+          "known_unmet": 0,
+          "available": 0
+        },
+        "infant_formula": {
+          "status": "no_stock",
+          "known_unmet": 1,
+          "available": 0
+        }
+      },
+      "data_warnings": [
+        "SH-03 (general): some special-needs counts are unknown, so general need may be overstated",
+        "SH-03 (halal): number of people needing 'halal' is unknown",
+        "SH-02: a newer report is pending validation; figures use the last validated report",
+        "SH-04: no validated report yet, so its needs are not calculated",
+        "general: commitment cmt-001 is for 'general' but no 'general' stock is counted",
+        "infant_formula: commitment cmt-002 is for 'infant_formula' but no 'infant_formula' stock is counted",
+        "general: commitment cmt-003 is for 'general' but no 'general' stock is counted",
+        "general: commitment cmt-004 is for 'general' but no 'general' stock is counted",
+        "allergy_free: 'allergy_free' is short by 6 meals; staff must decide distribution",
+        "infant_formula: 'infant_formula' is short by 1 meals; staff must decide distribution",
+        "newer inventory count for WH-A/ITM-BREAD is still pending validation (2026-10-24T06:30:00+09:00, 2026-10-24T11:20:00+09:00); there is no validated count yet, so it is not in this plan",
+        "newer inventory count for WH-A/ITM-FORMULA is still pending validation (2026-10-24T06:30:00+09:00); there is no validated count yet, so it is not in this plan",
+        "newer inventory count for WH-A/ITM-RICE is still pending validation (2026-10-24T06:30:00+09:00); there is no validated count yet, so it is not in this plan",
+        "newer inventory count for WH-A/ITM-WATER is still pending validation (2026-10-24T06:30:00+09:00); there is no validated count yet, so it is not in this plan",
+        "newer inventory count for WH-B/ITM-AF is still pending validation (2026-10-24T07:00:00+09:00); there is no validated count yet, so it is not in this plan",
+        "newer inventory count for WH-B/ITM-RICE is still pending validation (2026-10-24T07:00:00+09:00, 2026-10-24T10:00:00+09:00); there is no validated count yet, so it is not in this plan"
+      ],
+      "dashboard_builds": true,
+      "error": null,
+      "actions": [
+        {
+          "kind": "special_diet_shortage",
+          "severity": "shortage",
+          "title": "Not enough allergy-free meals: 6 short"
+        },
+        {
+          "kind": "special_diet_shortage",
+          "severity": "shortage",
+          "title": "Not enough infant formula meals: 1 short"
+        },
+        {
+          "kind": "missing_report",
+          "severity": "uncertain",
+          "title": "Nishi Public Hall (SH-04) has no validated report"
+        },
+        {
+          "kind": "unknown_special_count",
+          "severity": "uncertain",
+          "title": "Higashi Junior High Gym (SH-03): number of people needing halal meals is unknown"
+        },
+        {
+          "kind": "pending_report",
+          "severity": "uncertain",
+          "title": "Kita Community Center (SH-02): newer report waiting for validation"
+        },
+        {
+          "kind": "pending_inventory_count",
+          "severity": "uncertain",
+          "title": "No validated stock count for Alpha rice (retort) at WH-A"
+        },
+        {
+          "kind": "pending_inventory_count",
+          "severity": "uncertain",
+          "title": "No validated stock count for Canned bread at WH-A"
+        },
+        {
+          "kind": "pending_inventory_count",
+          "severity": "uncertain",
+          "title": "No validated stock count for Bottled water 2L at WH-A"
+        },
+        {
+          "kind": "pending_inventory_count",
+          "severity": "uncertain",
+          "title": "No validated stock count for Liquid infant formula at WH-A"
+        },
+        {
+          "kind": "pending_inventory_count",
+          "severity": "uncertain",
+          "title": "No validated stock count for Alpha rice (retort) at WH-B"
+        },
+        {
+          "kind": "pending_inventory_count",
+          "severity": "uncertain",
+          "title": "No validated stock count for Allergen-free curry rice at WH-B"
+        },
+        {
+          "kind": "other_note",
+          "severity": "uncertain",
+          "title": "Data note: general: commitment cmt-001 is for 'general' but no 'general' stock is counted"
+        },
+        {
+          "kind": "other_note",
+          "severity": "uncertain",
+          "title": "Data note: infant_formula: commitment cmt-002 is for 'infant_formula' but no 'infant_formula' stock is counted"
+        },
+        {
+          "kind": "other_note",
+          "severity": "uncertain",
+          "title": "Data note: general: commitment cmt-003 is for 'general' but no 'general' stock is counted"
+        },
+        {
+          "kind": "other_note",
+          "severity": "uncertain",
+          "title": "Data note: general: commitment cmt-004 is for 'general' but no 'general' stock is counted"
+        }
+      ],
+      "special_table_text": "Special diets (separate from general meals) Diet Needed (known) In stock Status Allergy-free 6 0 ⛔ 6 short (none in stock) Halal unknown 0 ⚠️ count unknown Infant formula 1 0 ⛔ 1 short (none in stock)",
+      "data_notes_listed": [
+        "SH-03 (general): some special-needs counts are unknown, so general need may be overstated",
+        "SH-03 (halal): number of people needing 'halal' is unknown",
+        "SH-02: a newer report is pending validation; figures use the last validated report",
+        "SH-04: no validated report yet, so its needs are not calculated",
+        "general: commitment cmt-001 is for 'general' but no 'general' stock is counted",
+        "infant_formula: commitment cmt-002 is for 'infant_formula' but no 'infant_formula' stock is counted",
+        "general: commitment cmt-003 is for 'general' but no 'general' stock is counted",
+        "general: commitment cmt-004 is for 'general' but no 'general' stock is counted",
+        "allergy_free: 'allergy_free' is short by 6 meals; staff must decide distribution",
+        "infant_formula: 'infant_formula' is short by 1 meals; staff must decide distribution",
+        "newer inventory count for WH-A/ITM-BREAD is still pending validation (2026-10-24T06:30:00+09:00, 2026-10-24T11:20:00+09:00); there is no validated count yet, so it is not in this plan",
+        "newer inventory count for WH-A/ITM-FORMULA is still pending validation (2026-10-24T06:30:00+09:00); there is no validated count yet, so it is not in this plan",
+        "newer inventory count for WH-A/ITM-RICE is still pending validation (2026-10-24T06:30:00+09:00); there is no validated count yet, so it is not in this plan",
+        "newer inventory count for WH-A/ITM-WATER is still pending validation (2026-10-24T06:30:00+09:00); there is no validated count yet, so it is not in this plan",
+        "newer inventory count for WH-B/ITM-AF is still pending validation (2026-10-24T07:00:00+09:00); there is no validated count yet, so it is not in this plan",
+        "newer inventory count for WH-B/ITM-RICE is still pending validation (2026-10-24T07:00:00+09:00, 2026-10-24T10:00:00+09:00); there is no validated count yet, so it is not in this plan"
+      ],
+      "every_warning_listed_in_data_notes": true,
+      "map_status": {
+        "SH-01": "shortage",
+        "SH-02": "shortage",
+        "SH-03": "shortage",
+        "SH-04": "no_report",
+        "WH-A": "ok",
+        "WH-B": "ok"
+      }
+    },
+    {
+      "scenario": "F1_unexpected_warning_types",
+      "description": "Sample data + 3 unexpected warnings (unknown warehouse, unknown plan, no ID) injected into the allocation output",
+      "expected": "dashboard builds; each unexpected warning shown as a 'Data note' (the WH-Z one tied to WH-Z)",
+      "special_diet_statuses": {
+        "allergy_free": {
+          "status": "ok",
+          "known_unmet": 6,
+          "available": 30
+        },
+        "halal": {
+          "status": "missing_info",
+          "known_unmet": 0,
+          "available": 0
+        },
+        "infant_formula": {
+          "status": "ok",
+          "known_unmet": 1,
+          "available": 16
+        }
+      },
+      "data_warnings": [
+        "SH-03 (general): some special-needs counts are unknown, so general need may be overstated",
+        "SH-03 (halal): number of people needing 'halal' is unknown",
+        "SH-02: a newer report is pending validation; figures use the last validated report",
+        "SH-04: no validated report yet, so its needs are not calculated",
+        "newer inventory count for WH-A/ITM-BREAD is still pending validation (2026-10-24T11:20:00+09:00); the plan uses its last validated count",
+        "WH-Z: thermometer reading missing for cold storage",
+        "general: commitment cmt-999 refers to an unknown plan",
+        "Data source note without any ID"
+      ],
+      "dashboard_builds": true,
+      "error": null,
+      "actions": [
+        {
+          "kind": "missing_report",
+          "severity": "uncertain",
+          "title": "Nishi Public Hall (SH-04) has no validated report"
+        },
+        {
+          "kind": "unknown_special_count",
+          "severity": "uncertain",
+          "title": "Higashi Junior High Gym (SH-03): number of people needing halal meals is unknown"
+        },
+        {
+          "kind": "pending_report",
+          "severity": "uncertain",
+          "title": "Kita Community Center (SH-02): newer report waiting for validation"
+        },
+        {
+          "kind": "pending_inventory_count",
+          "severity": "uncertain",
+          "title": "Newer stock count for Canned bread at WH-A is not validated"
+        },
+        {
+          "kind": "other_note",
+          "severity": "uncertain",
+          "title": "Data note: WH-Z: thermometer reading missing for cold storage"
+        },
+        {
+          "kind": "other_note",
+          "severity": "uncertain",
+          "title": "Data note: general: commitment cmt-999 refers to an unknown plan"
+        },
+        {
+          "kind": "other_note",
+          "severity": "uncertain",
+          "title": "Data note: Data source note without any ID"
+        }
+      ],
+      "special_table_text": "Special diets (separate from general meals) Diet Needed (known) In stock Status Allergy-free 6 30 Enough in stock Halal unknown 0 ⚠️ count unknown Infant formula 1 16 Enough in stock",
+      "data_notes_listed": [
+        "SH-03 (general): some special-needs counts are unknown, so general need may be overstated",
+        "SH-03 (halal): number of people needing 'halal' is unknown",
+        "SH-02: a newer report is pending validation; figures use the last validated report",
+        "SH-04: no validated report yet, so its needs are not calculated",
+        "newer inventory count for WH-A/ITM-BREAD is still pending validation (2026-10-24T11:20:00+09:00); the plan uses its last validated count",
+        "WH-Z: thermometer reading missing for cold storage",
+        "general: commitment cmt-999 refers to an unknown plan",
+        "Data source note without any ID"
+      ],
+      "every_warning_listed_in_data_notes": true,
+      "map_status": {
+        "SH-01": "shortage",
+        "SH-02": "shortage",
+        "SH-03": "shortage",
+        "SH-04": "no_report",
+        "WH-A": "ok",
+        "WH-B": "ok"
+      }
+    },
+    {
+      "scenario": "F2_no_stock_special_diet",
+      "description": "Sample + validated SH-03 report at 10:50 with halal 5 (need 15, 0 halal stock); only one unmatched warning, so F1 does not hide F2",
+      "expected": "halal labeled as a shortage (15 short, none in stock) in the action list and the special-diet table",
+      "special_diet_statuses": {
+        "allergy_free": {
+          "status": "ok",
+          "known_unmet": 6,
+          "available": 30
+        },
+        "halal": {
+          "status": "no_stock",
+          "known_unmet": 15,
+          "available": 0
+        },
+        "infant_formula": {
+          "status": "ok",
+          "known_unmet": 1,
+          "available": 16
+        }
+      },
+      "data_warnings": [
+        "SH-02: a newer report is pending validation; figures use the last validated report",
+        "SH-04: no validated report yet, so its needs are not calculated",
+        "halal: 'halal' is short by 15 meals; staff must decide distribution",
+        "newer inventory count for WH-A/ITM-BREAD is still pending validation (2026-10-24T11:20:00+09:00); the plan uses its last validated count"
+      ],
+      "dashboard_builds": true,
+      "error": null,
+      "actions": [
+        {
+          "kind": "special_diet_shortage",
+          "severity": "shortage",
+          "title": "Not enough halal meals: 15 short"
+        },
+        {
+          "kind": "missing_report",
+          "severity": "uncertain",
+          "title": "Nishi Public Hall (SH-04) has no validated report"
+        },
+        {
+          "kind": "pending_report",
+          "severity": "uncertain",
+          "title": "Kita Community Center (SH-02): newer report waiting for validation"
+        },
+        {
+          "kind": "pending_inventory_count",
+          "severity": "uncertain",
+          "title": "Newer stock count for Canned bread at WH-A is not validated"
+        }
+      ],
+      "special_table_text": "Special diets (separate from general meals) Diet Needed (known) In stock Status Allergy-free 6 30 Enough in stock Halal 15 0 ⛔ 15 short (none in stock) Infant formula 1 16 Enough in stock",
+      "data_notes_listed": [
+        "SH-02: a newer report is pending validation; figures use the last validated report",
+        "SH-04: no validated report yet, so its needs are not calculated",
+        "halal: 'halal' is short by 15 meals; staff must decide distribution",
+        "newer inventory count for WH-A/ITM-BREAD is still pending validation (2026-10-24T11:20:00+09:00); the plan uses its last validated count"
+      ],
+      "every_warning_listed_in_data_notes": true,
+      "map_status": {
+        "SH-01": "shortage",
+        "SH-02": "shortage",
+        "SH-03": "shortage",
+        "SH-04": "no_report",
+        "WH-A": "ok",
+        "WH-B": "ok"
+      }
+    },
+    {
+      "scenario": "F2_unknown_vs_zero_demand",
+      "description": "Sample: halal count unknown (missing_info); infant formula with known demand covered by stock",
+      "expected": "halal shown as unknown demand (not 0 needed); formula and allergy-free shown as enough in stock",
+      "special_diet_statuses": {
+        "allergy_free": {
+          "status": "ok",
+          "known_unmet": 6,
+          "available": 30
+        },
+        "halal": {
+          "status": "missing_info",
+          "known_unmet": 0,
+          "available": 0
+        },
+        "infant_formula": {
+          "status": "ok",
+          "known_unmet": 1,
+          "available": 16
+        }
+      },
+      "data_warnings": [
+        "SH-03 (general): some special-needs counts are unknown, so general need may be overstated",
+        "SH-03 (halal): number of people needing 'halal' is unknown",
+        "SH-02: a newer report is pending validation; figures use the last validated report",
+        "SH-04: no validated report yet, so its needs are not calculated",
+        "newer inventory count for WH-A/ITM-BREAD is still pending validation (2026-10-24T11:20:00+09:00); the plan uses its last validated count"
+      ],
+      "dashboard_builds": true,
+      "error": null,
+      "actions": [
+        {
+          "kind": "missing_report",
+          "severity": "uncertain",
+          "title": "Nishi Public Hall (SH-04) has no validated report"
+        },
+        {
+          "kind": "unknown_special_count",
+          "severity": "uncertain",
+          "title": "Higashi Junior High Gym (SH-03): number of people needing halal meals is unknown"
+        },
+        {
+          "kind": "pending_report",
+          "severity": "uncertain",
+          "title": "Kita Community Center (SH-02): newer report waiting for validation"
+        },
+        {
+          "kind": "pending_inventory_count",
+          "severity": "uncertain",
+          "title": "Newer stock count for Canned bread at WH-A is not validated"
+        }
+      ],
+      "special_table_text": "Special diets (separate from general meals) Diet Needed (known) In stock Status Allergy-free 6 30 Enough in stock Halal unknown 0 ⚠️ count unknown Infant formula 1 16 Enough in stock",
+      "data_notes_listed": [
+        "SH-03 (general): some special-needs counts are unknown, so general need may be overstated",
+        "SH-03 (halal): number of people needing 'halal' is unknown",
+        "SH-02: a newer report is pending validation; figures use the last validated report",
+        "SH-04: no validated report yet, so its needs are not calculated",
+        "newer inventory count for WH-A/ITM-BREAD is still pending validation (2026-10-24T11:20:00+09:00); the plan uses its last validated count"
+      ],
+      "every_warning_listed_in_data_notes": true,
+      "map_status": {
+        "SH-01": "shortage",
+        "SH-02": "shortage",
+        "SH-03": "shortage",
+        "SH-04": "no_report",
+        "WH-A": "ok",
+        "WH-B": "ok"
+      }
+    },
+    {
+      "scenario": "F2_confirmed_zero_demand",
+      "description": "Sample + SH-01 report at 11:30 with 9 formula meals on hand for 3 infants (confirmed demand fully covered, unmet 0)",
+      "expected": "infant formula shown as no unmet need (confirmed zero), distinct from unknown",
+      "special_diet_statuses": {
+        "allergy_free": {
+          "status": "ok",
+          "known_unmet": 6,
+          "available": 30
+        },
+        "halal": {
+          "status": "missing_info",
+          "known_unmet": 0,
+          "available": 0
+        },
+        "infant_formula": {
+          "status": "ok",
+          "known_unmet": 0,
+          "available": 16
+        }
+      },
+      "data_warnings": [
+        "SH-03 (general): some special-needs counts are unknown, so general need may be overstated",
+        "SH-03 (halal): number of people needing 'halal' is unknown",
+        "SH-02: a newer report is pending validation; figures use the last validated report",
+        "SH-04: no validated report yet, so its needs are not calculated",
+        "newer inventory count for WH-A/ITM-BREAD is still pending validation (2026-10-24T11:20:00+09:00); the plan uses its last validated count"
+      ],
+      "dashboard_builds": true,
+      "error": null,
+      "actions": [
+        {
+          "kind": "missing_report",
+          "severity": "uncertain",
+          "title": "Nishi Public Hall (SH-04) has no validated report"
+        },
+        {
+          "kind": "unknown_special_count",
+          "severity": "uncertain",
+          "title": "Higashi Junior High Gym (SH-03): number of people needing halal meals is unknown"
+        },
+        {
+          "kind": "pending_report",
+          "severity": "uncertain",
+          "title": "Kita Community Center (SH-02): newer report waiting for validation"
+        },
+        {
+          "kind": "pending_inventory_count",
+          "severity": "uncertain",
+          "title": "Newer stock count for Canned bread at WH-A is not validated"
+        }
+      ],
+      "special_table_text": "Special diets (separate from general meals) Diet Needed (known) In stock Status Allergy-free 6 30 Enough in stock Halal unknown 0 ⚠️ count unknown Infant formula 0 16 No unmet need",
+      "data_notes_listed": [
+        "SH-03 (general): some special-needs counts are unknown, so general need may be overstated",
+        "SH-03 (halal): number of people needing 'halal' is unknown",
+        "SH-02: a newer report is pending validation; figures use the last validated report",
+        "SH-04: no validated report yet, so its needs are not calculated",
+        "newer inventory count for WH-A/ITM-BREAD is still pending validation (2026-10-24T11:20:00+09:00); the plan uses its last validated count"
+      ],
+      "every_warning_listed_in_data_notes": true,
+      "map_status": {
+        "SH-01": "shortage",
+        "SH-02": "shortage",
+        "SH-03": "shortage",
+        "SH-04": "no_report",
+        "WH-A": "ok",
+        "WH-B": "ok"
+      }
+    }
+  ],
+  "isolation": {
+    "data_live_unchanged": true,
+    "data_sample_unchanged": true
+  }
+}

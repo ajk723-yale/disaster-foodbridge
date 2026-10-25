@@ -1,0 +1,6 @@
+commitment_id,plan_id,shelter_id,diet_tag,meals,status,committed_at,dispatched_at,warehouse_id,delivered_at
+cmt-001,PLAN-0824-AM,SH-02,general,30,dispatched,2026-10-24T08:30+09:00,2026-10-24T08:45+09:00,WH-B,
+cmt-002,PLAN-0824-AM,SH-01,infant_formula,4,delivered,2026-10-24T08:30+09:00,2026-10-24T09:30+09:00,WH-A,2026-10-24T10:15+09:00
+cmt-003,PLAN-0824-MID,SH-03,general,40,dispatched,2026-10-24T10:40+09:00,2026-10-24T11:00+09:00,WH-A,
+cmt-004,PLAN-0824-MID,SH-01,general,24,approved,2026-10-24T10:40+09:00,,,
+cmt-005,PLAN-0824-MID,SH-02,general,15,cancelled,2026-10-24T10:40+09:00,,,

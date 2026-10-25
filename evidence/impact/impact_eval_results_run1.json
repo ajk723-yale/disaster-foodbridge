@@ -1,0 +1,1834 @@
+{
+  "date": "2026-10-24",
+  "accuracy": [
+    {
+      "case": "A1_sample",
+      "description": "Sample data as provided (2 warehouses, recount, delivered-after-report, reserved, cancelled, rejected and pending records)",
+      "inputs": "evidence/impact/cases/A1_sample",
+      "planning_window_hours": 24.0,
+      "expected_headline": {
+        "available_general": 596,
+        "total_unmet_general": 1003,
+        "plan_a": {
+          "SH-01": 206,
+          "SH-02": 39,
+          "SH-03": 351
+        },
+        "procurement_general": 407,
+        "special": {
+          "allergy_free": [
+            "ok",
+            0
+          ],
+          "halal": [
+            "missing_info",
+            "unknown"
+          ],
+          "infant_formula": [
+            "ok",
+            0
+          ]
+        }
+      },
+      "actual_headline": {
+        "available_general": 596,
+        "total_unmet_general": 1003,
+        "plan_a": {
+          "SH-01": 206,
+          "SH-02": 39,
+          "SH-03": 351
+        },
+        "procurement_general": 407,
+        "special": {
+          "allergy_free": [
+            "ok",
+            0
+          ],
+          "halal": [
+            "missing_info",
+            "unknown"
+          ],
+          "infant_formula": [
+            "ok",
+            0
+          ]
+        }
+      },
+      "fields_compared": 73,
+      "mismatches": [],
+      "extra_fields": [],
+      "pass": true,
+      "expected_full": {
+        "needs": {
+          "SH-01": {
+            "general": {
+              "people": 132,
+              "need": 396,
+              "on_hand": 25,
+              "on_its_way": 24,
+              "delivered_after_report": 0,
+              "unmet": 347
+            },
+            "infant_formula": {
+              "people": 3,
+              "need": 9,
+              "on_hand": 4,
+              "on_its_way": 0,
+              "delivered_after_report": 4,
+              "unmet": 1
+            }
+          },
+          "SH-02": {
+            "general": {
+              "people": 62,
+              "need": 186,
+              "on_hand": 90,
+              "on_its_way": 30,
+              "delivered_after_report": 0,
+              "unmet": 66
+            },
+            "allergy_free": {
+              "people": 2,
+              "need": 6,
+              "on_hand": 0,
+              "on_its_way": 0,
+              "delivered_after_report": 0,
+              "unmet": 6
+            }
+          },
+          "SH-03": {
+            "general": {
+              "people": 210,
+              "need": 630,
+              "on_hand": 0,
+              "on_its_way": 40,
+              "delivered_after_report": 0,
+              "unmet": 590
+            },
+            "halal": {
+              "people": "unknown",
+              "need": null,
+              "unmet": null
+            }
+          }
+        },
+        "stock": {
+          "allergy_free": {
+            "counted": 30,
+            "dispatched_since_count": 0,
+            "reserved": 0,
+            "available": 30
+          },
+          "general": {
+            "counted": 660,
+            "dispatched_since_count": 40,
+            "reserved": 24,
+            "available": 596
+          },
+          "infant_formula": {
+            "counted": 20,
+            "dispatched_since_count": 4,
+            "reserved": 0,
+            "available": 16
+          }
+        },
+        "general": {
+          "available": 596,
+          "total_unmet": 1003,
+          "plan_a": {
+            "SH-01": 206,
+            "SH-02": 39,
+            "SH-03": 351
+          },
+          "plan_a_total": 596,
+          "shortfall": {
+            "SH-01": 141,
+            "SH-02": 27,
+            "SH-03": 239
+          },
+          "procurement": 407
+        },
+        "special": {
+          "allergy_free": {
+            "status": "ok",
+            "known_unmet": 6,
+            "available": 30,
+            "known_shortage": 0,
+            "plan_a": {
+              "SH-02": 6
+            },
+            "procurement": 0
+          },
+          "halal": {
+            "status": "missing_info",
+            "known_unmet": 0,
+            "available": 0,
+            "known_shortage": 0,
+            "plan_a": null,
+            "procurement": "unknown"
+          },
+          "infant_formula": {
+            "status": "ok",
+            "known_unmet": 1,
+            "available": 16,
+            "known_shortage": 0,
+            "plan_a": {
+              "SH-01": 1
+            },
+            "procurement": 0
+          }
+        }
+      },
+      "actual_full": {
+        "needs": {
+          "SH-01": {
+            "general": {
+              "people": 132,
+              "need": 396,
+              "on_hand": 25,
+              "on_its_way": 24,
+              "delivered_after_report": 0,
+              "unmet": 347
+            },
+            "infant_formula": {
+              "people": 3,
+              "need": 9,
+              "unmet": 1,
+              "on_hand": 4,
+              "on_its_way": 0,
+              "delivered_after_report": 4
+            }
+          },
+          "SH-02": {
+            "general": {
+              "people": 62,
+              "need": 186,
+              "on_hand": 90,
+              "on_its_way": 30,
+              "delivered_after_report": 0,
+              "unmet": 66
+            },
+            "allergy_free": {
+              "people": 2,
+              "need": 6,
+              "unmet": 6,
+              "on_hand": 0,
+              "on_its_way": 0,
+              "delivered_after_report": 0
+            }
+          },
+          "SH-03": {
+            "general": {
+              "people": 210,
+              "need": 630,
+              "on_hand": 0,
+              "on_its_way": 40,
+              "delivered_after_report": 0,
+              "unmet": 590
+            },
+            "halal": {
+              "people": "unknown",
+              "need": null,
+              "unmet": null
+            }
+          }
+        },
+        "stock": {
+          "allergy_free": {
+            "counted": 30,
+            "dispatched_since_count": 0,
+            "reserved": 0,
+            "available": 30
+          },
+          "general": {
+            "counted": 660,
+            "dispatched_since_count": 40,
+            "reserved": 24,
+            "available": 596
+          },
+          "infant_formula": {
+            "counted": 20,
+            "dispatched_since_count": 4,
+            "reserved": 0,
+            "available": 16
+          }
+        },
+        "general": {
+          "available": 596,
+          "total_unmet": 1003,
+          "plan_a": {
+            "SH-01": 206,
+            "SH-02": 39,
+            "SH-03": 351
+          },
+          "plan_a_total": 596,
+          "shortfall": {
+            "SH-01": 141,
+            "SH-02": 27,
+            "SH-03": 239
+          },
+          "procurement": 407
+        },
+        "special": {
+          "allergy_free": {
+            "status": "ok",
+            "known_unmet": 6,
+            "available": 30,
+            "known_shortage": 0,
+            "plan_a": {
+              "SH-02": 6
+            },
+            "procurement": 0
+          },
+          "halal": {
+            "status": "missing_info",
+            "known_unmet": 0,
+            "available": 0,
+            "known_shortage": 0,
+            "plan_a": null,
+            "procurement": "unknown"
+          },
+          "infant_formula": {
+            "status": "ok",
+            "known_unmet": 1,
+            "available": 16,
+            "known_shortage": 0,
+            "plan_a": {
+              "SH-01": 1
+            },
+            "procurement": 0
+          }
+        }
+      }
+    },
+    {
+      "case": "A2_ample_stock",
+      "description": "Sample + a newer validated WH-B rice count of 600 packs (stock exceeds unmet demand)",
+      "inputs": "evidence/impact/cases/A2_ample_stock",
+      "planning_window_hours": 24.0,
+      "expected_headline": {
+        "available_general": 1076,
+        "total_unmet_general": 1003,
+        "plan_a": {
+          "SH-01": 347,
+          "SH-02": 66,
+          "SH-03": 590
+        },
+        "procurement_general": 0,
+        "special": {
+          "allergy_free": [
+            "ok",
+            0
+          ],
+          "halal": [
+            "missing_info",
+            "unknown"
+          ],
+          "infant_formula": [
+            "ok",
+            0
+          ]
+        }
+      },
+      "actual_headline": {
+        "available_general": 1076,
+        "total_unmet_general": 1003,
+        "plan_a": {
+          "SH-01": 347,
+          "SH-02": 66,
+          "SH-03": 590
+        },
+        "procurement_general": 0,
+        "special": {
+          "allergy_free": [
+            "ok",
+            0
+          ],
+          "halal": [
+            "missing_info",
+            "unknown"
+          ],
+          "infant_formula": [
+            "ok",
+            0
+          ]
+        }
+      },
+      "fields_compared": 73,
+      "mismatches": [],
+      "extra_fields": [],
+      "pass": true,
+      "expected_full": {
+        "needs": {
+          "SH-01": {
+            "general": {
+              "people": 132,
+              "need": 396,
+              "on_hand": 25,
+              "on_its_way": 24,
+              "delivered_after_report": 0,
+              "unmet": 347
+            },
+            "infant_formula": {
+              "people": 3,
+              "need": 9,
+              "on_hand": 4,
+              "on_its_way": 0,
+              "delivered_after_report": 4,
+              "unmet": 1
+            }
+          },
+          "SH-02": {
+            "general": {
+              "people": 62,
+              "need": 186,
+              "on_hand": 90,
+              "on_its_way": 30,
+              "delivered_after_report": 0,
+              "unmet": 66
+            },
+            "allergy_free": {
+              "people": 2,
+              "need": 6,
+              "on_hand": 0,
+              "on_its_way": 0,
+              "delivered_after_report": 0,
+              "unmet": 6
+            }
+          },
+          "SH-03": {
+            "general": {
+              "people": 210,
+              "need": 630,
+              "on_hand": 0,
+              "on_its_way": 40,
+              "delivered_after_report": 0,
+              "unmet": 590
+            },
+            "halal": {
+              "people": "unknown",
+              "need": null,
+              "unmet": null
+            }
+          }
+        },
+        "stock": {
+          "allergy_free": {
+            "counted": 30,
+            "dispatched_since_count": 0,
+            "reserved": 0,
+            "available": 30
+          },
+          "general": {
+            "counted": 1140,
+            "dispatched_since_count": 40,
+            "reserved": 24,
+            "available": 1076
+          },
+          "infant_formula": {
+            "counted": 20,
+            "dispatched_since_count": 4,
+            "reserved": 0,
+            "available": 16
+          }
+        },
+        "general": {
+          "available": 1076,
+          "total_unmet": 1003,
+          "plan_a": {
+            "SH-01": 347,
+            "SH-02": 66,
+            "SH-03": 590
+          },
+          "plan_a_total": 1003,
+          "shortfall": {
+            "SH-01": 0,
+            "SH-02": 0,
+            "SH-03": 0
+          },
+          "procurement": 0
+        },
+        "special": {
+          "allergy_free": {
+            "status": "ok",
+            "known_unmet": 6,
+            "available": 30,
+            "known_shortage": 0,
+            "plan_a": {
+              "SH-02": 6
+            },
+            "procurement": 0
+          },
+          "halal": {
+            "status": "missing_info",
+            "known_unmet": 0,
+            "available": 0,
+            "known_shortage": 0,
+            "plan_a": null,
+            "procurement": "unknown"
+          },
+          "infant_formula": {
+            "status": "ok",
+            "known_unmet": 1,
+            "available": 16,
+            "known_shortage": 0,
+            "plan_a": {
+              "SH-01": 1
+            },
+            "procurement": 0
+          }
+        }
+      },
+      "actual_full": {
+        "needs": {
+          "SH-01": {
+            "general": {
+              "people": 132,
+              "need": 396,
+              "on_hand": 25,
+              "on_its_way": 24,
+              "delivered_after_report": 0,
+              "unmet": 347
+            },
+            "infant_formula": {
+              "people": 3,
+              "need": 9,
+              "unmet": 1,
+              "on_hand": 4,
+              "on_its_way": 0,
+              "delivered_after_report": 4
+            }
+          },
+          "SH-02": {
+            "general": {
+              "people": 62,
+              "need": 186,
+              "on_hand": 90,
+              "on_its_way": 30,
+              "delivered_after_report": 0,
+              "unmet": 66
+            },
+            "allergy_free": {
+              "people": 2,
+              "need": 6,
+              "unmet": 6,
+              "on_hand": 0,
+              "on_its_way": 0,
+              "delivered_after_report": 0
+            }
+          },
+          "SH-03": {
+            "general": {
+              "people": 210,
+              "need": 630,
+              "on_hand": 0,
+              "on_its_way": 40,
+              "delivered_after_report": 0,
+              "unmet": 590
+            },
+            "halal": {
+              "people": "unknown",
+              "need": null,
+              "unmet": null
+            }
+          }
+        },
+        "stock": {
+          "allergy_free": {
+            "counted": 30,
+            "dispatched_since_count": 0,
+            "reserved": 0,
+            "available": 30
+          },
+          "general": {
+            "counted": 1140,
+            "dispatched_since_count": 40,
+            "reserved": 24,
+            "available": 1076
+          },
+          "infant_formula": {
+            "counted": 20,
+            "dispatched_since_count": 4,
+            "reserved": 0,
+            "available": 16
+          }
+        },
+        "general": {
+          "available": 1076,
+          "total_unmet": 1003,
+          "plan_a": {
+            "SH-01": 347,
+            "SH-02": 66,
+            "SH-03": 590
+          },
+          "plan_a_total": 1003,
+          "shortfall": {
+            "SH-01": 0,
+            "SH-02": 0,
+            "SH-03": 0
+          },
+          "procurement": 0
+        },
+        "special": {
+          "allergy_free": {
+            "status": "ok",
+            "known_unmet": 6,
+            "available": 30,
+            "known_shortage": 0,
+            "plan_a": {
+              "SH-02": 6
+            },
+            "procurement": 0
+          },
+          "halal": {
+            "status": "missing_info",
+            "known_unmet": 0,
+            "available": 0,
+            "known_shortage": 0,
+            "plan_a": null,
+            "procurement": "unknown"
+          },
+          "infant_formula": {
+            "status": "ok",
+            "known_unmet": 1,
+            "available": 16,
+            "known_shortage": 0,
+            "plan_a": {
+              "SH-01": 1
+            },
+            "procurement": 0
+          }
+        }
+      }
+    },
+    {
+      "case": "A3_tie_break",
+      "description": "Three equal shelters (unmet 30 each), 10 meals in stock: equal remainders, tie by shelter_id",
+      "inputs": "evidence/impact/cases/A3_tie_break",
+      "planning_window_hours": 24.0,
+      "expected_headline": {
+        "available_general": 10,
+        "total_unmet_general": 90,
+        "plan_a": {
+          "T1": 4,
+          "T2": 3,
+          "T3": 3
+        },
+        "procurement_general": 80,
+        "special": {}
+      },
+      "actual_headline": {
+        "available_general": 10,
+        "total_unmet_general": 90,
+        "plan_a": {
+          "T1": 4,
+          "T2": 3,
+          "T3": 3
+        },
+        "procurement_general": 80,
+        "special": {}
+      },
+      "fields_compared": 32,
+      "mismatches": [],
+      "extra_fields": [],
+      "pass": true,
+      "expected_full": {
+        "needs": {
+          "T1": {
+            "general": {
+              "people": 10,
+              "need": 30,
+              "on_hand": 0,
+              "on_its_way": 0,
+              "delivered_after_report": 0,
+              "unmet": 30
+            }
+          },
+          "T2": {
+            "general": {
+              "people": 10,
+              "need": 30,
+              "on_hand": 0,
+              "on_its_way": 0,
+              "delivered_after_report": 0,
+              "unmet": 30
+            }
+          },
+          "T3": {
+            "general": {
+              "people": 10,
+              "need": 30,
+              "on_hand": 0,
+              "on_its_way": 0,
+              "delivered_after_report": 0,
+              "unmet": 30
+            }
+          }
+        },
+        "stock": {
+          "general": {
+            "counted": 10,
+            "dispatched_since_count": 0,
+            "reserved": 0,
+            "available": 10
+          }
+        },
+        "general": {
+          "available": 10,
+          "total_unmet": 90,
+          "plan_a": {
+            "T1": 4,
+            "T2": 3,
+            "T3": 3
+          },
+          "plan_a_total": 10,
+          "shortfall": {
+            "T1": 26,
+            "T2": 27,
+            "T3": 27
+          },
+          "procurement": 80
+        },
+        "special": {}
+      },
+      "actual_full": {
+        "needs": {
+          "T1": {
+            "general": {
+              "people": 10,
+              "need": 30,
+              "on_hand": 0,
+              "on_its_way": 0,
+              "delivered_after_report": 0,
+              "unmet": 30
+            }
+          },
+          "T2": {
+            "general": {
+              "people": 10,
+              "need": 30,
+              "on_hand": 0,
+              "on_its_way": 0,
+              "delivered_after_report": 0,
+              "unmet": 30
+            }
+          },
+          "T3": {
+            "general": {
+              "people": 10,
+              "need": 30,
+              "on_hand": 0,
+              "on_its_way": 0,
+              "delivered_after_report": 0,
+              "unmet": 30
+            }
+          }
+        },
+        "stock": {
+          "general": {
+            "counted": 10,
+            "dispatched_since_count": 0,
+            "reserved": 0,
+            "available": 10
+          }
+        },
+        "general": {
+          "available": 10,
+          "total_unmet": 90,
+          "plan_a": {
+            "T1": 4,
+            "T2": 3,
+            "T3": 3
+          },
+          "plan_a_total": 10,
+          "shortfall": {
+            "T1": 26,
+            "T2": 27,
+            "T3": 27
+          },
+          "procurement": 80
+        },
+        "special": {}
+      }
+    },
+    {
+      "case": "A4_special_shortage",
+      "description": "Infant formula needed 24 meals, 10 in stock (special-diet shortage); general stock ample",
+      "inputs": "evidence/impact/cases/A4_special_shortage",
+      "planning_window_hours": 24.0,
+      "expected_headline": {
+        "available_general": 500,
+        "total_unmet_general": 116,
+        "plan_a": {
+          "S1": 35,
+          "S2": 81
+        },
+        "procurement_general": 0,
+        "special": {
+          "infant_formula": [
+            "shortage",
+            14
+          ]
+        }
+      },
+      "actual_headline": {
+        "available_general": 500,
+        "total_unmet_general": 116,
+        "plan_a": {
+          "S1": 35,
+          "S2": 81
+        },
+        "procurement_general": 0,
+        "special": {
+          "infant_formula": [
+            "shortage",
+            14
+          ]
+        }
+      },
+      "fields_compared": 46,
+      "mismatches": [],
+      "extra_fields": [],
+      "pass": true,
+      "expected_full": {
+        "needs": {
+          "S1": {
+            "general": {
+              "people": 15,
+              "need": 45,
+              "on_hand": 10,
+              "on_its_way": 0,
+              "delivered_after_report": 0,
+              "unmet": 35
+            },
+            "infant_formula": {
+              "people": 5,
+              "need": 15,
+              "on_hand": 0,
+              "on_its_way": 0,
+              "delivered_after_report": 0,
+              "unmet": 15
+            }
+          },
+          "S2": {
+            "general": {
+              "people": 27,
+              "need": 81,
+              "on_hand": 0,
+              "on_its_way": 0,
+              "delivered_after_report": 0,
+              "unmet": 81
+            },
+            "infant_formula": {
+              "people": 3,
+              "need": 9,
+              "on_hand": 0,
+              "on_its_way": 0,
+              "delivered_after_report": 0,
+              "unmet": 9
+            }
+          }
+        },
+        "stock": {
+          "general": {
+            "counted": 500,
+            "dispatched_since_count": 0,
+            "reserved": 0,
+            "available": 500
+          },
+          "infant_formula": {
+            "counted": 10,
+            "dispatched_since_count": 0,
+            "reserved": 0,
+            "available": 10
+          }
+        },
+        "general": {
+          "available": 500,
+          "total_unmet": 116,
+          "plan_a": {
+            "S1": 35,
+            "S2": 81
+          },
+          "plan_a_total": 116,
+          "shortfall": {
+            "S1": 0,
+            "S2": 0
+          },
+          "procurement": 0
+        },
+        "special": {
+          "infant_formula": {
+            "status": "shortage",
+            "known_unmet": 24,
+            "available": 10,
+            "known_shortage": 14,
+            "plan_a": null,
+            "procurement": 14
+          }
+        }
+      },
+      "actual_full": {
+        "needs": {
+          "S1": {
+            "general": {
+              "people": 15,
+              "need": 45,
+              "on_hand": 10,
+              "on_its_way": 0,
+              "delivered_after_report": 0,
+              "unmet": 35
+            },
+            "infant_formula": {
+              "people": 5,
+              "need": 15,
+              "unmet": 15,
+              "on_hand": 0,
+              "on_its_way": 0,
+              "delivered_after_report": 0
+            }
+          },
+          "S2": {
+            "general": {
+              "people": 27,
+              "need": 81,
+              "on_hand": 0,
+              "on_its_way": 0,
+              "delivered_after_report": 0,
+              "unmet": 81
+            },
+            "infant_formula": {
+              "people": 3,
+              "need": 9,
+              "unmet": 9,
+              "on_hand": 0,
+              "on_its_way": 0,
+              "delivered_after_report": 0
+            }
+          }
+        },
+        "stock": {
+          "general": {
+            "counted": 500,
+            "dispatched_since_count": 0,
+            "reserved": 0,
+            "available": 500
+          },
+          "infant_formula": {
+            "counted": 10,
+            "dispatched_since_count": 0,
+            "reserved": 0,
+            "available": 10
+          }
+        },
+        "general": {
+          "available": 500,
+          "total_unmet": 116,
+          "plan_a": {
+            "S1": 35,
+            "S2": 81
+          },
+          "plan_a_total": 116,
+          "shortfall": {
+            "S1": 0,
+            "S2": 0
+          },
+          "procurement": 0
+        },
+        "special": {
+          "infant_formula": {
+            "status": "shortage",
+            "known_unmet": 24,
+            "available": 10,
+            "known_shortage": 14,
+            "plan_a": null,
+            "procurement": 14
+          }
+        }
+      }
+    },
+    {
+      "case": "A5_rounding_and_delivery_timing",
+      "description": "Fractional meals per unit (stock 13.5 rounds down to 13); deliveries before vs after the report time",
+      "inputs": "evidence/impact/cases/A5_rounding_and_delivery_timing",
+      "planning_window_hours": 24.0,
+      "expected_headline": {
+        "available_general": 6,
+        "total_unmet_general": 19,
+        "plan_a": {
+          "S1": 6
+        },
+        "procurement_general": 13,
+        "special": {}
+      },
+      "actual_headline": {
+        "available_general": 13,
+        "total_unmet_general": 19,
+        "plan_a": {
+          "S1": 13
+        },
+        "procurement_general": 6,
+        "special": {}
+      },
+      "fields_compared": 16,
+      "mismatches": [
+        {
+          "field": "stock.general.counted",
+          "expected": 13,
+          "actual": 13.5
+        },
+        {
+          "field": "stock.general.dispatched_since_count",
+          "expected": 7,
+          "actual": 0
+        },
+        {
+          "field": "stock.general.available",
+          "expected": 6,
+          "actual": 13.5
+        },
+        {
+          "field": "general.available",
+          "expected": 6,
+          "actual": 13
+        },
+        {
+          "field": "general.plan_a.S1",
+          "expected": 6,
+          "actual": 13
+        },
+        {
+          "field": "general.plan_a_total",
+          "expected": 6,
+          "actual": 13
+        },
+        {
+          "field": "general.shortfall.S1",
+          "expected": 13,
+          "actual": 6
+        },
+        {
+          "field": "general.procurement",
+          "expected": 13,
+          "actual": 6
+        }
+      ],
+      "extra_fields": [],
+      "pass": false,
+      "expected_full": {
+        "needs": {
+          "S1": {
+            "general": {
+              "people": 7,
+              "need": 21,
+              "on_hand": 0,
+              "on_its_way": 0,
+              "delivered_after_report": 2,
+              "unmet": 19
+            }
+          }
+        },
+        "stock": {
+          "general": {
+            "counted": 13,
+            "dispatched_since_count": 7,
+            "reserved": 0,
+            "available": 6
+          }
+        },
+        "general": {
+          "available": 6,
+          "total_unmet": 19,
+          "plan_a": {
+            "S1": 6
+          },
+          "plan_a_total": 6,
+          "shortfall": {
+            "S1": 13
+          },
+          "procurement": 13
+        },
+        "special": {}
+      },
+      "actual_full": {
+        "needs": {
+          "S1": {
+            "general": {
+              "people": 7,
+              "need": 21,
+              "on_hand": 0,
+              "on_its_way": 0,
+              "delivered_after_report": 2,
+              "unmet": 19
+            }
+          }
+        },
+        "stock": {
+          "general": {
+            "counted": 13.5,
+            "dispatched_since_count": 0,
+            "reserved": 0,
+            "available": 13.5
+          }
+        },
+        "general": {
+          "available": 13,
+          "total_unmet": 19,
+          "plan_a": {
+            "S1": 13
+          },
+          "plan_a_total": 13,
+          "shortfall": {
+            "S1": 6
+          },
+          "procurement": 6
+        },
+        "special": {}
+      }
+    },
+    {
+      "case": "A6_planning_window_12h",
+      "description": "Sample data with a 12-hour planning window (need = ceil(people x 1.5))",
+      "inputs": "evidence/impact/cases/A6_planning_window_12h",
+      "planning_window_hours": 12,
+      "expected_headline": {
+        "available_general": 596,
+        "total_unmet_general": 424,
+        "plan_a": {
+          "SH-01": 149,
+          "SH-02": 0,
+          "SH-03": 275
+        },
+        "procurement_general": 0,
+        "special": {
+          "allergy_free": [
+            "ok",
+            0
+          ],
+          "halal": [
+            "missing_info",
+            "unknown"
+          ],
+          "infant_formula": [
+            "ok",
+            0
+          ]
+        }
+      },
+      "actual_headline": {
+        "available_general": 596,
+        "total_unmet_general": 424,
+        "plan_a": {
+          "SH-01": 149,
+          "SH-02": 0,
+          "SH-03": 275
+        },
+        "procurement_general": 0,
+        "special": {
+          "allergy_free": [
+            "ok",
+            0
+          ],
+          "halal": [
+            "missing_info",
+            "unknown"
+          ],
+          "infant_formula": [
+            "ok",
+            0
+          ]
+        }
+      },
+      "fields_compared": 73,
+      "mismatches": [],
+      "extra_fields": [],
+      "pass": true,
+      "expected_full": {
+        "needs": {
+          "SH-01": {
+            "general": {
+              "people": 132,
+              "need": 198,
+              "on_hand": 25,
+              "on_its_way": 24,
+              "delivered_after_report": 0,
+              "unmet": 149
+            },
+            "infant_formula": {
+              "people": 3,
+              "need": 5,
+              "on_hand": 4,
+              "on_its_way": 0,
+              "delivered_after_report": 4,
+              "unmet": 0
+            }
+          },
+          "SH-02": {
+            "general": {
+              "people": 62,
+              "need": 93,
+              "on_hand": 90,
+              "on_its_way": 30,
+              "delivered_after_report": 0,
+              "unmet": 0
+            },
+            "allergy_free": {
+              "people": 2,
+              "need": 3,
+              "on_hand": 0,
+              "on_its_way": 0,
+              "delivered_after_report": 0,
+              "unmet": 3
+            }
+          },
+          "SH-03": {
+            "general": {
+              "people": 210,
+              "need": 315,
+              "on_hand": 0,
+              "on_its_way": 40,
+              "delivered_after_report": 0,
+              "unmet": 275
+            },
+            "halal": {
+              "people": "unknown",
+              "need": null,
+              "unmet": null
+            }
+          }
+        },
+        "stock": {
+          "allergy_free": {
+            "counted": 30,
+            "dispatched_since_count": 0,
+            "reserved": 0,
+            "available": 30
+          },
+          "general": {
+            "counted": 660,
+            "dispatched_since_count": 40,
+            "reserved": 24,
+            "available": 596
+          },
+          "infant_formula": {
+            "counted": 20,
+            "dispatched_since_count": 4,
+            "reserved": 0,
+            "available": 16
+          }
+        },
+        "general": {
+          "available": 596,
+          "total_unmet": 424,
+          "plan_a": {
+            "SH-01": 149,
+            "SH-02": 0,
+            "SH-03": 275
+          },
+          "plan_a_total": 424,
+          "shortfall": {
+            "SH-01": 0,
+            "SH-02": 0,
+            "SH-03": 0
+          },
+          "procurement": 0
+        },
+        "special": {
+          "allergy_free": {
+            "status": "ok",
+            "known_unmet": 3,
+            "available": 30,
+            "known_shortage": 0,
+            "plan_a": {
+              "SH-02": 3
+            },
+            "procurement": 0
+          },
+          "halal": {
+            "status": "missing_info",
+            "known_unmet": 0,
+            "available": 0,
+            "known_shortage": 0,
+            "plan_a": null,
+            "procurement": "unknown"
+          },
+          "infant_formula": {
+            "status": "ok",
+            "known_unmet": 0,
+            "available": 16,
+            "known_shortage": 0,
+            "plan_a": {
+              "SH-01": 0
+            },
+            "procurement": 0
+          }
+        }
+      },
+      "actual_full": {
+        "needs": {
+          "SH-01": {
+            "general": {
+              "people": 132,
+              "need": 198,
+              "on_hand": 25,
+              "on_its_way": 24,
+              "delivered_after_report": 0,
+              "unmet": 149
+            },
+            "infant_formula": {
+              "people": 3,
+              "need": 5,
+              "unmet": 0,
+              "on_hand": 4,
+              "on_its_way": 0,
+              "delivered_after_report": 4
+            }
+          },
+          "SH-02": {
+            "general": {
+              "people": 62,
+              "need": 93,
+              "on_hand": 90,
+              "on_its_way": 30,
+              "delivered_after_report": 0,
+              "unmet": 0
+            },
+            "allergy_free": {
+              "people": 2,
+              "need": 3,
+              "unmet": 3,
+              "on_hand": 0,
+              "on_its_way": 0,
+              "delivered_after_report": 0
+            }
+          },
+          "SH-03": {
+            "general": {
+              "people": 210,
+              "need": 315,
+              "on_hand": 0,
+              "on_its_way": 40,
+              "delivered_after_report": 0,
+              "unmet": 275
+            },
+            "halal": {
+              "people": "unknown",
+              "need": null,
+              "unmet": null
+            }
+          }
+        },
+        "stock": {
+          "allergy_free": {
+            "counted": 30,
+            "dispatched_since_count": 0,
+            "reserved": 0,
+            "available": 30
+          },
+          "general": {
+            "counted": 660,
+            "dispatched_since_count": 40,
+            "reserved": 24,
+            "available": 596
+          },
+          "infant_formula": {
+            "counted": 20,
+            "dispatched_since_count": 4,
+            "reserved": 0,
+            "available": 16
+          }
+        },
+        "general": {
+          "available": 596,
+          "total_unmet": 424,
+          "plan_a": {
+            "SH-01": 149,
+            "SH-02": 0,
+            "SH-03": 275
+          },
+          "plan_a_total": 424,
+          "shortfall": {
+            "SH-01": 0,
+            "SH-02": 0,
+            "SH-03": 0
+          },
+          "procurement": 0
+        },
+        "special": {
+          "allergy_free": {
+            "status": "ok",
+            "known_unmet": 3,
+            "available": 30,
+            "known_shortage": 0,
+            "plan_a": {
+              "SH-02": 3
+            },
+            "procurement": 0
+          },
+          "halal": {
+            "status": "missing_info",
+            "known_unmet": 0,
+            "available": 0,
+            "known_shortage": 0,
+            "plan_a": null,
+            "procurement": "unknown"
+          },
+          "infant_formula": {
+            "status": "ok",
+            "known_unmet": 0,
+            "available": 16,
+            "known_shortage": 0,
+            "plan_a": {
+              "SH-01": 0
+            },
+            "procurement": 0
+          }
+        }
+      }
+    }
+  ],
+  "reliability": [
+    {
+      "case": "R1_missing_report",
+      "description": "SH-04 has only a pending report",
+      "checks": [
+        {
+          "check": "SH-04 excluded from needs",
+          "expected": "absent",
+          "actual": [
+            "SH-01",
+            "SH-02",
+            "SH-03"
+          ],
+          "pass": true
+        },
+        {
+          "check": "SH-04 excluded from Plan A",
+          "expected": "absent",
+          "actual": {
+            "SH-01": 206,
+            "SH-02": 39,
+            "SH-03": 351
+          },
+          "pass": true
+        },
+        {
+          "check": "listed as without validated report",
+          "expected": [
+            "SH-04"
+          ],
+          "actual": [
+            "SH-04"
+          ],
+          "pass": true
+        },
+        {
+          "check": "data warning names SH-04",
+          "expected": true,
+          "actual": [
+            "SH-04: no validated report yet, so its needs are not calculated"
+          ],
+          "pass": true
+        },
+        {
+          "check": "dashboard action 'missing_report'",
+          "expected": [
+            "missing_report"
+          ],
+          "actual": [
+            "missing_report"
+          ],
+          "pass": true
+        }
+      ]
+    },
+    {
+      "case": "R2_pending_update",
+      "description": "SH-02 has a newer pending report (80 people); then staff approve an 80-person report through the normal intake function",
+      "checks": [
+        {
+          "check": "before: uses the validated 64-person report",
+          "expected": 62,
+          "actual": 62,
+          "pass": true
+        },
+        {
+          "check": "before: pending warning for SH-02",
+          "expected": true,
+          "actual": [
+            "SH-02: a newer report is pending validation; figures use the last validated report"
+          ],
+          "pass": true
+        },
+        {
+          "check": "approval saved through intake",
+          "expected": "saved",
+          "actual": "saved",
+          "pass": true
+        },
+        {
+          "check": "after: needs follow the new validated report (oracle)",
+          "expected": "match",
+          "actual": "match",
+          "pass": true
+        },
+        {
+          "check": "after: SH-02 unmet 240-90-30 = 120",
+          "expected": 120,
+          "actual": 120,
+          "pass": true
+        },
+        {
+          "check": "after: plan fingerprint changed",
+          "expected": "changed",
+          "actual": "changed",
+          "pass": true
+        },
+        {
+          "check": "after: no pending warning for SH-02 (pending report is no longer newer)",
+          "expected": [],
+          "actual": [
+            "SH-02 (general): 30 meals (cmt-001) left before the shelter's latest report but delivery is not confirmed; counted as on its way. If it has arrived, confirm delivery so it isn't counted twice"
+          ],
+          "pass": false
+        }
+      ]
+    },
+    {
+      "case": "R3_unknown_special_count",
+      "description": "SH-03 halal count unknown; then a validated report states halal 5",
+      "checks": [
+        {
+          "check": "before: halal status missing_info",
+          "expected": "missing_info",
+          "actual": "missing_info",
+          "pass": true
+        },
+        {
+          "check": "before: halal procurement unknown (not 0)",
+          "expected": "unknown",
+          "actual": "unknown",
+          "pass": true
+        },
+        {
+          "check": "before: no halal Plan A lines",
+          "expected": null,
+          "actual": null,
+          "pass": true
+        },
+        {
+          "check": "before: general need uses all 210 people and is flagged as possibly overstated",
+          "expected": "210 + flag",
+          "actual": [
+            210,
+            [
+              "SH-03 (general): some special-needs counts are unknown, so general need may be overstated"
+            ]
+          ],
+          "pass": true
+        },
+        {
+          "check": "approval saved",
+          "expected": "saved",
+          "actual": "saved",
+          "pass": true
+        },
+        {
+          "check": "after: matches oracle (halal need 15, stock 0 -> shortage 15; general 205 people)",
+          "expected": "match",
+          "actual": [
+            {
+              "field": "special.halal.status",
+              "expected": "shortage",
+              "actual": "no_stock"
+            }
+          ],
+          "pass": false
+        },
+        {
+          "check": "after: halal shortage requires procurement 15",
+          "expected": 15,
+          "actual": 15,
+          "pass": true
+        }
+      ]
+    },
+    {
+      "case": "R4_change_during_review_and_finalize",
+      "description": "A validated SH-01 report arrives after staff reviewed the plan; finalization must ask for reconfirmation; then finalize the fresh plan in the isolated database",
+      "checks": [
+        {
+          "check": "stale review -> needs_confirmation",
+          "expected": "needs_confirmation",
+          "actual": "needs_confirmation",
+          "pass": true
+        },
+        {
+          "check": "nothing stored after stale attempt",
+          "expected": [],
+          "actual": [],
+          "pass": true
+        },
+        {
+          "check": "fresh plan reflects 150 evacuees (147 general people)",
+          "expected": 147,
+          "actual": 147,
+          "pass": true
+        },
+        {
+          "check": "unacknowledged warnings block finalization",
+          "expected": "acknowledgement_required",
+          "actual": "acknowledgement_required",
+          "pass": true
+        },
+        {
+          "check": "finalized with acknowledgements",
+          "expected": "finalized",
+          "actual": "finalized",
+          "pass": true
+        },
+        {
+          "check": "repeat finalize -> already_finalized",
+          "expected": "already_finalized",
+          "actual": "already_finalized",
+          "pass": true
+        },
+        {
+          "check": "after finalization the approvals are counted (oracle with approvals as reserved)",
+          "expected": "match",
+          "actual": "match",
+          "pass": true
+        },
+        {
+          "check": "one plan stored",
+          "expected": 1,
+          "actual": 1,
+          "pass": true
+        }
+      ]
+    },
+    {
+      "case": "R5_rejected_and_pending_ignored",
+      "description": "Rejected typos (SH-03 2100 people; WH-A rice 3000) and a pending WH-A bread recount (6 cases) must not be used",
+      "checks": [
+        {
+          "check": "SH-03 uses 210 people, not 2100",
+          "expected": 210,
+          "actual": 210,
+          "pass": true
+        },
+        {
+          "check": "general counted 660 (rice 300 + bread 240 + WH-B rice 120)",
+          "expected": 660,
+          "actual": 660,
+          "pass": true
+        },
+        {
+          "check": "pending bread count flagged as pending",
+          "expected": true,
+          "actual": [
+            "newer inventory count for WH-A/ITM-BREAD is still pending validation (2026-10-24T11:20:00+09:00); the plan uses its last validated count"
+          ],
+          "pass": true
+        }
+      ]
+    },
+    {
+      "case": "R6_invalid_staff_entry",
+      "description": "Staff approve a report with a non-numeric evacuee count",
+      "checks": [
+        {
+          "check": "rejected as invalid",
+          "expected": "invalid",
+          "actual": [
+            "invalid",
+            [
+              "evacuee_count: 'abc' is not a number"
+            ]
+          ],
+          "pass": true
+        },
+        {
+          "check": "shelter log unchanged",
+          "expected": true,
+          "actual": true,
+          "pass": true
+        }
+      ]
+    },
+    {
+      "case": "R7_no_validated_inventory",
+      "description": "All inventory counts are pending (none validated)",
+      "checks": [
+        {
+          "check": "general available 0",
+          "expected": 0,
+          "actual": 0,
+          "pass": true
+        },
+        {
+          "check": "Plan A allocates nothing",
+          "expected": 0,
+          "actual": 0,
+          "pass": true
+        },
+        {
+          "check": "procurement = total unmet",
+          "expected": 1003,
+          "actual": 1003,
+          "pass": true
+        },
+        {
+          "check": "matches oracle",
+          "expected": "match",
+          "actual": [
+            {
+              "field": "stock.general.counted",
+              "expected": 0,
+              "actual": "<missing>"
+            },
+            {
+              "field": "stock.general.dispatched_since_count",
+              "expected": 70,
+              "actual": "<missing>"
+            },
+            {
+              "field": "stock.general.reserved",
+              "expected": 24,
+              "actual": "<missing>"
+            },
+            {
+              "field": "stock.general.available",
+              "expected": 0,
+              "actual": "<missing>"
+            },
+            {
+              "field": "stock.infant_formula.counted",
+              "expected": 0,
+              "actual": "<missing>"
+            },
+            {
+              "field": "stock.infant_formula.dispatched_since_count",
+              "expected": 4,
+              "actual": "<missing>"
+            },
+            {
+              "field": "stock.infant_formula.reserved",
+              "expected": 0,
+              "actual": "<missing>"
+            },
+            {
+              "field": "stock.infant_formula.available",
+              "expected": 0,
+              "actual": "<missing>"
+            },
+            {
+              "field": "special.allergy_free.status",
+              "expected": "shortage",
+              "actual": "no_stock"
+            },
+            {
+              "field": "special.infant_formula.status",
+              "expected": "shortage",
+              "actual": "no_stock"
+            }
+          ],
+          "pass": false
+        },
+        {
+          "check": "no-inventory note shown",
+          "expected": "note",
+          "actual": "No validated warehouse inventory counts are available.",
+          "pass": true
+        }
+      ]
+    },
+    {
+      "case": "R8_partial_recount_EXPLORATORY",
+      "exploratory": true,
+      "description": "WH-A bread is recounted at 12:00 (6 cases); WH-A rice was last counted at 06:30; a general dispatch left WH-A at 11:00. The documented rule ('dispatches after the warehouse's latest count') does not say whether a recount of one item reflects a dispatch whose item is unknown.",
+      "checks": [
+        {
+          "check": "oracle reading (warehouse+diet latest count = 12:00 -> dispatch not deducted): available 540",
+          "expected": 540,
+          "actual": 500,
+          "pass": false
+        },
+        {
+          "check": "alternative reading (rice count 06:30 -> dispatch deducted): available 500",
+          "expected": 500,
+          "actual": 500,
+          "pass": null
+        }
+      ]
+    }
+  ],
+  "planning_efficiency": {
+    "scope": "automated processing only, on the sample data size (4 shelters, 9 inventory rows, 5 commitments)",
+    "machine": {
+      "python": "3.14.7",
+      "platform": "darwin"
+    },
+    "timings": {
+      "calculate_shelter_needs": {
+        "runs": 30,
+        "median_ms": 7.46,
+        "p95_ms": 7.95,
+        "min_ms": 7.02,
+        "max_ms": 8.78
+      },
+      "get_warehouse_inventory": {
+        "runs": 30,
+        "median_ms": 9.58,
+        "p95_ms": 10.38,
+        "min_ms": 9.24,
+        "max_ms": 10.89
+      },
+      "calculate_allocation (Plan A + B)": {
+        "runs": 30,
+        "median_ms": 18.47,
+        "p95_ms": 19.35,
+        "min_ms": 18.13,
+        "max_ms": 19.5
+      },
+      "prepare_supply_request": {
+        "runs": 30,
+        "median_ms": 18.64,
+        "p95_ms": 18.91,
+        "min_ms": 18.21,
+        "max_ms": 29.74
+      },
+      "review_plan (finalization review)": {
+        "runs": 30,
+        "median_ms": 16.0,
+        "p95_ms": 20.49,
+        "min_ms": 15.61,
+        "max_ms": 21.6
+      },
+      "load_dashboard (all dashboard figures)": {
+        "runs": 30,
+        "median_ms": 41.58,
+        "p95_ms": 42.6,
+        "min_ms": 41.02,
+        "max_ms": 45.79
+      },
+      "finalize_and_store (SQLite, fresh DB each run)": {
+        "runs": 5,
+        "median_ms": 30.67,
+        "min_ms": 30.38,
+        "max_ms": 32.33
+      }
+    }
+  },
+  "isolation": {
+    "data_live_unchanged": true,
+    "data_sample_unchanged": true,
+    "live_finalization_db_existed_before": false,
+    "live_finalization_db_exists_after": false,
+    "files_hashed": {
+      "data/live": 4,
+      "data/sample": 5
+    }
+  },
+  "human_review_time": "NOT MEASURED. No staff were timed reviewing extractions, acknowledging warnings, or finalizing plans; no productivity comparison is made."
+}

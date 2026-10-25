@@ -1,0 +1,4 @@
+record_id,source,received_at,status,validated_by,validated_at,supersedes,source_text,shelter_id,shelter_name,reported_at,evacuee_count,general_on_hand_meals,special_needs,special_on_hand_meals,reporter,notes
+t1,csv,2026-10-24T05:00+09:00,validated,Eval,2026-10-24T05:10+09:00,,,T1,Tie 1,2026-10-24T06:00+09:00,10,0,,,,
+t2,csv,2026-10-24T05:00+09:00,validated,Eval,2026-10-24T05:10+09:00,,,T2,Tie 2,2026-10-24T06:00+09:00,10,0,,,,
+t3,csv,2026-10-24T05:00+09:00,validated,Eval,2026-10-24T05:10+09:00,,,T3,Tie 3,2026-10-24T06:00+09:00,10,0,,,,

@@ -1,0 +1,286 @@
+{
+  "log_file": "evidence/usage/usage_log_p33.jsonl",
+  "new_lines": 6,
+  "agent_reported_requests": {
+    "chat": {
+      "requests": 2,
+      "input_tokens": 4778,
+      "output_tokens": 377,
+      "tool_calls": 1
+    },
+    "extraction+screen": {
+      "extraction": {
+        "requests": 1,
+        "input_tokens": 947,
+        "output_tokens": 186
+      },
+      "safety_screen": {
+        "requests": 1,
+        "input_tokens": 383,
+        "output_tokens": 19
+      }
+    },
+    "photo_analysis": {
+      "requests": 1,
+      "input_tokens": 1867,
+      "output_tokens": 780
+    },
+    "photo_followup": {
+      "requests": 1,
+      "input_tokens": 2014,
+      "output_tokens": 9
+    }
+  },
+  "by_workflow": {
+    "chat": {
+      "api_calls": 2,
+      "present": {
+        "input_tokens": 2,
+        "output_tokens": 2,
+        "total_tokens": 2,
+        "cached_read_tokens": 2,
+        "cache_write_tokens": 2,
+        "cache_write_ttl_30m_tokens": 0,
+        "cache_write_ttl_12h_tokens": 0,
+        "reasoning_tokens": 2,
+        "other_usage_fields": 0
+      },
+      "raw_keys": [
+        "input_tokens",
+        "input_tokens_details.cache_write_tokens",
+        "input_tokens_details.cached_tokens",
+        "output_tokens",
+        "output_tokens_details.reasoning_tokens",
+        "total_tokens"
+      ],
+      "headers": {
+        "x-portkey-cache-status": [
+          "MISS"
+        ],
+        "x-portkey-provider": [
+          "azure-openai"
+        ],
+        "x-portkey-retry-attempt-count": [
+          "(present)"
+        ],
+        "x-portkey-trace-id": [
+          "(present)"
+        ],
+        "x-portkey-last-used-option-index": [
+          "(present)"
+        ],
+        "x-ms-served-model": [
+          "gpt-6-luna-2026-09-22"
+        ],
+        "x-ms-region": [
+          "(present)"
+        ],
+        "x-ms-is-spilled-over": [
+          "(present)"
+        ],
+        "x-ratelimit-remaining-requests": [
+          "(present)"
+        ],
+        "x-ratelimit-remaining-tokens": [
+          "(present)"
+        ],
+        "x-ratelimit-limit-requests": [
+          "(present)"
+        ],
+        "x-ratelimit-limit-tokens": [
+          "(present)"
+        ],
+        "cf-cache-status": [
+          "DYNAMIC"
+        ]
+      }
+    },
+    "extraction": {
+      "api_calls": 1,
+      "present": {
+        "input_tokens": 1,
+        "output_tokens": 1,
+        "total_tokens": 1,
+        "cached_read_tokens": 1,
+        "cache_write_tokens": 1,
+        "cache_write_ttl_30m_tokens": 0,
+        "cache_write_ttl_12h_tokens": 0,
+        "reasoning_tokens": 1,
+        "other_usage_fields": 0
+      },
+      "raw_keys": [
+        "input_tokens",
+        "input_tokens_details.cache_write_tokens",
+        "input_tokens_details.cached_tokens",
+        "output_tokens",
+        "output_tokens_details.reasoning_tokens",
+        "total_tokens"
+      ],
+      "headers": {
+        "x-portkey-cache-status": [
+          "HIT"
+        ],
+        "x-portkey-provider": [
+          "azure-openai"
+        ],
+        "x-portkey-retry-attempt-count": [
+          "(present)"
+        ],
+        "x-portkey-trace-id": [
+          "(present)"
+        ],
+        "x-portkey-last-used-option-index": [
+          "(present)"
+        ]
+      }
+    },
+    "safety_screen": {
+      "api_calls": 1,
+      "present": {
+        "input_tokens": 1,
+        "output_tokens": 1,
+        "total_tokens": 1,
+        "cached_read_tokens": 1,
+        "cache_write_tokens": 1,
+        "cache_write_ttl_30m_tokens": 0,
+        "cache_write_ttl_12h_tokens": 0,
+        "reasoning_tokens": 1,
+        "other_usage_fields": 0
+      },
+      "raw_keys": [
+        "input_tokens",
+        "input_tokens_details.cache_write_tokens",
+        "input_tokens_details.cached_tokens",
+        "output_tokens",
+        "output_tokens_details.reasoning_tokens",
+        "total_tokens"
+      ],
+      "headers": {
+        "x-portkey-cache-status": [
+          "HIT"
+        ],
+        "x-portkey-provider": [
+          "azure-openai"
+        ],
+        "x-portkey-retry-attempt-count": [
+          "(present)"
+        ],
+        "x-portkey-trace-id": [
+          "(present)"
+        ],
+        "x-portkey-last-used-option-index": [
+          "(present)"
+        ]
+      }
+    },
+    "photo_analysis": {
+      "api_calls": 1,
+      "present": {
+        "input_tokens": 1,
+        "output_tokens": 1,
+        "total_tokens": 1,
+        "cached_read_tokens": 1,
+        "cache_write_tokens": 1,
+        "cache_write_ttl_30m_tokens": 0,
+        "cache_write_ttl_12h_tokens": 0,
+        "reasoning_tokens": 1,
+        "other_usage_fields": 0
+      },
+      "raw_keys": [
+        "input_tokens",
+        "input_tokens_details.cache_write_tokens",
+        "input_tokens_details.cached_tokens",
+        "output_tokens",
+        "output_tokens_details.reasoning_tokens",
+        "total_tokens"
+      ],
+      "headers": {
+        "x-portkey-cache-status": [
+          "HIT"
+        ],
+        "x-portkey-provider": [
+          "azure-openai"
+        ],
+        "x-portkey-retry-attempt-count": [
+          "(present)"
+        ],
+        "x-portkey-trace-id": [
+          "(present)"
+        ],
+        "x-portkey-last-used-option-index": [
+          "(present)"
+        ]
+      }
+    },
+    "photo_followup": {
+      "api_calls": 1,
+      "present": {
+        "input_tokens": 1,
+        "output_tokens": 1,
+        "total_tokens": 1,
+        "cached_read_tokens": 1,
+        "cache_write_tokens": 1,
+        "cache_write_ttl_30m_tokens": 0,
+        "cache_write_ttl_12h_tokens": 0,
+        "reasoning_tokens": 1,
+        "other_usage_fields": 0
+      },
+      "raw_keys": [
+        "input_tokens",
+        "input_tokens_details.cache_write_tokens",
+        "input_tokens_details.cached_tokens",
+        "output_tokens",
+        "output_tokens_details.reasoning_tokens",
+        "total_tokens"
+      ],
+      "headers": {
+        "x-portkey-cache-status": [
+          "MISS"
+        ],
+        "x-portkey-provider": [
+          "azure-openai"
+        ],
+        "x-portkey-retry-attempt-count": [
+          "(present)"
+        ],
+        "x-portkey-trace-id": [
+          "(present)"
+        ],
+        "x-portkey-last-used-option-index": [
+          "(present)"
+        ],
+        "x-ms-served-model": [
+          "gpt-6-luna-2026-09-22"
+        ],
+        "x-ms-region": [
+          "(present)"
+        ],
+        "x-ms-is-spilled-over": [
+          "(present)"
+        ],
+        "x-ratelimit-remaining-requests": [
+          "(present)"
+        ],
+        "x-ratelimit-remaining-tokens": [
+          "(present)"
+        ],
+        "x-ratelimit-limit-requests": [
+          "(present)"
+        ],
+        "x-ratelimit-limit-tokens": [
+          "(present)"
+        ],
+        "cf-cache-status": [
+          "DYNAMIC"
+        ]
+      }
+    }
+  },
+  "all_ok": true,
+  "secrets_or_content_found": {
+    "api_key": false,
+    "report_text": false,
+    "image_base64": false
+  },
+  "live_data_unchanged": true
+}

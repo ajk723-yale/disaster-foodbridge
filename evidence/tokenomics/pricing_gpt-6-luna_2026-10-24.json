@@ -1,0 +1,89 @@
+{
+  "model": "gpt-6-luna",
+  "date_checked": "2026-10-24",
+  "currency": "USD",
+  "unit": "per 1,000,000 tokens",
+  "sources": {
+    "pricing_page": "https://developers.openai.com/api/docs/pricing",
+    "pricing_page_note": "https://platform.openai.com/docs/pricing redirects (301) here; https://openai.com/api/pricing/ returned HTTP 403 to the fetch tool",
+    "prompt_caching_guide": "https://developers.openai.com/api/docs/guides/prompt-caching",
+    "images_vision_guide": "https://developers.openai.com/api/docs/guides/images-vision",
+    "secondary_sources_not_used_for_rates": [
+      "https://www.eesel.ai/blog/gpt-6-luna-pricing",
+      "https://aimlapi.com/models/gpt-6-luna (reseller, higher rates)",
+      "https://braindetox.kr/en/posts/gpt6_sol_luna_release_2026.html"
+    ]
+  },
+  "long_context_threshold_input_tokens": 272000,
+  "rates": {
+    "standard": {
+      "short_context": {
+        "input": 0.1,
+        "cached_input": 0.01,
+        "cache_write_30m": 0.125,
+        "cache_write_12h": 0.25,
+        "output": 0.5
+      },
+      "long_context": {
+        "input": 0.2,
+        "cached_input": 0.02,
+        "cache_write_30m": 0.25,
+        "cache_write_12h": 0.5,
+        "output": 0.75
+      }
+    },
+    "batch_flex": {
+      "short_context": {
+        "input": 0.05,
+        "cached_input": 0.005,
+        "cache_write_30m": 0.0625,
+        "cache_write_12h": 0.125,
+        "output": 0.25
+      },
+      "long_context": {
+        "input": 0.1,
+        "cached_input": 0.01,
+        "cache_write_30m": 0.125,
+        "cache_write_12h": 0.25,
+        "output": 0.375
+      }
+    },
+    "fast": {
+      "short_context": {
+        "input": 0.2,
+        "cached_input": 0.02,
+        "cache_write_30m": 0.25,
+        "cache_write_12h": 0.5,
+        "output": 1.0
+      },
+      "long_context": {
+        "input": 0.4,
+        "cached_input": 0.04,
+        "cache_write_30m": 0.5,
+        "cache_write_12h": 1.0,
+        "output": 1.5
+      }
+    }
+  },
+  "caching_conditions_from_guide": {
+    "minimum_cacheable_prompt_tokens": 1024,
+    "minimum_applies_to": "GPT-5.6 and later (guide wording); gpt-6-luna is not named in the guide",
+    "prefix_rule": "Cache reuse requires the entire rendered prefix to match (instructions, tool definitions, history, images).",
+    "default": "Prompt caching is enabled by default for supported models (implicit mode places breakpoints automatically).",
+    "write_cost": "30-minute writes 1.25x uncached input; 12-hour writes (Responses API only) 2.5x; total rates, not surcharges",
+    "read_cost": "0.1x uncached input (0.05x on gpt-6.1-sol only)",
+    "lifetime": "default minimum 30 minutes; prompt_cache_options.ttl='12h' in the Responses API",
+    "usage_fields": "usage.input_tokens_details.cached_tokens (reads); usage.input_tokens_details.cache_write_tokens (writes), split by ttl_30m_tokens / ttl_12h_tokens"
+  },
+  "image_tokens": {
+    "status": "uncertain for gpt-6-luna",
+    "documented_rule_for_other_models": "patch models: ceil(w/32) x ceil(h/32) patches x model multiplier (1.2 listed for gpt-5.6-luna); gpt-6-luna not listed",
+    "included_in_input_tokens": "not stated by the guide"
+  },
+  "not_verified": [
+    "Whether our course's Portkey account is billed at these OpenAI rates (Portkey routes gpt-6-luna to an Azure OpenAI deployment; P8 error message mentioned 'gpt-6-luna-global'); Azure and Portkey pricing, markups, credits, or fees were not checked",
+    "Which tier our calls use (assumed standard; no service_tier was set)",
+    "Whether the 10% regional/FedRAMP uplift applies",
+    "Whether implicit caching wrote or read cache for any of our calls (the fields were not recorded)"
+  ]
+}

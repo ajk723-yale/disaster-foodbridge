@@ -1,0 +1,9 @@
+record_id,source,received_at,status,validated_by,validated_at,supersedes,source_text,shelter_id,shelter_name,reported_at,evacuee_count,general_on_hand_meals,special_needs,special_on_hand_meals,reporter,notes
+smp-001,csv,2026-10-24T06:10+09:00,validated,Tanaka,2026-10-24T06:30+09:00,,,SH-01,Minami Elementary School,2026-10-24T06:00+09:00,120,40,infant_formula:3,infant_formula:6,Sato,
+smp-002,csv,2026-10-24T09:05+09:00,validated,Tanaka,2026-10-24T09:20+09:00,,,SH-01,Minami Elementary School,2026-10-24T09:00+09:00,135,25,infant_formula:3,infant_formula:4,Sato,Morning count
+smp-003,csv,2026-10-24T08:40+09:00,validated,Suzuki,2026-10-24T08:55+09:00,,,SH-02,Kita Community Center,2026-10-24T08:30+09:00,64,90,allergy_free:2,,Ito,
+smp-004,ai_extraction,2026-10-24T11:15+09:00,pending,,,,"Kita CC update 11:00 - about 80 people now, food ok",SH-02,Kita Community Center,2026-10-24T11:00+09:00,80,90,,,Ito,
+smp-005,csv,2026-10-24T07:50+09:00,validated,Suzuki,2026-10-24T08:05+09:00,,,SH-03,Higashi Junior High Gym,2026-10-24T07:45+09:00,210,0,halal:?,,Kobayashi,Halal count not confirmed
+smp-006,csv,2026-10-24T10:20+09:00,pending,,,,,SH-04,Nishi Public Hall,2026-10-24T10:10+09:00,45,10,,,Watanabe,New shelter opened
+smp-007,csv,2026-10-24T10:30+09:00,rejected,Tanaka,2026-10-24T10:35+09:00,,,SH-03,Higashi Junior High Gym,2026-10-24T10:25+09:00,2100,0,,,Kobayashi,Typo - extra zero
+eval-r4,csv,2026-10-24T05:00+09:00,validated,Eval,2026-10-24T05:10+09:00,,,SH-01,Minami Elementary School,2026-10-24T12:00+09:00,150,25,infant_formula:3,infant_formula:4,Eval,

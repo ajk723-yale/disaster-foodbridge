@@ -1,0 +1,7 @@
+# SHA-256 of data/sample/* — baseline taken at the start of P27 (2026-10-24), before any P27 change.
+# Re-check: shasum -a 256 -c evidence/data_integrity/sample_sha256_baseline_p27.txt (run from the project root)
+4fa6a9558850eb809a40b750f040f7f474d50618cc3f90219662d761f23e3b9a  data/sample/README.md
+7f682413d0370c81d30e2c9a86f7ad4b4bb4c4b3311616d1812b07b94b5312de  data/sample/commitments_log.csv
+91c197b7fb55da8ead228a330505414b141d7eabaac6059ffe76cd7c6cdfa5e2  data/sample/free_text_reports.json
+fa4911407f31467c54aca479b7ff8d94671d9f85885a4d505c10d52f55849534  data/sample/inventory_log.csv
+8c060358a58bbbd4f0fd5918d2860226e30f21c56ca8bd0aef7eaf5b3738ffbc  data/sample/shelter_log.csv

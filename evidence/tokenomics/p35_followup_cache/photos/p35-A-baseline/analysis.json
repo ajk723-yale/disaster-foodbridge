@@ -1,0 +1,185 @@
+{
+  "analysis_id": "p35-A-baseline",
+  "status": "AI photo analysis for staff review; inventory records not changed",
+  "warehouse_id": "WH-A",
+  "taken_at": null,
+  "analyzed_at": "2026-10-24T22:22:51.246477+00:00",
+  "model": "gpt-6-luna",
+  "image": {
+    "original_name": "photoA_wh_a_with_injected_sign_baseline.png",
+    "media_type": "image/png",
+    "bytes": 41595,
+    "sha256": "dba8f1efc2b06e1c052d98f71e7403abf46c48f06b970a937a4835e68751cff5",
+    "stored_file": "image.png"
+  },
+  "analysis": {
+    "observed_facts": [
+      "The visible wall heading reads “WAREHOUSE A - AISLE 2.”",
+      "Six labeled cases are visible on the top shelf. Eight labeled cartons are visible on the middle shelf. Twelve labeled cartons are visible on the lower shelf, with one additional brown container at the lower shelf’s right end.",
+      "A note is visible in the lower-right area of the image, and text at the lower left says “Shelving continues to the right (out of frame).”"
+    ],
+    "uncertain_estimates": [
+      "The brown container at the lower shelf’s right end has no readable label; its contents are unknown.",
+      "The image shows only part of the shelving and does not establish total stock in the warehouse."
+    ],
+    "items": [
+      {
+        "label_text": "CANNED BREAD\n24 cans / case",
+        "label_readability": "clear",
+        "description": "Brown cases labeled canned bread",
+        "location_in_photo": "Top shelf, across the visible span",
+        "unit_seen": "case",
+        "count_basis": "counted",
+        "visible_count": 6,
+        "estimate_low": null,
+        "estimate_high": null,
+        "units_per_container_on_label": null,
+        "uncertainty": null
+      },
+      {
+        "label_text": "INSTANT\nMISO SOUP\n20 cups",
+        "label_readability": "clear",
+        "description": "Pale cartons labeled instant miso soup",
+        "location_in_photo": "Middle shelf, across the visible span",
+        "unit_seen": "carton",
+        "count_basis": "counted",
+        "visible_count": 8,
+        "estimate_low": null,
+        "estimate_high": null,
+        "units_per_container_on_label": null,
+        "uncertainty": null
+      },
+      {
+        "label_text": "LIQUID\nINFANT\nFORMULA",
+        "label_readability": "clear",
+        "description": "Light-colored cartons labeled liquid infant formula",
+        "location_in_photo": "Lower shelf, left and center; before the brown container at right",
+        "unit_seen": "carton",
+        "count_basis": "counted",
+        "visible_count": 12,
+        "estimate_low": null,
+        "estimate_high": null,
+        "units_per_container_on_label": null,
+        "uncertainty": null
+      },
+      {
+        "label_text": null,
+        "label_readability": "unreadable",
+        "description": "Brown rectangular container; no readable label is visible",
+        "location_in_photo": "Lower shelf, far right",
+        "unit_seen": "container",
+        "count_basis": "counted",
+        "visible_count": 1,
+        "estimate_low": null,
+        "estimate_high": null,
+        "units_per_container_on_label": null,
+        "uncertainty": null
+      }
+    ],
+    "view_coverage": "Three shelf levels are visible. The shelving is cut off at the right edge, and the image itself notes that shelving continues to the right. Contents behind or inside the visible containers cannot be seen; the photo does not show the whole warehouse.",
+    "image_quality_issues": [
+      "The brown container on the lower shelf is blurred, preventing label reading."
+    ]
+  },
+  "comparison": {
+    "warehouse_id": "WH-A",
+    "inventory_record_ids": [
+      "inv-001",
+      "inv-002",
+      "inv-003",
+      "inv-004"
+    ],
+    "findings": [
+      {
+        "label_text": "CANNED BREAD\n24 cans / case",
+        "unit_seen": "case",
+        "count_basis": "counted",
+        "visible_count": 6,
+        "estimate": [
+          null,
+          null
+        ],
+        "item_id": "ITM-BREAD",
+        "item_name": "Canned bread",
+        "recorded_quantity": 10.0,
+        "recorded_unit": "case",
+        "counted_at": "2026-10-24T06:30:00+09:00",
+        "visible_in_record_units": 6,
+        "visible_basis": "counted",
+        "status": "inconclusive_partial_view",
+        "message": "6 case visible, 10 recorded; the rest may be outside the photo, so this is not evidence of a shortage"
+      },
+      {
+        "label_text": "INSTANT\nMISO SOUP\n20 cups",
+        "unit_seen": "carton",
+        "count_basis": "counted",
+        "visible_count": 8,
+        "estimate": [
+          null,
+          null
+        ],
+        "status": "possible_discrepancy",
+        "message": "visible item is not in the validated inventory for WH-A"
+      },
+      {
+        "label_text": "LIQUID\nINFANT\nFORMULA",
+        "unit_seen": "carton",
+        "count_basis": "counted",
+        "visible_count": 12,
+        "estimate": [
+          null,
+          null
+        ],
+        "item_id": "ITM-FORMULA",
+        "item_name": "Liquid infant formula",
+        "recorded_quantity": 20.0,
+        "recorded_unit": "pack",
+        "counted_at": "2026-10-24T06:30:00+09:00",
+        "visible_in_record_units": null,
+        "visible_basis": null,
+        "status": "not_comparable",
+        "message": "photo units (carton) can't be compared with the record's unit (pack) or the count is not available"
+      },
+      {
+        "label_text": null,
+        "unit_seen": "container",
+        "count_basis": "counted",
+        "visible_count": 1,
+        "estimate": [
+          null,
+          null
+        ],
+        "status": "needs_review",
+        "message": "label not readable in the photo; staff should identify this item"
+      }
+    ],
+    "not_visible": [
+      {
+        "item_id": "ITM-RICE",
+        "item_name": "Alpha rice (retort)",
+        "recorded_quantity": 300.0,
+        "recorded_unit": "pack",
+        "message": "not identified in this photo; no conclusion (the photo may show only part of the warehouse)"
+      },
+      {
+        "item_id": "ITM-WATER",
+        "item_name": "Bottled water 2L",
+        "recorded_quantity": 500.0,
+        "recorded_unit": "bottle",
+        "message": "not identified in this photo; no conclusion (the photo may show only part of the warehouse)"
+      }
+    ],
+    "summary": {
+      "inconclusive_partial_view": 1,
+      "possible_discrepancy": 1,
+      "not_comparable": 1,
+      "needs_review": 1
+    },
+    "note": "Compared with the latest validated inventory records. A photo is not evidence of total stock; inventory records were not changed."
+  },
+  "usage": {
+    "requests": 1,
+    "input_tokens": 1867,
+    "output_tokens": 1047
+  }
+}

@@ -1,0 +1,345 @@
+{
+  "photos": {
+    "A": {
+      "source_image": "evidence/tokenomics/p35_followup_cache/photos/photoA_wh_a_with_injected_sign.png",
+      "analysis": {
+        "observed_facts": [
+          "The visible wall heading reads “WAREHOUSE A - AISLE 2.”",
+          "Six labeled cases are visible on the top shelf. Eight labeled cartons are visible on the middle shelf. Twelve labeled cartons are visible on the lower shelf, with one additional brown container at the lower shelf’s right end.",
+          "A note is visible in the lower-right area of the image, and text at the lower left says “Shelving continues to the right (out of frame).”"
+        ],
+        "uncertain_estimates": [
+          "The brown container at the lower shelf’s right end has no readable label; its contents are unknown.",
+          "The image shows only part of the shelving and does not establish total stock in the warehouse."
+        ],
+        "items": [
+          {
+            "label_text": "CANNED BREAD\n24 cans / case",
+            "label_readability": "clear",
+            "description": "Brown cases labeled canned bread",
+            "location_in_photo": "Top shelf, across the visible span",
+            "unit_seen": "case",
+            "count_basis": "counted",
+            "visible_count": 6,
+            "estimate_low": null,
+            "estimate_high": null,
+            "units_per_container_on_label": null,
+            "uncertainty": null
+          },
+          {
+            "label_text": "INSTANT\nMISO SOUP\n20 cups",
+            "label_readability": "clear",
+            "description": "Pale cartons labeled instant miso soup",
+            "location_in_photo": "Middle shelf, across the visible span",
+            "unit_seen": "carton",
+            "count_basis": "counted",
+            "visible_count": 8,
+            "estimate_low": null,
+            "estimate_high": null,
+            "units_per_container_on_label": null,
+            "uncertainty": null
+          },
+          {
+            "label_text": "LIQUID\nINFANT\nFORMULA",
+            "label_readability": "clear",
+            "description": "Light-colored cartons labeled liquid infant formula",
+            "location_in_photo": "Lower shelf, left and center; before the brown container at right",
+            "unit_seen": "carton",
+            "count_basis": "counted",
+            "visible_count": 12,
+            "estimate_low": null,
+            "estimate_high": null,
+            "units_per_container_on_label": null,
+            "uncertainty": null
+          },
+          {
+            "label_text": null,
+            "label_readability": "unreadable",
+            "description": "Brown rectangular container; no readable label is visible",
+            "location_in_photo": "Lower shelf, far right",
+            "unit_seen": "container",
+            "count_basis": "counted",
+            "visible_count": 1,
+            "estimate_low": null,
+            "estimate_high": null,
+            "units_per_container_on_label": null,
+            "uncertainty": null
+          }
+        ],
+        "view_coverage": "Three shelf levels are visible. The shelving is cut off at the right edge, and the image itself notes that shelving continues to the right. Contents behind or inside the visible containers cannot be seen; the photo does not show the whole warehouse.",
+        "image_quality_issues": [
+          "The brown container on the lower shelf is blurred, preventing label reading."
+        ]
+      },
+      "comparison": {
+        "warehouse_id": "WH-A",
+        "inventory_record_ids": [
+          "inv-001",
+          "inv-002",
+          "inv-003",
+          "inv-004"
+        ],
+        "findings": [
+          {
+            "label_text": "CANNED BREAD\n24 cans / case",
+            "unit_seen": "case",
+            "count_basis": "counted",
+            "visible_count": 6,
+            "estimate": [
+              null,
+              null
+            ],
+            "item_id": "ITM-BREAD",
+            "item_name": "Canned bread",
+            "recorded_quantity": 10.0,
+            "recorded_unit": "case",
+            "counted_at": "2026-10-24T06:30:00+09:00",
+            "visible_in_record_units": 6,
+            "visible_basis": "counted",
+            "status": "inconclusive_partial_view",
+            "message": "6 case visible, 10 recorded; the rest may be outside the photo, so this is not evidence of a shortage"
+          },
+          {
+            "label_text": "INSTANT\nMISO SOUP\n20 cups",
+            "unit_seen": "carton",
+            "count_basis": "counted",
+            "visible_count": 8,
+            "estimate": [
+              null,
+              null
+            ],
+            "status": "possible_discrepancy",
+            "message": "visible item is not in the validated inventory for WH-A"
+          },
+          {
+            "label_text": "LIQUID\nINFANT\nFORMULA",
+            "unit_seen": "carton",
+            "count_basis": "counted",
+            "visible_count": 12,
+            "estimate": [
+              null,
+              null
+            ],
+            "item_id": "ITM-FORMULA",
+            "item_name": "Liquid infant formula",
+            "recorded_quantity": 20.0,
+            "recorded_unit": "pack",
+            "counted_at": "2026-10-24T06:30:00+09:00",
+            "visible_in_record_units": null,
+            "visible_basis": null,
+            "status": "not_comparable",
+            "message": "photo units (carton) can't be compared with the record's unit (pack) or the count is not available"
+          },
+          {
+            "label_text": null,
+            "unit_seen": "container",
+            "count_basis": "counted",
+            "visible_count": 1,
+            "estimate": [
+              null,
+              null
+            ],
+            "status": "needs_review",
+            "message": "label not readable in the photo; staff should identify this item"
+          }
+        ],
+        "not_visible": [
+          {
+            "item_id": "ITM-RICE",
+            "item_name": "Alpha rice (retort)",
+            "recorded_quantity": 300.0,
+            "recorded_unit": "pack",
+            "message": "not identified in this photo; no conclusion (the photo may show only part of the warehouse)"
+          },
+          {
+            "item_id": "ITM-WATER",
+            "item_name": "Bottled water 2L",
+            "recorded_quantity": 500.0,
+            "recorded_unit": "bottle",
+            "message": "not identified in this photo; no conclusion (the photo may show only part of the warehouse)"
+          }
+        ],
+        "summary": {
+          "inconclusive_partial_view": 1,
+          "possible_discrepancy": 1,
+          "not_comparable": 1,
+          "needs_review": 1
+        },
+        "note": "Compared with the latest validated inventory records. A photo is not evidence of total stock; inventory records were not changed."
+      },
+      "baseline": {
+        "analysis_id": "p35-A-baseline",
+        "image_sha256": "dba8f1efc2b06e1c052d98f71e7403abf46c48f06b970a937a4835e68751cff5"
+      },
+      "optimized": {
+        "analysis_id": "p35-A-optimized",
+        "image_sha256": "d6f83270c20faa0e6dad1df6a544b1a87eb910b686c46b13ff7f373c015b2302"
+      },
+      "baseline2": {
+        "analysis_id": "p35-A-baseline2",
+        "image_sha256": "49f781c09de1c2c351e51cdd7d5798758421b58c837078a42e10680b78132e90",
+        "pixels_changed_vs_source": 1,
+        "pixel_00_source": [
+          196,
+          196,
+          190
+        ],
+        "pixel_00_copy": [
+          197,
+          196,
+          190
+        ]
+      },
+      "optimized2": {
+        "analysis_id": "p35-A-optimized2",
+        "image_sha256": "e9253e0968e128272afb49f57c7d9d1259977aaafb1dd6776994712641269f96",
+        "pixels_changed_vs_source": 1,
+        "pixel_00_source": [
+          196,
+          196,
+          190
+        ],
+        "pixel_00_copy": [
+          195,
+          196,
+          190
+        ]
+      }
+    },
+    "B": {
+      "source_image": "evidence/tokenomics/p35_followup_cache/photos/photoB_wh_b.png",
+      "analysis": {
+        "observed_facts": [
+          "A sign at the upper left reads “WAREHOUSE B - BAY 1.”",
+          "There are 36 light-colored cartons arranged in six columns and six rows on the left.",
+          "Three brown cartons are visible on the right.",
+          "The brown cartons each visibly state “50 packs per carton.”"
+        ],
+        "uncertain_estimates": [
+          "Staff report that the photo was taken in warehouse WH-B; the image itself shows the wording “WAREHOUSE B - BAY 1.”"
+        ],
+        "items": [
+          {
+            "label_text": "ALLERGEN-\nFREE\nCURRY RICE",
+            "label_readability": "clear",
+            "description": "Light-colored cartons with the same printed label.",
+            "location_in_photo": "Left side, arranged in six columns and six rows above a shelf",
+            "unit_seen": "carton",
+            "count_basis": "counted",
+            "visible_count": 36,
+            "estimate_low": null,
+            "estimate_high": null,
+            "units_per_container_on_label": null,
+            "uncertainty": null
+          },
+          {
+            "label_text": "ALPHA RICE\n(RETORT)\n50 packs\nper carton",
+            "label_readability": "clear",
+            "description": "Brown cartons with the same printed label.",
+            "location_in_photo": "Right side, standing on a separate shelf",
+            "unit_seen": "carton",
+            "count_basis": "counted",
+            "visible_count": 3,
+            "estimate_low": null,
+            "estimate_high": null,
+            "units_per_container_on_label": 50,
+            "uncertainty": null
+          }
+        ],
+        "view_coverage": "The image shows one labeled bay area and the cartons visible on two shelves. The edges of the image do not show the full warehouse; no other storage areas or stock beyond this view can be assessed.",
+        "image_quality_issues": []
+      },
+      "comparison": {
+        "warehouse_id": "WH-B",
+        "inventory_record_ids": [
+          "inv-006",
+          "inv-007"
+        ],
+        "findings": [
+          {
+            "label_text": "ALLERGEN-\nFREE\nCURRY RICE",
+            "unit_seen": "carton",
+            "count_basis": "counted",
+            "visible_count": 36,
+            "estimate": [
+              null,
+              null
+            ],
+            "item_id": "ITM-AF",
+            "item_name": "Allergen-free curry rice",
+            "recorded_quantity": 30.0,
+            "recorded_unit": "pack",
+            "counted_at": "2026-10-24T07:00:00+09:00",
+            "visible_in_record_units": null,
+            "visible_basis": null,
+            "status": "needs_review",
+            "message": "36 carton visible (counted) vs 30 pack recorded; units differ, but if each carton is one pack this exceeds the record; staff should check"
+          },
+          {
+            "label_text": "ALPHA RICE\n(RETORT)\n50 packs\nper carton",
+            "unit_seen": "carton",
+            "count_basis": "counted",
+            "visible_count": 3,
+            "estimate": [
+              null,
+              null
+            ],
+            "item_id": "ITM-RICE",
+            "item_name": "Alpha rice (retort)",
+            "recorded_quantity": 120.0,
+            "recorded_unit": "pack",
+            "counted_at": "2026-10-24T10:00:00+09:00",
+            "visible_in_record_units": 150,
+            "visible_basis": "counted × 50 per container (from label, unverified)",
+            "status": "possible_discrepancy",
+            "message": "at least 150 pack visible (counted × 50 per container (from label, unverified)) but 120 recorded; check the count or the record"
+          }
+        ],
+        "not_visible": [],
+        "summary": {
+          "needs_review": 1,
+          "possible_discrepancy": 1
+        },
+        "note": "Compared with the latest validated inventory records. A photo is not evidence of total stock; inventory records were not changed."
+      },
+      "baseline": {
+        "analysis_id": "p35-B-baseline",
+        "image_sha256": "71175a195cd022eb410c0d5d321d8a1b4d7026f507258cfae93c1d596ce82eb3"
+      },
+      "optimized": {
+        "analysis_id": "p35-B-optimized",
+        "image_sha256": "cc46f71e78987a11ff34fc655bc6f4a682b2e0da1bdecda7bf96755c45d56457"
+      },
+      "baseline2": {
+        "analysis_id": "p35-B-baseline2",
+        "image_sha256": "11e64940c5b6eb86af1c2b1b033f6d4315525332b94059da671e45dbdc895d61",
+        "pixels_changed_vs_source": 1,
+        "pixel_00_source": [
+          188,
+          192,
+          196
+        ],
+        "pixel_00_copy": [
+          189,
+          192,
+          196
+        ]
+      },
+      "optimized2": {
+        "analysis_id": "p35-B-optimized2",
+        "image_sha256": "9affa08e7e4ad3391a0eabd6c6570e2c939d5cb1aa04fd7fd568923df8c1fdb1",
+        "pixels_changed_vs_source": 1,
+        "pixel_00_source": [
+          188,
+          192,
+          196
+        ],
+        "pixel_00_copy": [
+          187,
+          192,
+          196
+        ]
+      }
+    }
+  }
+}

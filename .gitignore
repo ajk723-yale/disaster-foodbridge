@@ -1,0 +1,38 @@
+# Secrets (keys live only in .env, here or in the parent folder)
+.env
+.env.*
+!.env.example
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+*.egg-info/
+
+# Working data and runtime logs (created on first start; never commit real shelter data)
+data/live/*
+!data/live/.gitkeep
+data/uploads/*
+!data/uploads/.gitkeep
+*.log
+
+# Temporary files
+*.tmp
+*.bak
+*.swp
+.seed-*
+
+# OS / editor / local tools
+.DS_Store
+.vscode/
+.idea/
+.claude/
+
+# Throwaway output of the planning-timing run (timings are kept in impact_eval_results*.json)
+evidence/impact/cases/E1_planning_timing/

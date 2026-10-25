@@ -1,0 +1,9 @@
+# Runtime and tests. Versions are the ones the app was built and tested with (Python 3.14.7, macOS).
+dash==4.4.1
+plotly==7.1.0
+pandas==3.1.0
+python-dotenv==1.2.4
+openai==3.37.0
+pydantic-ai-slim[openai]==2.61.0
+portkey-ai==2.3.4
+pytest==9.1.1

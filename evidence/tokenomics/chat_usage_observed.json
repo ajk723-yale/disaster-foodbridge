@@ -1,0 +1,131 @@
+{
+  "status": "OBSERVED, NOT SAVED: figures read from the app's server log ('agent usage' lines) during development sessions and transcribed into evidence_index.md section 4. Raw logs were not kept, so these cannot be re-verified from files.",
+  "records": [
+    {
+      "prompt": "P7",
+      "question": "probe: Reply with the word OK",
+      "kind": "probe",
+      "requests": 1,
+      "tool_calls": 0,
+      "input_tokens": 12,
+      "output_tokens": 4
+    },
+    {
+      "prompt": "P7",
+      "question": "What can you help me with… special dietary needs?",
+      "kind": "chat_no_tool",
+      "requests": 1,
+      "tool_calls": 0,
+      "input_tokens": 212,
+      "output_tokens": 293
+    },
+    {
+      "prompt": "P8",
+      "question": "What's the latest situation at our evacuation shelters?",
+      "kind": "chat_tool",
+      "requests": 2,
+      "tool_calls": 1,
+      "input_tokens": 1095,
+      "output_tokens": 318
+    },
+    {
+      "prompt": "P9",
+      "question": "How much food do we currently have available?",
+      "kind": "chat_tool",
+      "requests": 2,
+      "tool_calls": 1,
+      "input_tokens": 1870,
+      "output_tokens": 354
+    },
+    {
+      "prompt": "P9",
+      "question": "Please show that as a table.",
+      "kind": "chat_tool",
+      "requests": 2,
+      "tool_calls": 1,
+      "input_tokens": 2363,
+      "output_tokens": 435
+    },
+    {
+      "prompt": "P11",
+      "question": "How much food do we currently have available?",
+      "kind": "chat_tool",
+      "requests": 2,
+      "tool_calls": 1,
+      "input_tokens": 2338,
+      "output_tokens": 408
+    },
+    {
+      "prompt": "P12",
+      "question": "How much food does each shelter still need…24 hours?",
+      "kind": "chat_tool",
+      "requests": 2,
+      "tool_calls": 2,
+      "input_tokens": 2940,
+      "output_tokens": 510
+    },
+    {
+      "prompt": "P14",
+      "question": "Needs + status of committed / shipped food",
+      "kind": "chat_tool",
+      "requests": 2,
+      "tool_calls": 1,
+      "input_tokens": 2950,
+      "output_tokens": 552
+    },
+    {
+      "prompt": "P15",
+      "question": "Same question after relabeling",
+      "kind": "chat_tool",
+      "requests": 2,
+      "tool_calls": 1,
+      "input_tokens": 3124,
+      "output_tokens": 526
+    },
+    {
+      "prompt": "P16",
+      "question": "Prepare a food allocation plan…",
+      "kind": "chat_tool",
+      "requests": 2,
+      "tool_calls": 1,
+      "input_tokens": 3517,
+      "output_tokens": 573
+    },
+    {
+      "prompt": "P17",
+      "question": "Draft a request for additional food supplies… (run 1)",
+      "kind": "chat_tool",
+      "requests": 2,
+      "tool_calls": 1,
+      "input_tokens": 4294,
+      "output_tokens": 637
+    },
+    {
+      "prompt": "P17",
+      "question": "Draft a request for additional food supplies… (run 2, identical output; possibly cached)",
+      "kind": "chat_tool",
+      "requests": 2,
+      "tool_calls": 1,
+      "input_tokens": 4294,
+      "output_tokens": 637
+    },
+    {
+      "prompt": "P21",
+      "question": "Please finalize the current allocation plan… (refusal)",
+      "kind": "chat_no_tool",
+      "requests": 1,
+      "tool_calls": 0,
+      "input_tokens": 1845,
+      "output_tokens": 118
+    },
+    {
+      "prompt": "P29",
+      "question": "Can the photo analysis change our inventory numbers?",
+      "kind": "chat_no_tool",
+      "requests": 1,
+      "tool_calls": 0,
+      "input_tokens": 1841,
+      "output_tokens": 127
+    }
+  ]
+}

@@ -1,0 +1,882 @@
+{
+  "date": "2026-10-24",
+  "pricing_file": "evidence/tokenomics/pricing_gpt-6-luna_2026-10-24.json",
+  "pricing_sources": {
+    "pricing_page": "https://developers.openai.com/api/docs/pricing",
+    "pricing_page_note": "https://platform.openai.com/docs/pricing redirects (301) here; https://openai.com/api/pricing/ returned HTTP 403 to the fetch tool",
+    "prompt_caching_guide": "https://developers.openai.com/api/docs/guides/prompt-caching",
+    "images_vision_guide": "https://developers.openai.com/api/docs/guides/images-vision",
+    "secondary_sources_not_used_for_rates": [
+      "https://www.eesel.ai/blog/gpt-6-luna-pricing",
+      "https://aimlapi.com/models/gpt-6-luna (reseller, higher rates)",
+      "https://braindetox.kr/en/posts/gpt6_sol_luna_release_2026.html"
+    ]
+  },
+  "assumptions": [
+    "A1 Rates: OpenAI's published standard-tier rates for gpt-6-luna (checked 2026-10-24). Our calls go through Portkey to an Azure OpenAI deployment; the course account's actual billing (rates, markups, credits) is unknown.",
+    "A2 Caching: cached-read and cache-write token counts were never recorded, so the point estimate bills all input at the uncached rate. Bounds: for prompts of at least 1,024 tokens (the guide's minimum for GPT-5.6 and later), the low bound bills all input as cached reads (0.1x) and the high bound as 30-minute cache writes (1.25x); shorter prompts cannot be cached and use the uncached rate in all three figures.",
+    "A3 Images: photo-analysis input_tokens are assumed to include the image tokens (the guide does not say for gpt-6-luna). Output tokens are assumed to include any reasoning tokens (not recorded separately).",
+    "A4 Context: every recorded call is far below the 272,000-token long-context threshold, so short-context rates apply.",
+    "A5 Repeats: identical prompts that returned identical outputs and token counts may have been served from a Portkey cache; whether those were billed is unknown, so they are counted as billed."
+  ],
+  "token_fields": {
+    "measured": [
+      "requests",
+      "input_tokens",
+      "output_tokens (PydanticAI RunUsage, per agent run)"
+    ],
+    "missing (available in PydanticAI/OpenAI usage but never recorded)": [
+      "cached input tokens (input_tokens_details.cached_tokens / RunUsage.cache_read_tokens)",
+      "cache-write tokens and their TTL (cache_write_tokens; ttl_30m / ttl_12h)",
+      "reasoning tokens (output_reasoning_tokens)",
+      "tool_calls for extraction/vision/screen runs",
+      "per-request breakdown inside multi-request runs (chat tool calls)",
+      "provider cost (RunUsage.cost) and Portkey's billed amount",
+      "latency per call",
+      "image token count separate from text tokens"
+    ],
+    "uncertain": [
+      "whether identical repeated calls were served from a Portkey cache and billed (A5)",
+      "whether photo input_tokens include image tokens and how gpt-6-luna counts them (A3)",
+      "chat figures: observed in server logs and transcribed, raw logs not saved",
+      "actual rates applied by Portkey / Azure to the course account (A1)"
+    ]
+  },
+  "known_unrecorded_calls": [
+    "P7 first chat call (succeeded, then the app crashed reading usage)",
+    "P8 first tool call (HTTP 400 from Azure; billing unknown)",
+    "P26 and P27 browser intake extractions (944 / 283 shown in the UI each; not saved)",
+    "P29 follow-up that failed with HTTP 500 (cross-event-loop error)",
+    "P31 browser intake check of Attack A (1,520 / 879 shown in the UI; extraction + screen)",
+    "Any calls made outside the app (none known)"
+  ],
+  "records": [
+    {
+      "workflow": "extraction",
+      "source": "evidence/extraction/extraction_run_20261024T193012Z.json",
+      "call_id": "E1",
+      "requests": 1,
+      "input_tokens": 971,
+      "output_tokens": 253,
+      "measured": true,
+      "note": "",
+      "possible_cache_repeat": false
+    },
+    {
+      "workflow": "extraction",
+      "source": "evidence/extraction/extraction_run_20261024T193012Z.json",
+      "call_id": "E2",
+      "requests": 1,
+      "input_tokens": 944,
+      "output_tokens": 283,
+      "measured": true,
+      "note": "",
+      "possible_cache_repeat": false
+    },
+    {
+      "workflow": "extraction",
+      "source": "evidence/extraction/extraction_run_20261024T193012Z.json",
+      "call_id": "E3",
+      "requests": 1,
+      "input_tokens": 970,
+      "output_tokens": 276,
+      "measured": true,
+      "note": "",
+      "possible_cache_repeat": false
+    },
+    {
+      "workflow": "extraction",
+      "source": "evidence/extraction/extraction_run_20261024T193012Z.json",
+      "call_id": "E4",
+      "requests": 1,
+      "input_tokens": 966,
+      "output_tokens": 682,
+      "measured": true,
+      "note": "",
+      "possible_cache_repeat": false
+    },
+    {
+      "workflow": "extraction",
+      "source": "evidence/extraction/extraction_run_20261024T193012Z.json",
+      "call_id": "E5",
+      "requests": 1,
+      "input_tokens": 942,
+      "output_tokens": 201,
+      "measured": true,
+      "note": "",
+      "possible_cache_repeat": false
+    },
+    {
+      "workflow": "photo_analysis",
+      "source": "evidence/vision/vision_run_20261024T195656Z.json",
+      "call_id": "photo-da87f1e87d",
+      "requests": 1,
+      "input_tokens": 1867,
+      "output_tokens": 780,
+      "measured": true,
+      "note": "",
+      "possible_cache_repeat": false
+    },
+    {
+      "workflow": "photo_analysis",
+      "source": "evidence/vision/vision_run_20261024T195656Z.json",
+      "call_id": "photo-527691cd22",
+      "requests": 1,
+      "input_tokens": 1867,
+      "output_tokens": 629,
+      "measured": true,
+      "note": "",
+      "possible_cache_repeat": false
+    },
+    {
+      "workflow": "photo_followup",
+      "source": "evidence/vision/vision_run_20261024T195656Z.json",
+      "call_id": "followup-0",
+      "requests": 1,
+      "input_tokens": 2031,
+      "output_tokens": 88,
+      "measured": true,
+      "note": "",
+      "possible_cache_repeat": false
+    },
+    {
+      "workflow": "photo_analysis",
+      "source": "evidence/vision/browser_p29/photo-1c1343c5b4",
+      "call_id": "photo-1c1343c5b4",
+      "requests": 1,
+      "input_tokens": 1867,
+      "output_tokens": 780,
+      "measured": true,
+      "note": "",
+      "possible_cache_repeat": true
+    },
+    {
+      "workflow": "photo_followup",
+      "source": "evidence/vision/browser_p29/photo-1c1343c5b4/followups.jsonl",
+      "call_id": "photo-1c1343c5b4-q0",
+      "requests": 1,
+      "input_tokens": 2023,
+      "output_tokens": 68,
+      "measured": true,
+      "note": "",
+      "possible_cache_repeat": false
+    },
+    {
+      "workflow": "photo_analysis",
+      "source": "evidence/vision/browser_p29/photo-4977c59315",
+      "call_id": "photo-4977c59315",
+      "requests": 1,
+      "input_tokens": 1867,
+      "output_tokens": 629,
+      "measured": true,
+      "note": "",
+      "possible_cache_repeat": true
+    },
+    {
+      "workflow": "photo_followup",
+      "source": "evidence/vision/browser_p29/photo-4977c59315/followups.jsonl",
+      "call_id": "photo-4977c59315-q0",
+      "requests": 1,
+      "input_tokens": 1721,
+      "output_tokens": 124,
+      "measured": true,
+      "note": "",
+      "possible_cache_repeat": false
+    },
+    {
+      "workflow": "photo_analysis",
+      "source": "evidence/vision/browser_p29/photo-639d0ff052",
+      "call_id": "photo-639d0ff052",
+      "requests": 1,
+      "input_tokens": 1867,
+      "output_tokens": 629,
+      "measured": true,
+      "note": "",
+      "possible_cache_repeat": true
+    },
+    {
+      "workflow": "photo_followup",
+      "source": "evidence/vision/browser_p29/photo-639d0ff052/followups.jsonl",
+      "call_id": "photo-639d0ff052-q0",
+      "requests": 1,
+      "input_tokens": 1730,
+      "output_tokens": 161,
+      "measured": true,
+      "note": "",
+      "possible_cache_repeat": false
+    },
+    {
+      "workflow": "photo_analysis",
+      "source": "evidence/vision/browser_p29/photo-c97f99e292",
+      "call_id": "photo-c97f99e292",
+      "requests": 1,
+      "input_tokens": 1867,
+      "output_tokens": 780,
+      "measured": true,
+      "note": "",
+      "possible_cache_repeat": true
+    },
+    {
+      "workflow": "photo_followup",
+      "source": "evidence/vision/browser_p29/photo-c97f99e292/followups.jsonl",
+      "call_id": "photo-c97f99e292-q0",
+      "requests": 1,
+      "input_tokens": 2027,
+      "output_tokens": 41,
+      "measured": true,
+      "note": "",
+      "possible_cache_repeat": false
+    },
+    {
+      "workflow": "photo_analysis",
+      "source": "evidence/vision/browser_p29/photo-e6324300ba",
+      "call_id": "photo-e6324300ba",
+      "requests": 1,
+      "input_tokens": 1867,
+      "output_tokens": 629,
+      "measured": true,
+      "note": "",
+      "possible_cache_repeat": true
+    },
+    {
+      "workflow": "photo_followup",
+      "source": "evidence/vision/browser_p29/photo-e6324300ba/followups.jsonl",
+      "call_id": "photo-e6324300ba-q0",
+      "requests": 1,
+      "input_tokens": 1722,
+      "output_tokens": 19,
+      "measured": true,
+      "note": "",
+      "possible_cache_repeat": false
+    },
+    {
+      "workflow": "photo_analysis",
+      "source": "evidence/vision/browser_p29/photo-fac52cf9dd",
+      "call_id": "photo-fac52cf9dd",
+      "requests": 1,
+      "input_tokens": 1867,
+      "output_tokens": 780,
+      "measured": true,
+      "note": "",
+      "possible_cache_repeat": true
+    },
+    {
+      "workflow": "photo_followup",
+      "source": "evidence/vision/browser_p29/photo-fac52cf9dd/followups.jsonl",
+      "call_id": "photo-fac52cf9dd-q0",
+      "requests": 1,
+      "input_tokens": 2037,
+      "output_tokens": 80,
+      "measured": true,
+      "note": "",
+      "possible_cache_repeat": false
+    },
+    {
+      "workflow": "photo_followup",
+      "source": "evidence/vision/browser_p29/photo-fac52cf9dd/followups.jsonl",
+      "call_id": "photo-fac52cf9dd-q1",
+      "requests": 1,
+      "input_tokens": 2025,
+      "output_tokens": 166,
+      "measured": true,
+      "note": "",
+      "possible_cache_repeat": false
+    },
+    {
+      "workflow": "extraction",
+      "source": "evidence/safety/injection_run_20261024T212735Z.json",
+      "call_id": "baseline",
+      "requests": 1,
+      "input_tokens": 976,
+      "output_tokens": 260,
+      "measured": true,
+      "note": "P30 (no screen)",
+      "possible_cache_repeat": false
+    },
+    {
+      "workflow": "extraction",
+      "source": "evidence/safety/injection_run_20261024T212735Z.json",
+      "call_id": "attack_a_explicit_note",
+      "requests": 1,
+      "input_tokens": 1042,
+      "output_tokens": 561,
+      "measured": true,
+      "note": "P30 (no screen)",
+      "possible_cache_repeat": false
+    },
+    {
+      "workflow": "extraction",
+      "source": "evidence/safety/injection_run_20261024T212735Z.json",
+      "call_id": "attack_b_fake_system_override",
+      "requests": 1,
+      "input_tokens": 1023,
+      "output_tokens": 260,
+      "measured": true,
+      "note": "P30 (no screen)",
+      "possible_cache_repeat": false
+    },
+    {
+      "workflow": "extraction",
+      "source": "evidence/safety/injection_defense_run_20261024T213837Z.json",
+      "call_id": "baseline",
+      "requests": 1,
+      "input_tokens": 976,
+      "output_tokens": 260,
+      "measured": true,
+      "note": "P31",
+      "possible_cache_repeat": true
+    },
+    {
+      "workflow": "safety_screen",
+      "source": "evidence/safety/injection_defense_run_20261024T213837Z.json",
+      "call_id": "baseline",
+      "requests": 1,
+      "input_tokens": 412,
+      "output_tokens": 14,
+      "measured": true,
+      "note": "P31",
+      "possible_cache_repeat": false
+    },
+    {
+      "workflow": "extraction",
+      "source": "evidence/safety/injection_defense_run_20261024T213837Z.json",
+      "call_id": "attack_a_explicit_note",
+      "requests": 1,
+      "input_tokens": 1042,
+      "output_tokens": 561,
+      "measured": true,
+      "note": "P31",
+      "possible_cache_repeat": true
+    },
+    {
+      "workflow": "safety_screen",
+      "source": "evidence/safety/injection_defense_run_20261024T213837Z.json",
+      "call_id": "attack_a_explicit_note",
+      "requests": 1,
+      "input_tokens": 478,
+      "output_tokens": 318,
+      "measured": true,
+      "note": "P31",
+      "possible_cache_repeat": false
+    },
+    {
+      "workflow": "extraction",
+      "source": "evidence/safety/injection_defense_run_20261024T213837Z.json",
+      "call_id": "attack_b_fake_system_override",
+      "requests": 1,
+      "input_tokens": 1023,
+      "output_tokens": 260,
+      "measured": true,
+      "note": "P31",
+      "possible_cache_repeat": true
+    },
+    {
+      "workflow": "safety_screen",
+      "source": "evidence/safety/injection_defense_run_20261024T213837Z.json",
+      "call_id": "attack_b_fake_system_override",
+      "requests": 1,
+      "input_tokens": 459,
+      "output_tokens": 203,
+      "measured": true,
+      "note": "P31",
+      "possible_cache_repeat": false
+    },
+    {
+      "workflow": "extraction",
+      "source": "evidence/safety/injection_defense_run_20261024T213837Z.json",
+      "call_id": "benign_1",
+      "requests": 1,
+      "input_tokens": 964,
+      "output_tokens": 310,
+      "measured": true,
+      "note": "P31",
+      "possible_cache_repeat": false
+    },
+    {
+      "workflow": "safety_screen",
+      "source": "evidence/safety/injection_defense_run_20261024T213837Z.json",
+      "call_id": "benign_1",
+      "requests": 1,
+      "input_tokens": 400,
+      "output_tokens": 14,
+      "measured": true,
+      "note": "P31",
+      "possible_cache_repeat": false
+    },
+    {
+      "workflow": "extraction",
+      "source": "evidence/safety/injection_defense_run_20261024T213837Z.json",
+      "call_id": "benign_2",
+      "requests": 1,
+      "input_tokens": 957,
+      "output_tokens": 438,
+      "measured": true,
+      "note": "P31",
+      "possible_cache_repeat": false
+    },
+    {
+      "workflow": "safety_screen",
+      "source": "evidence/safety/injection_defense_run_20261024T213837Z.json",
+      "call_id": "benign_2",
+      "requests": 1,
+      "input_tokens": 393,
+      "output_tokens": 96,
+      "measured": true,
+      "note": "P31",
+      "possible_cache_repeat": false
+    },
+    {
+      "workflow": "extraction",
+      "source": "evidence/safety/injection_defense_run_20261024T213837Z.json",
+      "call_id": "benign_3",
+      "requests": 1,
+      "input_tokens": 946,
+      "output_tokens": 525,
+      "measured": true,
+      "note": "P31",
+      "possible_cache_repeat": false
+    },
+    {
+      "workflow": "safety_screen",
+      "source": "evidence/safety/injection_defense_run_20261024T213837Z.json",
+      "call_id": "benign_3",
+      "requests": 1,
+      "input_tokens": 382,
+      "output_tokens": 14,
+      "measured": true,
+      "note": "P31",
+      "possible_cache_repeat": false
+    },
+    {
+      "workflow": "extraction",
+      "source": "evidence/safety/injection_defense_run_20261024T213837Z.json",
+      "call_id": "benign_4",
+      "requests": 1,
+      "input_tokens": 961,
+      "output_tokens": 178,
+      "measured": true,
+      "note": "P31",
+      "possible_cache_repeat": false
+    },
+    {
+      "workflow": "safety_screen",
+      "source": "evidence/safety/injection_defense_run_20261024T213837Z.json",
+      "call_id": "benign_4",
+      "requests": 1,
+      "input_tokens": 397,
+      "output_tokens": 33,
+      "measured": true,
+      "note": "P31",
+      "possible_cache_repeat": false
+    },
+    {
+      "workflow": "extraction",
+      "source": "evidence/safety/injection_defense_run_20261024T213837Z.json",
+      "call_id": "benign_5",
+      "requests": 1,
+      "input_tokens": 949,
+      "output_tokens": 191,
+      "measured": true,
+      "note": "P31",
+      "possible_cache_repeat": false
+    },
+    {
+      "workflow": "safety_screen",
+      "source": "evidence/safety/injection_defense_run_20261024T213837Z.json",
+      "call_id": "benign_5",
+      "requests": 1,
+      "input_tokens": 385,
+      "output_tokens": 19,
+      "measured": true,
+      "note": "P31",
+      "possible_cache_repeat": false
+    },
+    {
+      "workflow": "extraction",
+      "source": "evidence/safety/injection_defense_run_20261024T213837Z.json",
+      "call_id": "benign_6",
+      "requests": 1,
+      "input_tokens": 947,
+      "output_tokens": 186,
+      "measured": true,
+      "note": "P31",
+      "possible_cache_repeat": false
+    },
+    {
+      "workflow": "safety_screen",
+      "source": "evidence/safety/injection_defense_run_20261024T213837Z.json",
+      "call_id": "benign_6",
+      "requests": 1,
+      "input_tokens": 383,
+      "output_tokens": 19,
+      "measured": true,
+      "note": "P31",
+      "possible_cache_repeat": false
+    },
+    {
+      "workflow": "chat_probe",
+      "source": "evidence/tokenomics/chat_usage_observed.json",
+      "call_id": "P7-0",
+      "requests": 1,
+      "input_tokens": 12,
+      "output_tokens": 4,
+      "measured": false,
+      "note": "probe: Reply with the word OK",
+      "possible_cache_repeat": false
+    },
+    {
+      "workflow": "chat",
+      "source": "evidence/tokenomics/chat_usage_observed.json",
+      "call_id": "P7-1",
+      "requests": 1,
+      "input_tokens": 212,
+      "output_tokens": 293,
+      "measured": false,
+      "note": "What can you help me with… special dietary needs?",
+      "possible_cache_repeat": false
+    },
+    {
+      "workflow": "chat",
+      "source": "evidence/tokenomics/chat_usage_observed.json",
+      "call_id": "P8-2",
+      "requests": 2,
+      "input_tokens": 1095,
+      "output_tokens": 318,
+      "measured": false,
+      "note": "What's the latest situation at our evacuation shelters?",
+      "possible_cache_repeat": false
+    },
+    {
+      "workflow": "chat",
+      "source": "evidence/tokenomics/chat_usage_observed.json",
+      "call_id": "P9-3",
+      "requests": 2,
+      "input_tokens": 1870,
+      "output_tokens": 354,
+      "measured": false,
+      "note": "How much food do we currently have available?",
+      "possible_cache_repeat": false
+    },
+    {
+      "workflow": "chat",
+      "source": "evidence/tokenomics/chat_usage_observed.json",
+      "call_id": "P9-4",
+      "requests": 2,
+      "input_tokens": 2363,
+      "output_tokens": 435,
+      "measured": false,
+      "note": "Please show that as a table.",
+      "possible_cache_repeat": false
+    },
+    {
+      "workflow": "chat",
+      "source": "evidence/tokenomics/chat_usage_observed.json",
+      "call_id": "P11-5",
+      "requests": 2,
+      "input_tokens": 2338,
+      "output_tokens": 408,
+      "measured": false,
+      "note": "How much food do we currently have available?",
+      "possible_cache_repeat": false
+    },
+    {
+      "workflow": "chat",
+      "source": "evidence/tokenomics/chat_usage_observed.json",
+      "call_id": "P12-6",
+      "requests": 2,
+      "input_tokens": 2940,
+      "output_tokens": 510,
+      "measured": false,
+      "note": "How much food does each shelter still need…24 hours?",
+      "possible_cache_repeat": false
+    },
+    {
+      "workflow": "chat",
+      "source": "evidence/tokenomics/chat_usage_observed.json",
+      "call_id": "P14-7",
+      "requests": 2,
+      "input_tokens": 2950,
+      "output_tokens": 552,
+      "measured": false,
+      "note": "Needs + status of committed / shipped food",
+      "possible_cache_repeat": false
+    },
+    {
+      "workflow": "chat",
+      "source": "evidence/tokenomics/chat_usage_observed.json",
+      "call_id": "P15-8",
+      "requests": 2,
+      "input_tokens": 3124,
+      "output_tokens": 526,
+      "measured": false,
+      "note": "Same question after relabeling",
+      "possible_cache_repeat": false
+    },
+    {
+      "workflow": "chat",
+      "source": "evidence/tokenomics/chat_usage_observed.json",
+      "call_id": "P16-9",
+      "requests": 2,
+      "input_tokens": 3517,
+      "output_tokens": 573,
+      "measured": false,
+      "note": "Prepare a food allocation plan…",
+      "possible_cache_repeat": false
+    },
+    {
+      "workflow": "chat",
+      "source": "evidence/tokenomics/chat_usage_observed.json",
+      "call_id": "P17-10",
+      "requests": 2,
+      "input_tokens": 4294,
+      "output_tokens": 637,
+      "measured": false,
+      "note": "Draft a request for additional food supplies… (run 1)",
+      "possible_cache_repeat": false
+    },
+    {
+      "workflow": "chat",
+      "source": "evidence/tokenomics/chat_usage_observed.json",
+      "call_id": "P17-11",
+      "requests": 2,
+      "input_tokens": 4294,
+      "output_tokens": 637,
+      "measured": false,
+      "note": "Draft a request for additional food supplies… (run 2, identical output; possibly cached)",
+      "possible_cache_repeat": true
+    },
+    {
+      "workflow": "chat",
+      "source": "evidence/tokenomics/chat_usage_observed.json",
+      "call_id": "P21-12",
+      "requests": 1,
+      "input_tokens": 1845,
+      "output_tokens": 118,
+      "measured": false,
+      "note": "Please finalize the current allocation plan… (refusal)",
+      "possible_cache_repeat": false
+    },
+    {
+      "workflow": "chat",
+      "source": "evidence/tokenomics/chat_usage_observed.json",
+      "call_id": "P29-13",
+      "requests": 1,
+      "input_tokens": 1841,
+      "output_tokens": 127,
+      "measured": false,
+      "note": "Can the photo analysis change our inventory numbers?",
+      "possible_cache_repeat": false
+    }
+  ],
+  "summary_by_workflow": {
+    "chat": {
+      "calls": 13,
+      "requests": 23,
+      "data_quality": "observed in logs, not saved",
+      "possible_cache_repeats": 1,
+      "input_tokens": {
+        "mean": 2514.076923076923,
+        "min": 212,
+        "max": 4294,
+        "total": 32683
+      },
+      "output_tokens": {
+        "mean": 422.15384615384613,
+        "min": 118,
+        "max": 637,
+        "total": 5488
+      },
+      "cost_per_call_usd": {
+        "point_mean": 0.00046248461538461543,
+        "point_min": 0.00016769999999999998,
+        "point_max": 0.0007479000000000001,
+        "low_mean": 0.0002582123076923077,
+        "high_mean": 0.0005192269230769231
+      },
+      "total_cost_usd_point": 0.006012300000000001
+    },
+    "chat_probe": {
+      "calls": 1,
+      "requests": 1,
+      "data_quality": "observed in logs, not saved",
+      "possible_cache_repeats": 0,
+      "input_tokens": {
+        "mean": 12,
+        "min": 12,
+        "max": 12,
+        "total": 12
+      },
+      "output_tokens": {
+        "mean": 4,
+        "min": 4,
+        "max": 4,
+        "total": 4
+      },
+      "cost_per_call_usd": {
+        "point_mean": 3.2000000000000003e-06,
+        "point_min": 3.2000000000000003e-06,
+        "point_max": 3.2000000000000003e-06,
+        "low_mean": 3.2000000000000003e-06,
+        "high_mean": 3.2000000000000003e-06
+      },
+      "total_cost_usd_point": 3.2000000000000003e-06
+    },
+    "extraction": {
+      "calls": 17,
+      "requests": 17,
+      "data_quality": "measured (saved files)",
+      "possible_cache_repeats": 3,
+      "input_tokens": {
+        "mean": 976.4117647058823,
+        "min": 942,
+        "max": 1042,
+        "total": 16599
+      },
+      "output_tokens": {
+        "mean": 334.4117647058824,
+        "min": 178,
+        "max": 682,
+        "total": 5685
+      },
+      "cost_per_call_usd": {
+        "point_mean": 0.0002648470588235294,
+        "point_min": 0.00018510000000000003,
+        "point_max": 0.0004376,
+        "low_mean": 0.0002538141176470588,
+        "high_mean": 0.00026791176470588235
+      },
+      "total_cost_usd_point": 0.0045024
+    },
+    "photo_analysis": {
+      "calls": 8,
+      "requests": 8,
+      "data_quality": "measured (saved files)",
+      "possible_cache_repeats": 6,
+      "input_tokens": {
+        "mean": 1867,
+        "min": 1867,
+        "max": 1867,
+        "total": 14936
+      },
+      "output_tokens": {
+        "mean": 704.5,
+        "min": 629,
+        "max": 780,
+        "total": 5636
+      },
+      "cost_per_call_usd": {
+        "point_mean": 0.0005389500000000001,
+        "point_min": 0.0005012,
+        "point_max": 0.0005767000000000001,
+        "low_mean": 0.00037092000000000006,
+        "high_mean": 0.000585625
+      },
+      "total_cost_usd_point": 0.0043116000000000005
+    },
+    "photo_followup": {
+      "calls": 8,
+      "requests": 8,
+      "data_quality": "measured (saved files)",
+      "possible_cache_repeats": 0,
+      "input_tokens": {
+        "mean": 1914.5,
+        "min": 1721,
+        "max": 2037,
+        "total": 15316
+      },
+      "output_tokens": {
+        "mean": 93.375,
+        "min": 19,
+        "max": 166,
+        "total": 747
+      },
+      "cost_per_call_usd": {
+        "point_mean": 0.0002381375,
+        "point_min": 0.00018170000000000003,
+        "point_max": 0.0002855,
+        "low_mean": 6.58325e-05,
+        "high_mean": 0.000286
+      },
+      "total_cost_usd_point": 0.0019051
+    },
+    "safety_screen": {
+      "calls": 9,
+      "requests": 9,
+      "data_quality": "measured (saved files)",
+      "possible_cache_repeats": 0,
+      "input_tokens": {
+        "mean": 409.8888888888889,
+        "min": 382,
+        "max": 478,
+        "total": 3689
+      },
+      "output_tokens": {
+        "mean": 81.11111111111111,
+        "min": 14,
+        "max": 318,
+        "total": 730
+      },
+      "cost_per_call_usd": {
+        "point_mean": 8.154444444444445e-05,
+        "point_min": 4.52e-05,
+        "point_max": 0.0002068,
+        "low_mean": 8.154444444444445e-05,
+        "high_mean": 8.154444444444445e-05
+      },
+      "total_cost_usd_point": 0.0007339
+    }
+  },
+  "composite_unit_costs_usd": {
+    "one report through Report intake (extraction + safety screen)": 0.0003463915032679739,
+    "one chat question (observed mean; tool-using questions cost more)": 0.00046248461538461543,
+    "one photo analysis + one follow-up": 0.0007770875
+  },
+  "development_spend_estimate_usd": {
+    "measured_calls": 42,
+    "measured_point_estimate": 0.011453000000000001,
+    "observed_chat_point_estimate": 0.006015500000000001,
+    "note": "Excludes the known unrecorded calls; not a billed amount."
+  },
+  "illustrative_scaling_usd_per_day": {
+    "profiles": {
+      "light (hypothetical)": {
+        "chat": 10,
+        "extraction": 5,
+        "safety_screen": 5,
+        "photo_analysis": 1,
+        "photo_followup": 1
+      },
+      "heavy (hypothetical)": {
+        "chat": 60,
+        "extraction": 30,
+        "safety_screen": 30,
+        "photo_analysis": 10,
+        "photo_followup": 20
+      }
+    },
+    "cost": {
+      "light (hypothetical)": {
+        "1": 0.007133891170186024,
+        "100": 0.7133891170186024,
+        "10000": 71.33891170186024
+      },
+      "heavy (hypothetical)": {
+        "1": 0.04829307202111614,
+        "100": 4.829307202111615,
+        "10000": 482.93072021116143
+      }
+    },
+    "warning": "Hypothetical activity levels, not measurements."
+  },
+  "measurements_needed": [
+    "Record cached_tokens, cache_write_tokens (with TTL), and reasoning tokens for every call; today the caching bounds in this report are wide only because these are missing.",
+    "Save chat usage per question to a file (it is only in server logs), with tool calls and the per-request split.",
+    "Obtain the course Portkey account's actual billing (rates, markups, credits) for the same period and reconcile it with the estimate.",
+    "Measure real activity per staff user per day: chat questions, reports extracted, photos analyzed, follow-ups.",
+    "Measure how chat input grows with data size: tool outputs list every shelter and item, so tokens per question rise with the number of shelters, warehouses, and history (up to 20 messages).",
+    "Measure image tokens with real photos at real resolutions (synthetic 1280×820 images only so far).",
+    "Count retries, failures, and repeated identical requests (cache hits) in normal use.",
+    "Measure latency and peak concurrency (requests per minute) to check rate limits at 100 and 10,000 users.",
+    "Decide the service tier (standard vs batch/flex) per workflow; batch/flex halves the published rates but adds delay."
+  ]
+}

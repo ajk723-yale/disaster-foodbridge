@@ -1,0 +1,487 @@
+{
+  "run_started_at": "2026-10-24T19:30:12.796741+00:00",
+  "run_finished_at": "2026-10-24T19:30:35.834813+00:00",
+  "received_at": "2026-10-24T16:30+09:00",
+  "results": [
+    {
+      "id": "E1",
+      "case": "complete, English, timezone stated",
+      "status": "pending: AI-extracted, not validated; staff review required",
+      "source_text": "Shelter report - Kita Community Center (SH-02), 24 Oct 2026, 14:30 JST.\nCurrent headcount: 72 evacuees.\nWe have 60 ready-to-eat meals on hand.\n2 people need allergy-free meals; we still have 4 allergy-free meals.\nReporter: Ito",
+      "received_at": "2026-10-24T07:30:00+00:00",
+      "model": "gpt-6-luna",
+      "extracted": {
+        "shelter_id": "SH-02",
+        "shelter_name": "Kita Community Center",
+        "evacuee_count": 72,
+        "general_food_on_hand_meals": 60.0,
+        "food_on_hand_text": "60 ready-to-eat meals on hand",
+        "special_needs": [
+          {
+            "diet_category": "allergy_free",
+            "people": 2
+          }
+        ],
+        "special_food_on_hand": [
+          {
+            "diet_category": "allergy_free",
+            "meals": 4.0
+          }
+        ],
+        "reported_at_local": "2026-10-24T14:30",
+        "reported_at_timezone": "JST",
+        "reported_at_text": "24 Oct 2026, 14:30 JST",
+        "evidence": [
+          {
+            "field": "shelter_name",
+            "quote": "Kita Community Center"
+          },
+          {
+            "field": "shelter_id",
+            "quote": "SH-02"
+          },
+          {
+            "field": "evacuee_count",
+            "quote": "72 evacuees"
+          },
+          {
+            "field": "general_food_on_hand_meals",
+            "quote": "60 ready-to-eat meals on hand"
+          },
+          {
+            "field": "special_needs",
+            "quote": "2 people need allergy-free meals"
+          },
+          {
+            "field": "special_food_on_hand",
+            "quote": "4 allergy-free meals"
+          },
+          {
+            "field": "reported_at",
+            "quote": "24 Oct 2026, 14:30 JST"
+          }
+        ],
+        "issues": []
+      },
+      "reported_at_utc": "2026-10-24T05:30:00+00:00",
+      "issues": [],
+      "shelter_row": {
+        "shelter_id": "SH-02",
+        "shelter_name": "Kita Community Center",
+        "reported_at": "2026-10-24T05:30:00+00:00",
+        "evacuee_count": "72",
+        "general_on_hand_meals": "60",
+        "special_needs": "allergy_free:2",
+        "special_on_hand_meals": "allergy_free:4",
+        "reporter": "",
+        "notes": "AI-extracted; pending staff review"
+      },
+      "usage": {
+        "requests": 1,
+        "input_tokens": 971,
+        "output_tokens": 253
+      }
+    },
+    {
+      "id": "E2",
+      "case": "incomplete and vague",
+      "status": "pending: AI-extracted, not validated; staff review required",
+      "source_text": "Higashi gym here. More people arrived this morning, maybe around 250 now? Rice is running low, enough for tonight probably. Some families asked for halal food, not sure how many.",
+      "received_at": "2026-10-24T07:30:00+00:00",
+      "model": "gpt-6-luna",
+      "extracted": {
+        "shelter_id": null,
+        "shelter_name": "Higashi gym",
+        "evacuee_count": null,
+        "general_food_on_hand_meals": null,
+        "food_on_hand_text": "Rice is running low, enough for tonight probably.",
+        "special_needs": [
+          {
+            "diet_category": "halal",
+            "people": null
+          }
+        ],
+        "special_food_on_hand": [],
+        "reported_at_local": null,
+        "reported_at_timezone": null,
+        "reported_at_text": "this morning",
+        "evidence": [
+          {
+            "field": "shelter_name",
+            "quote": "Higashi gym"
+          },
+          {
+            "field": "evacuee_count",
+            "quote": "maybe around 250 now?"
+          },
+          {
+            "field": "special_needs",
+            "quote": "Some families asked for halal food, not sure how many."
+          },
+          {
+            "field": "reported_at",
+            "quote": "this morning"
+          }
+        ],
+        "issues": [
+          {
+            "field": "evacuee_count",
+            "kind": "ambiguous",
+            "message": "The headcount is approximate: “maybe around 250 now?”"
+          },
+          {
+            "field": "general_food_on_hand_meals",
+            "kind": "ambiguous",
+            "message": "Food on hand is described as “enough for tonight probably,” not as meals or servings."
+          },
+          {
+            "field": "special_needs",
+            "kind": "ambiguous",
+            "message": "Halal needs are stated, but the number of people is unclear."
+          },
+          {
+            "field": "reported_at",
+            "kind": "missing",
+            "message": "“this morning” is relative wording; no explicit date and time are stated."
+          }
+        ]
+      },
+      "reported_at_utc": null,
+      "issues": [
+        {
+          "field": "evacuee_count",
+          "kind": "ambiguous",
+          "message": "The headcount is approximate: “maybe around 250 now?”",
+          "source": "model"
+        },
+        {
+          "field": "general_food_on_hand_meals",
+          "kind": "ambiguous",
+          "message": "Food on hand is described as “enough for tonight probably,” not as meals or servings.",
+          "source": "model"
+        },
+        {
+          "field": "special_needs",
+          "kind": "ambiguous",
+          "message": "Halal needs are stated, but the number of people is unclear.",
+          "source": "model"
+        },
+        {
+          "field": "reported_at",
+          "kind": "missing",
+          "message": "“this morning” is relative wording; no explicit date and time are stated.",
+          "source": "model"
+        },
+        {
+          "field": "special_needs",
+          "kind": "missing",
+          "message": "number of people needing 'halal' unknown",
+          "source": "check"
+        }
+      ],
+      "shelter_row": {
+        "shelter_id": "",
+        "shelter_name": "Higashi gym",
+        "reported_at": "",
+        "evacuee_count": "",
+        "general_on_hand_meals": "",
+        "special_needs": "halal:?",
+        "special_on_hand_meals": "",
+        "reporter": "",
+        "notes": "AI-extracted; pending staff review"
+      },
+      "usage": {
+        "requests": 1,
+        "input_tokens": 944,
+        "output_tokens": 283
+      }
+    },
+    {
+      "id": "E3",
+      "case": "contradictory headcount",
+      "status": "pending: AI-extracted, not validated; staff review required",
+      "source_text": "SH-03 Higashi Junior High Gym, 2026-10-24 15:00.\nEvacuees: 210.\nFood on hand: 30 meals.\n4 infants need formula; formula left for 12 feedings.\nUpdate from the night team: total people currently in the gym is 260.",
+      "received_at": "2026-10-24T07:30:00+00:00",
+      "model": "gpt-6-luna",
+      "extracted": {
+        "shelter_id": "SH-03",
+        "shelter_name": "Higashi Junior High Gym",
+        "evacuee_count": null,
+        "general_food_on_hand_meals": 30.0,
+        "food_on_hand_text": "30 meals",
+        "special_needs": [
+          {
+            "diet_category": "infant_formula",
+            "people": 4
+          }
+        ],
+        "special_food_on_hand": [
+          {
+            "diet_category": "infant_formula",
+            "meals": null
+          }
+        ],
+        "reported_at_local": "2026-10-24T15:00",
+        "reported_at_timezone": null,
+        "reported_at_text": "2026-10-24 15:00",
+        "evidence": [
+          {
+            "field": "shelter_id",
+            "quote": "SH-03"
+          },
+          {
+            "field": "shelter_name",
+            "quote": "Higashi Junior High Gym"
+          },
+          {
+            "field": "general_food_on_hand_meals",
+            "quote": "30 meals"
+          },
+          {
+            "field": "special_needs",
+            "quote": "4 infants need formula"
+          },
+          {
+            "field": "special_food_on_hand",
+            "quote": "formula left for 12 feedings"
+          },
+          {
+            "field": "reported_at",
+            "quote": "2026-10-24 15:00"
+          }
+        ],
+        "issues": [
+          {
+            "field": "evacuee_count",
+            "kind": "conflicting",
+            "message": "Two current headcounts are stated: “Evacuees: 210” and “total people currently in the gym is 260.”"
+          }
+        ]
+      },
+      "reported_at_utc": "2026-10-24T06:00:00+00:00",
+      "issues": [
+        {
+          "field": "evacuee_count",
+          "kind": "conflicting",
+          "message": "Two current headcounts are stated: “Evacuees: 210” and “total people currently in the gym is 260.”",
+          "source": "model"
+        },
+        {
+          "field": "reported_at",
+          "kind": "ambiguous",
+          "message": "the report states no timezone; interpreted as Asia/Tokyo (REPORT_TIMEZONE setting), please confirm",
+          "source": "check"
+        }
+      ],
+      "shelter_row": {
+        "shelter_id": "SH-03",
+        "shelter_name": "Higashi Junior High Gym",
+        "reported_at": "2026-10-24T06:00:00+00:00",
+        "evacuee_count": "",
+        "general_on_hand_meals": "30",
+        "special_needs": "infant_formula:4",
+        "special_on_hand_meals": "",
+        "reporter": "",
+        "notes": "AI-extracted; pending staff review"
+      },
+      "usage": {
+        "requests": 1,
+        "input_tokens": 970,
+        "output_tokens": 276
+      }
+    },
+    {
+      "id": "E4",
+      "case": "Japanese, no timezone stated",
+      "status": "pending: AI-extracted, not validated; staff review required",
+      "source_text": "南小学校（SH-01）より報告。10月24日16時現在、避難者は148名です。食料は弁当80食あります。乳児3名分のミルクが必要で、ミルクは残り2回分です。",
+      "received_at": "2026-10-24T07:30:00+00:00",
+      "model": "gpt-6-luna",
+      "extracted": {
+        "shelter_id": "SH-01",
+        "shelter_name": "南小学校",
+        "evacuee_count": 148,
+        "general_food_on_hand_meals": 80.0,
+        "food_on_hand_text": "弁当80食あります",
+        "special_needs": [
+          {
+            "diet_category": "infant_formula",
+            "people": 3
+          }
+        ],
+        "special_food_on_hand": [
+          {
+            "diet_category": "infant_formula",
+            "meals": null
+          }
+        ],
+        "reported_at_local": null,
+        "reported_at_timezone": null,
+        "reported_at_text": "10月24日16時現在",
+        "evidence": [
+          {
+            "field": "shelter_id",
+            "quote": "SH-01"
+          },
+          {
+            "field": "shelter_name",
+            "quote": "南小学校"
+          },
+          {
+            "field": "evacuee_count",
+            "quote": "避難者は148名です"
+          },
+          {
+            "field": "general_food_on_hand_meals",
+            "quote": "弁当80食あります"
+          },
+          {
+            "field": "special_needs",
+            "quote": "乳児3名分のミルクが必要"
+          },
+          {
+            "field": "special_food_on_hand",
+            "quote": "ミルクは残り2回分です"
+          },
+          {
+            "field": "reported_at",
+            "quote": "10月24日16時現在"
+          }
+        ],
+        "issues": [
+          {
+            "field": "reported_at",
+            "kind": "ambiguous",
+            "message": "日付と時刻は記載されていますが、年が記載されていないため、YYYY-MM-DDTHH:MM形式にできません。"
+          },
+          {
+            "field": "special_food_on_hand",
+            "kind": "ambiguous",
+            "message": "ミルクの残量は「2回分」とありますが、食事または提供数（meals/servings）としては記載されていません。"
+          }
+        ]
+      },
+      "reported_at_utc": null,
+      "issues": [
+        {
+          "field": "reported_at",
+          "kind": "ambiguous",
+          "message": "日付と時刻は記載されていますが、年が記載されていないため、YYYY-MM-DDTHH:MM形式にできません。",
+          "source": "model"
+        },
+        {
+          "field": "special_food_on_hand",
+          "kind": "ambiguous",
+          "message": "ミルクの残量は「2回分」とありますが、食事または提供数（meals/servings）としては記載されていません。",
+          "source": "model"
+        }
+      ],
+      "shelter_row": {
+        "shelter_id": "SH-01",
+        "shelter_name": "南小学校",
+        "reported_at": "",
+        "evacuee_count": "148",
+        "general_on_hand_meals": "80",
+        "special_needs": "infant_formula:3",
+        "special_on_hand_meals": "",
+        "reporter": "",
+        "notes": "AI-extracted; pending staff review"
+      },
+      "usage": {
+        "requests": 1,
+        "input_tokens": 966,
+        "output_tokens": 682
+      }
+    },
+    {
+      "id": "E5",
+      "case": "time later than receipt; special-diet count exceeds headcount",
+      "status": "pending: AI-extracted, not validated; staff review required",
+      "source_text": "Nishi Public Hall report, 2026-10-25 08:00. 45 people here. 50 elderly evacuees need soft food. 20 meals left.",
+      "received_at": "2026-10-24T07:30:00+00:00",
+      "model": "gpt-6-luna",
+      "extracted": {
+        "shelter_id": null,
+        "shelter_name": "Nishi Public Hall",
+        "evacuee_count": 45,
+        "general_food_on_hand_meals": 20.0,
+        "food_on_hand_text": "20 meals left",
+        "special_needs": [
+          {
+            "diet_category": "soft_food",
+            "people": 50
+          }
+        ],
+        "special_food_on_hand": [],
+        "reported_at_local": "2026-10-25T08:00",
+        "reported_at_timezone": null,
+        "reported_at_text": "2026-10-25 08:00",
+        "evidence": [
+          {
+            "field": "shelter_name",
+            "quote": "Nishi Public Hall"
+          },
+          {
+            "field": "evacuee_count",
+            "quote": "45 people here"
+          },
+          {
+            "field": "special_needs",
+            "quote": "50 elderly evacuees need soft food"
+          },
+          {
+            "field": "general_food_on_hand_meals",
+            "quote": "20 meals left"
+          },
+          {
+            "field": "reported_at",
+            "quote": "2026-10-25 08:00"
+          }
+        ],
+        "issues": []
+      },
+      "reported_at_utc": null,
+      "issues": [
+        {
+          "field": "special_needs",
+          "kind": "conflicting",
+          "message": "special-diet people (50) exceed the evacuee count (45)",
+          "source": "check"
+        },
+        {
+          "field": "reported_at",
+          "kind": "ambiguous",
+          "message": "the report states no timezone; interpreted as Asia/Tokyo (REPORT_TIMEZONE setting), please confirm",
+          "source": "check"
+        },
+        {
+          "field": "reported_at",
+          "kind": "conflicting",
+          "message": "report time is later than the time it was received",
+          "source": "check"
+        }
+      ],
+      "shelter_row": {
+        "shelter_id": "",
+        "shelter_name": "Nishi Public Hall",
+        "reported_at": "",
+        "evacuee_count": "45",
+        "general_on_hand_meals": "20",
+        "special_needs": "soft_food:50",
+        "special_on_hand_meals": "",
+        "reporter": "",
+        "notes": "AI-extracted; pending staff review"
+      },
+      "usage": {
+        "requests": 1,
+        "input_tokens": 942,
+        "output_tokens": 201
+      }
+    }
+  ],
+  "total_usage": {
+    "requests": 5,
+    "input_tokens": 4793,
+    "output_tokens": 1695
+  }
+}
