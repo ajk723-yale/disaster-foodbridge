@@ -95,13 +95,16 @@ Only automated processing was measured, on one machine (Python 3.14.7, macOS) wi
 
 | Operation (automated) | Runs | Median | p95 | Max |
 |---|---|---|---|---|
-| Shelter needs | 30 | 7.3 ms | 7.7 ms | 8.6 ms |
-| Warehouse inventory | 30 | 9.4 ms | 10.1 ms | 10.7 ms |
-| Allocation draft (Plan A + Plan B) | 30 | 18.7 ms | 21.9 ms | 23.1 ms |
-| Supply-request draft | 30 | 18.8 ms | 21.8 ms | 29.3 ms |
-| Finalization review (`review_plan`) | 30 | 15.8 ms | 16.1 ms | 17.0 ms |
-| All dashboard figures (`load_dashboard`) | 30 | 41.4 ms | 44.4 ms | 47.5 ms |
-| Finalize and store (SQLite, fresh DB) | 5 | 30.9 ms | — | 31.7 ms |
+| Shelter needs | 30 | 7.3 ms | 7.7 ms | 8.2 ms |
+| Warehouse inventory | 30 | 10.0 ms | 11.2 ms | 11.2 ms |
+| Allocation draft (Plan A + Plan B) | 30 | 21.9 ms | 35.8 ms | 50.0 ms |
+| Supply-request draft | 30 | 19.6 ms | 21.7 ms | 56.1 ms |
+| Finalization review (`review_plan`) | 30 | 15.8 ms | 16.1 ms | 16.3 ms |
+| All dashboard figures (`load_dashboard`) | 30 | 41.2 ms | 42.9 ms | 44.5 ms |
+| Finalize and store (SQLite, fresh DB) | 5 | 30.6 ms | — | 32.6 ms |
+
+
+*Corrected in P44:* this table now shows the timings saved in `impact_eval_results.json` (the final P40 run, which included the extraction calls). The first version of this table quoted an earlier run of the same script whose results file was overwritten (e.g. Plan A + B median 18.7 ms vs 21.9 ms here). Across the three saved runs (`impact_eval_results_run1.json`, `impact_eval_results.json`, `impact_eval_results_p41_rerun_after_fix.json`) the Plan A + B median ranged from 18.5 to 21.9 ms.
 
 **Report extraction** (real `gpt-6-luna` calls through Portkey; one run each; per report = AI extraction + AI safety
 screen + code checks; wall-clock):

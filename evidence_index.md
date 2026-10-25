@@ -434,6 +434,27 @@ The P37 dashboard (section 21) was replaced; its screenshots S21–S23 show the 
 | Private repository created, `main` pushed (remote = local HEAD), README rendered | Stage 36 "Publication": `https://github.com/ajk723-yale/disaster-foodbridge`, anonymous HTTP 404, README with 8 sections | ✅ |
 | Collaborator zlisto invited | Pending invitation (write; personal repos have no read-only role) | ⏳ zlisto must accept |
 
+## 28. Final report (P44)
+
+| Claim | Evidence | Status |
+|---|---|---|
+| `report.html` is self-contained and prints to 11 US Letter pages without clipping | `report.html`; `evidence/report/report_print_check_p44.pdf`; `evidence/report/report_review_p44.md` | ✅ |
+| Every number in the report is computed from saved evidence | `scripts/report_figures_p44.py` → `evidence/report/report_figures_p44.json` | ✅ |
+| One real agent run traced step by step (tool choice, tool results, reply, tokens) | `evidence/report/agent_trace_p44.json`, `agent_trace_usage_p44.jsonl`; S35, S36 | ✅ (one run) |
+| Comparison with Sahana Eden, FEMA NSS, WFP LESS, ChatGPT is source-cited | Report §3 and sources [1]–[5] | ✅; ⚠️ [5] via search extracts, [2]/[3] dated |
+| P40 planning-time table corrected to its saved results file | `evidence/impact/impact_eval_report.md` (note "Corrected in P44") | ✅ |
+| Rubric compliance | Checked against the prompt's 8 sections; the course rubric document was not available | ⚠️ |
+
+## 29. Report revisions (P45)
+
+| Claim | Evidence | Status |
+|---|---|---|
+| The agent trace, screenshots, tool call / result, tokens, and reply all come from one app execution | `evidence/report/agent_app_run_p45.json` (run `ddf9fc62fb5a`; checks all pass), `agent_app_run_p45_usage.jsonl`, `agent_app_run_p45_reply.txt`; S39, S40 | ✅ |
+| Both model calls of the traced run reached the model (no cached replay) | Usage-log `x-portkey-cache-status` MISS for both calls | ✅ |
+| The P44 screenshots S35/S36 and the P45 attempt S37/S38 were Portkey cache HITs (replays of the scripted P44 run) | `data/live/usage_log.jsonl` lines 33–36 (HIT; same response IDs as `agent_trace_p44.json`) | ✅ found; those screenshots are not used in the report |
+| Impact section separates technical validation from real-world impact | `report.html` §7 panels; `evidence/report/report_review_p44.md` "P45 revisions" | ✅ |
+| Report still prints within 10–15 US Letter pages | `evidence/report/report_print_check_p44.pdf`: 13 pages | ✅ |
+
 ## Screenshots
 
 Location: [`evidence/screenshots/`](evidence/screenshots/). These are byte-for-byte copies of the screenshots captured
@@ -488,6 +509,12 @@ column says what each image can't be used to prove.
 | S32 | [S32_p41_stage34_AFTER-dashboard-R3-state-actions.jpg](evidence/screenshots/S32_p41_stage34_AFTER-dashboard-R3-state-actions.jpg) | P41 / 34 | ✅ | Same state after the fix: 596 / 988 / 392; "⛔ Not enough halal meals: 15 short" first in red; "Data note: SH-03 (general): 40 meals (cmt-003) …" with its text | The rest of the data note is cut off at the bottom |
 | S33 | [S33_p41_stage34_AFTER-special-diet-no-stock-labeled-shortage.jpg](evidence/screenshots/S33_p41_stage34_AFTER-special-diet-no-stock-labeled-shortage.jpg) | P41 / 34 | ✅ | Allocation plan and special-diet table: "Halal 15 0 ⛔ 15 short (none in stock)"; "All data notes (5)" | Expanded data notes not shown |
 | S34 | [S34_p41_stage34_AFTER-map-panel-SH-03-halal-shortage.jpg](evidence/screenshots/S34_p41_stage34_AFTER-map-panel-SH-03-halal-shortage.jpg) | P41 / 34 | ✅ | Map with SH-03 selected: 575 unmet, 347 Plan A (proposed), 228 shortage; "Halal: 5 people · 15 meals unmet"; the start of the Issues list | The issue entries are below the panel's visible area (checked as text in the browser) |
+| S35 | [S35_p44_stage37_chat-allocation-draft-reply.jpg](evidence/screenshots/S35_p44_stage37_chat-allocation-draft-reply.jpg) | P44 / 37 | ✅ | Chat: "Prepare a food allocation plan for the next 24 hours." → "DRAFT — for staff review only", planning basis, general-meals table (Plan A 206/39/351, shortfall 141/27/239, Plan B 347/66/590, totals 596/407/1,003), "Plan B requires 407 additional general meals" | **Portkey cache HIT** (replay of the scripted P44 run, found in P45); not an independent model decision; no longer used in the report |
+| S36 | [S36_p44_stage37_chat-allocation-warnings-tool-activity.jpg](evidence/screenshots/S36_p44_stage37_chat-allocation-warnings-tool-activity.jpg) | P44 / 37 | ✅ | End of the same reply: special diets (halal unknown, staff must confirm), 4 data warnings, and "Tool activity (2)" with `calculate_allocation` and `calculate_shelter_needs` and their result summaries | Same **Portkey cache HIT** run as S35 (found in P45); no longer used in the report |
+| S37 | [S37_p45_stage38_app-run-allocation-draft-reply.jpg](evidence/screenshots/S37_p45_stage38_app-run-allocation-draft-reply.jpg) | P45 / 38 | ⚠️ | App run of "Prepare a food allocation plan for the next 24 hours." (top of reply) | **Portkey cache HIT** (replay); kept as a record; not used in the report |
+| S38 | [S38_p45_stage38_app-run-warnings-tool-activity.jpg](evidence/screenshots/S38_p45_stage38_app-run-warnings-tool-activity.jpg) | P45 / 38 | ⚠️ | Same HIT run: special diets, warnings, tool activity (2 calls) | **Portkey cache HIT**; not used in the report |
+| S39 | [S39_p45_stage38_traced-run-ddf9fc62-reply-top.jpg](evidence/screenshots/S39_p45_stage38_traced-run-ddf9fc62-reply-top.jpg) | P45 / 38 | ✅ | **Traced run `ddf9fc62fb5a`** (both calls MISS): "Please draft a food allocation plan for the next 24 hours." → "DRAFT — for staff review; not finalized", Plan A 206/39/351 with shortfalls 141/27/239, Plan B 347/66/590, "Additional general meals to procure: 407" | Lower part of the reply is in S40 |
+| S40 | [S40_p45_stage38_traced-run-ddf9fc62-warnings-tool-activity.jpg](evidence/screenshots/S40_p45_stage38_traced-run-ddf9fc62-warnings-tool-activity.jpg) | P45 / 38 | ✅ | Same run: special diets (halal unknown), 4 data warnings, "Tool activity (1)" with `calculate_allocation` and its result summary | — |
 
 **Not captured** (no screenshot exists): the P26 extracted fields before correction and the refused approval; the P6 thinking dots and error bubble; the P8 HTTP 400 error bubble; P17's first
 run with empty-link placeholders; the P21 "Not finalized" guard messages; the P22 saved request with the wrong status line.

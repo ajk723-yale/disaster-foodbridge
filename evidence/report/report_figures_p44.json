@@ -1,0 +1,378 @@
+{
+  "sources": [
+    "evidence/tokenomics/tokenomics_p34_2026-10-24.json",
+    "evidence/tokenomics/p35_followup_cache/comparison_p35.json",
+    "evidence/report/agent_app_run_p45.json",
+    "evidence/impact/impact_eval_results.json",
+    "evidence/impact/impact_eval_results_p41_rerun_after_fix.json"
+  ],
+  "rates_per_million_usd": {
+    "input": 0.1,
+    "cached_input": 0.01,
+    "cache_write_30m": 0.125,
+    "cache_write_12h": 0.25,
+    "output": 0.5
+  },
+  "tokens_mean_per_provider_call_p34": {
+    "chat": {
+      "uncached_input": 3,
+      "cached_read": 1651.5,
+      "cache_write": 557.4,
+      "output": 111.2,
+      "reasoning": 45.9,
+      "provider_calls": 10,
+      "portkey_hits": 2
+    },
+    "extraction": {
+      "uncached_input": 945,
+      "cached_read": 0,
+      "cache_write": 0,
+      "output": 213.33333333333334,
+      "reasoning": 0,
+      "provider_calls": 3,
+      "portkey_hits": 2
+    },
+    "safety_screen": {
+      "uncached_input": 381,
+      "cached_read": 0,
+      "cache_write": 0,
+      "output": 15.666666666666666,
+      "reasoning": 0,
+      "provider_calls": 3,
+      "portkey_hits": 2
+    },
+    "photo_analysis": {
+      "uncached_input": 126,
+      "cached_read": 0,
+      "cache_write": 1441,
+      "output": 794.5,
+      "reasoning": 363.5,
+      "provider_calls": 2,
+      "portkey_hits": 2
+    },
+    "photo_followup": {
+      "uncached_input": 3,
+      "cached_read": 0,
+      "cache_write": 1669.5,
+      "output": 43,
+      "reasoning": 21.5,
+      "provider_calls": 4,
+      "portkey_hits": 0
+    }
+  },
+  "trace": {
+    "calls": [
+      {
+        "call": 1,
+        "latency_ms": 2760,
+        "portkey_cache_status": "MISS",
+        "input_tokens": 1845,
+        "cached_read_tokens": 0,
+        "cache_write_tokens": 1842,
+        "reasoning_tokens": 0,
+        "output_tokens": 15
+      },
+      {
+        "call": 2,
+        "latency_ms": 4407,
+        "portkey_cache_status": "MISS",
+        "input_tokens": 2622,
+        "cached_read_tokens": 1842,
+        "cache_write_tokens": 777,
+        "reasoning_tokens": 92,
+        "output_tokens": 562
+      }
+    ],
+    "cost_estimate_usd": {
+      "W30": 0.0006348950000000001,
+      "W12": 0.0009622700000000001
+    },
+    "usage_total": {
+      "requests": 2,
+      "input_tokens": 4467,
+      "output_tokens": 577,
+      "tool_calls": 1
+    }
+  },
+  "unit_costs_usd": {
+    "chat question (P34 mean of 5)": {
+      "W30": 0.00028418000000000003,
+      "W12": 0.00042353
+    },
+    "report intake (extraction + safety screen)": {
+      "W30": 0.00024710000000000004,
+      "W12": 0.00024710000000000004
+    },
+    "photo analysis": {
+      "W30": 0.000589975,
+      "W12": 0.0007701
+    },
+    "photo follow-up, before P35 change": {
+      "W30": 0.0002304875,
+      "W12": 0.00043917500000000004
+    },
+    "photo follow-up, 2nd+ on same photo, after P35 change": {
+      "W30": 7.896e-05,
+      "W12": 8.101e-05
+    }
+  },
+  "p34_all_calls_scenarios_usd": {
+    "W30+HIT_FREE": 0.0042641,
+    "W30+HIT_AS_REPLAYED": 0.00609928,
+    "W12+HIT_FREE": 0.00615585,
+    "W12+HIT_AS_REPLAYED": 0.00842828
+  },
+  "monthly_scenarios_usd (30 days, hypothetical profiles)": {
+    "light (hypothetical) | W30 | follow-up cache off": {
+      "per_user_month": 0.14693287500000002,
+      "100_users_month": 14.693287500000002,
+      "10000_users_month": 1469.3287500000001
+    },
+    "light (hypothetical) | W30 | follow-up cache on": {
+      "per_user_month": 0.14693287500000002,
+      "100_users_month": 14.693287500000002,
+      "10000_users_month": 1469.3287500000001
+    },
+    "light (hypothetical) | W12 | follow-up cache off": {
+      "per_user_month": 0.20040225,
+      "100_users_month": 20.040225,
+      "10000_users_month": 2004.0225
+    },
+    "light (hypothetical) | W12 | follow-up cache on": {
+      "per_user_month": 0.20040225,
+      "100_users_month": 20.040225,
+      "10000_users_month": 2004.0225
+    },
+    "heavy (hypothetical) | W30 | follow-up cache off": {
+      "per_user_month": 1.049199,
+      "100_users_month": 104.9199,
+      "10000_users_month": 10491.99
+    },
+    "heavy (hypothetical) | W30 | follow-up cache on": {
+      "per_user_month": 1.00374075,
+      "100_users_month": 100.37407499999999,
+      "10000_users_month": 10037.4075
+    },
+    "heavy (hypothetical) | W12 | follow-up cache off": {
+      "per_user_month": 1.479279,
+      "100_users_month": 147.9279,
+      "10000_users_month": 14792.79
+    },
+    "heavy (hypothetical) | W12 | follow-up cache on": {
+      "per_user_month": 1.3718295,
+      "100_users_month": 137.18295,
+      "10000_users_month": 13718.295
+    }
+  },
+  "profiles_per_user_per_day": {
+    "light (hypothetical)": {
+      "chat": 10,
+      "intake": 5,
+      "photo": 1,
+      "followup": 1
+    },
+    "heavy (hypothetical)": {
+      "chat": 60,
+      "intake": 30,
+      "photo": 10,
+      "followup": 20
+    }
+  },
+  "p35": {
+    "all provider calls": {
+      "baseline": {
+        "provider_calls": 7,
+        "input_tokens": 13536,
+        "cached_read_tokens": 0,
+        "cache_write_tokens": 13515,
+        "output_tokens": 670,
+        "cost_W30": 0.0020264750000000002,
+        "cost_W12": 0.0037158499999999997
+      },
+      "optimized": {
+        "provider_calls": 7,
+        "input_tokens": 13536,
+        "cached_read_tokens": 9755,
+        "cache_write_tokens": 3760,
+        "output_tokens": 730,
+        "cost_W30": 0.0009346500000000001,
+        "cost_W12": 0.0014046500000000001
+      },
+      "change_W30_pct": -53.8780394527443,
+      "change_W12_pct": -62.19842028068947
+    },
+    "photo A, question 1 (first on the photo)": {
+      "baseline": {
+        "provider_calls": 1,
+        "input_tokens": 1966,
+        "cached_read_tokens": 0,
+        "cache_write_tokens": 1963,
+        "output_tokens": 65,
+        "cost_W30": 0.000278175,
+        "cost_W12": 0.0005235499999999999
+      },
+      "optimized": {
+        "provider_calls": 1,
+        "input_tokens": 1966,
+        "cached_read_tokens": 0,
+        "cache_write_tokens": 1963,
+        "output_tokens": 63,
+        "cost_W30": 0.000277175,
+        "cost_W12": 0.00052255
+      },
+      "change_W30_pct": -0.35948593511280214,
+      "change_W12_pct": -0.19100372457261372
+    },
+    "photo A, later questions": {
+      "baseline": {
+        "provider_calls": 5,
+        "input_tokens": 9852,
+        "cached_read_tokens": 0,
+        "cache_write_tokens": 9837,
+        "output_tokens": 520,
+        "cost_W30": 0.001491125,
+        "cost_W12": 0.00272075
+      },
+      "optimized": {
+        "provider_calls": 5,
+        "input_tokens": 9852,
+        "cached_read_tokens": 9755,
+        "cache_write_tokens": 82,
+        "output_tokens": 571,
+        "cost_W30": 0.0003948,
+        "cost_W12": 0.00040505
+      },
+      "change_W30_pct": -73.52334646659402,
+      "change_W12_pct": -85.1125608747588
+    },
+    "photo B (other photo)": {
+      "baseline": {
+        "provider_calls": 1,
+        "input_tokens": 1718,
+        "cached_read_tokens": 0,
+        "cache_write_tokens": 1715,
+        "output_tokens": 85,
+        "cost_W30": 0.000257175,
+        "cost_W12": 0.00047155
+      },
+      "optimized": {
+        "provider_calls": 1,
+        "input_tokens": 1718,
+        "cached_read_tokens": 0,
+        "cache_write_tokens": 1715,
+        "output_tokens": 96,
+        "cost_W30": 0.00026267500000000003,
+        "cost_W12": 0.00047705
+      },
+      "change_W30_pct": 2.1386215611937542,
+      "change_W12_pct": 1.1663662389990614
+    }
+  },
+  "p35_checks": {
+    "contamination_check_q1_reads_zero": {
+      "baseline2": true,
+      "optimized2": true
+    },
+    "photo_B_reads_no_photo_A_context": {
+      "baseline2": true,
+      "optimized2": true
+    },
+    "hits_excluded": {
+      "baseline2": [
+        7
+      ],
+      "optimized2": [
+        7
+      ]
+    },
+    "quality_rules_passed": {
+      "baseline2": "8/8",
+      "optimized2": "8/8"
+    },
+    "run1_optimized_q1_cached_read": 1963
+  },
+  "accuracy": {
+    "cases": 6,
+    "fields": 313,
+    "mismatches": 0
+  },
+  "reliability_p40": {
+    "pass": 45,
+    "fail": 3,
+    "exploratory": 4
+  },
+  "reliability_after_fix_p41": {
+    "pass": 48,
+    "fail": 0,
+    "exploratory": 4
+  },
+  "planning_timings_ms": {
+    "calculate_shelter_needs": {
+      "runs": 30,
+      "median_ms": 7.33,
+      "p95_ms": 7.73,
+      "min_ms": 6.95,
+      "max_ms": 8.2
+    },
+    "get_warehouse_inventory": {
+      "runs": 30,
+      "median_ms": 10.0,
+      "p95_ms": 11.15,
+      "min_ms": 9.27,
+      "max_ms": 11.24
+    },
+    "calculate_allocation (Plan A + B)": {
+      "runs": 30,
+      "median_ms": 21.88,
+      "p95_ms": 35.79,
+      "min_ms": 20.26,
+      "max_ms": 49.96
+    },
+    "prepare_supply_request": {
+      "runs": 30,
+      "median_ms": 19.57,
+      "p95_ms": 21.67,
+      "min_ms": 18.79,
+      "max_ms": 56.1
+    },
+    "review_plan (finalization review)": {
+      "runs": 30,
+      "median_ms": 15.76,
+      "p95_ms": 16.15,
+      "min_ms": 15.5,
+      "max_ms": 16.27
+    },
+    "load_dashboard (all dashboard figures)": {
+      "runs": 30,
+      "median_ms": 41.2,
+      "p95_ms": 42.9,
+      "min_ms": 40.36,
+      "max_ms": 44.53
+    },
+    "finalize_and_store (SQLite, fresh DB each run)": {
+      "runs": 5,
+      "median_ms": 30.57,
+      "min_ms": 30.36,
+      "max_ms": 32.59
+    }
+  },
+  "plan_ab_median_ms_across_saved_runs": [
+    18.47,
+    18.6,
+    21.88
+  ],
+  "extraction_timing": {
+    "summary_provider_calls_only (all calls MISS)": {
+      "reports": 5,
+      "median_wall_ms": 3413,
+      "min_wall_ms": 3306,
+      "max_wall_ms": 6050
+    },
+    "summary_with_portkey_cache_hits (not model processing time)": {
+      "reports": 5,
+      "median_wall_ms": 2002,
+      "min_wall_ms": 1534,
+      "max_wall_ms": 2456
+    }
+  }
+}

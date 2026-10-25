@@ -1,0 +1,317 @@
+{
+  "question": "Prepare a food allocation plan for the next 24 hours.",
+  "model": "gpt-6-luna",
+  "data": "evidence/report/trace_case",
+  "steps": [
+    {
+      "actor": "AI model",
+      "step": "decides to call a tool",
+      "tool": "calculate_allocation",
+      "args": "{}"
+    },
+    {
+      "actor": "AI model",
+      "step": "decides to call a tool",
+      "tool": "calculate_shelter_needs",
+      "args": "{}"
+    },
+    {
+      "actor": "code (deterministic)",
+      "step": "tool result",
+      "tool": "calculate_allocation",
+      "summary": "DRAFT; general available 596, unmet 1003, Plan A 596, shortage 407; special: allergy_free ok, halal missing_info, infant_formula ok; 5 warnings",
+      "content": {
+        "status": "DRAFT for staff review. Not a finalized allocation: nothing has been approved, reserved, or dispatched.",
+        "planning": {
+          "meals_per_person_per_day": 3.0,
+          "planning_window_hours": 24.0,
+          "rounding": "need rounded up; stock rounded down; Plan A split by largest remainder (ties: larger unmet, then shelter_id)"
+        },
+        "general_meals": {
+          "available_meals": 596,
+          "total_unmet_meals": 1003,
+          "plan_a_total_meals": 596,
+          "shortage_meals": 407,
+          "shelters": [
+            {
+              "shelter_id": "SH-01",
+              "shelter_name": "Minami Elementary School",
+              "unmet_meals": 347,
+              "plan_a_meals": 206,
+              "plan_a_shortfall_meals": 141,
+              "plan_b_meals": 347
+            },
+            {
+              "shelter_id": "SH-02",
+              "shelter_name": "Kita Community Center",
+              "unmet_meals": 66,
+              "plan_a_meals": 39,
+              "plan_a_shortfall_meals": 27,
+              "plan_b_meals": 66
+            },
+            {
+              "shelter_id": "SH-03",
+              "shelter_name": "Higashi Junior High Gym",
+              "unmet_meals": 590,
+              "plan_a_meals": 351,
+              "plan_a_shortfall_meals": 239,
+              "plan_b_meals": 590
+            }
+          ]
+        },
+        "plan_b_additional_procurement_meals": {
+          "general": 407,
+          "allergy_free": 0,
+          "halal": "unknown until counts are confirmed (known shortage: 0)",
+          "infant_formula": 0
+        },
+        "special_diets": [
+          {
+            "diet_category": "allergy_free",
+            "status": "ok",
+            "available_meals": 30,
+            "total_unmet_meals_known": 6,
+            "shortage_meals_known": 0,
+            "staff_action": null,
+            "shelters": [
+              {
+                "shelter_id": "SH-02",
+                "shelter_name": "Kita Community Center",
+                "people": 2,
+                "unmet_meals": 6,
+                "plan_a_meals": 6,
+                "plan_b_meals": 6
+              }
+            ]
+          },
+          {
+            "diet_category": "halal",
+            "status": "missing_info",
+            "available_meals": 0,
+            "total_unmet_meals_known": 0,
+            "shortage_meals_known": 0,
+            "staff_action": "special-needs count is unknown; confirm before planning",
+            "shelters": [
+              {
+                "shelter_id": "SH-03",
+                "shelter_name": "Higashi Junior High Gym",
+                "people": "unknown",
+                "unmet_meals": null,
+                "plan_a_meals": null,
+                "plan_b_meals": null
+              }
+            ]
+          },
+          {
+            "diet_category": "infant_formula",
+            "status": "ok",
+            "available_meals": 16,
+            "total_unmet_meals_known": 1,
+            "shortage_meals_known": 0,
+            "staff_action": null,
+            "shelters": [
+              {
+                "shelter_id": "SH-01",
+                "shelter_name": "Minami Elementary School",
+                "people": 3,
+                "unmet_meals": 1,
+                "plan_a_meals": 1,
+                "plan_b_meals": 1
+              }
+            ]
+          }
+        ],
+        "data_warnings": [
+          "SH-03 (general): some special-needs counts are unknown, so general need may be overstated",
+          "SH-03 (halal): number of people needing 'halal' is unknown",
+          "SH-02: a newer report is pending validation; figures use the last validated report",
+          "SH-04: no validated report yet, so its needs are not calculated",
+          "newer inventory count for WH-A/ITM-BREAD is still pending validation (2026-10-24T11:20:00+09:00); the plan uses its last validated count"
+        ],
+        "plan_fingerprint": "9ac32e325eae451cf65f27a9590e1808f80140a60e11966579c48e583be7d894"
+      }
+    },
+    {
+      "actor": "code (deterministic)",
+      "step": "tool result",
+      "tool": "calculate_shelter_needs",
+      "summary": "3 shelters, 3.0 meals/day, 24.0 h; unmet general 1003; special: allergy_free 6, halal 0+?, infant_formula 1; 4 flags",
+      "content": {
+        "planning": {
+          "meals_per_person_per_day": 3.0,
+          "planning_window_hours": 24.0,
+          "need_rounding": "need rounded up to whole meals",
+          "unmet_formula": "need - on hand at report - still on its way - delivered after report"
+        },
+        "general_meals": {
+          "total_unmet_meals": 1003,
+          "shelters": [
+            {
+              "shelter_id": "SH-01",
+              "shelter_name": "Minami Elementary School",
+              "report_time": "2026-10-24T09:00:00+09:00",
+              "people": 132,
+              "need_meals": 396,
+              "on_hand_at_report_meals": 25,
+              "approved_not_shipped_meals": 24,
+              "shipped_not_confirmed_meals": 0,
+              "still_on_its_way_meals": 24,
+              "delivered_after_report_meals": 0,
+              "unmet_meals": 347,
+              "newer_report_pending_validation": false
+            },
+            {
+              "shelter_id": "SH-02",
+              "shelter_name": "Kita Community Center",
+              "report_time": "2026-10-24T08:30:00+09:00",
+              "people": 62,
+              "need_meals": 186,
+              "on_hand_at_report_meals": 90,
+              "approved_not_shipped_meals": 0,
+              "shipped_not_confirmed_meals": 30,
+              "still_on_its_way_meals": 30,
+              "delivered_after_report_meals": 0,
+              "unmet_meals": 66,
+              "newer_report_pending_validation": true
+            },
+            {
+              "shelter_id": "SH-03",
+              "shelter_name": "Higashi Junior High Gym",
+              "report_time": "2026-10-24T07:45:00+09:00",
+              "people": 210,
+              "need_meals": 630,
+              "on_hand_at_report_meals": 0,
+              "approved_not_shipped_meals": 0,
+              "shipped_not_confirmed_meals": 40,
+              "still_on_its_way_meals": 40,
+              "delivered_after_report_meals": 0,
+              "unmet_meals": 590,
+              "newer_report_pending_validation": false
+            }
+          ]
+        },
+        "special_diets": [
+          {
+            "diet_category": "allergy_free",
+            "total_unmet_meals_known": 6,
+            "complete": true,
+            "shelters": [
+              {
+                "shelter_id": "SH-02",
+                "shelter_name": "Kita Community Center",
+                "report_time": "2026-10-24T08:30:00+09:00",
+                "people": 2,
+                "need_meals": 6,
+                "on_hand_at_report_meals": 0,
+                "approved_not_shipped_meals": 0,
+                "shipped_not_confirmed_meals": 0,
+                "still_on_its_way_meals": 0,
+                "delivered_after_report_meals": 0,
+                "unmet_meals": 6,
+                "newer_report_pending_validation": true
+              }
+            ]
+          },
+          {
+            "diet_category": "halal",
+            "total_unmet_meals_known": 0,
+            "complete": false,
+            "shelters": [
+              {
+                "shelter_id": "SH-03",
+                "shelter_name": "Higashi Junior High Gym",
+                "report_time": "2026-10-24T07:45:00+09:00",
+                "people": "unknown",
+                "need_meals": null,
+                "on_hand_at_report_meals": 0,
+                "approved_not_shipped_meals": 0,
+                "shipped_not_confirmed_meals": 0,
+                "still_on_its_way_meals": 0,
+                "delivered_after_report_meals": 0,
+                "unmet_meals": null,
+                "newer_report_pending_validation": false
+              }
+            ]
+          },
+          {
+            "diet_category": "infant_formula",
+            "total_unmet_meals_known": 1,
+            "complete": true,
+            "shelters": [
+              {
+                "shelter_id": "SH-01",
+                "shelter_name": "Minami Elementary School",
+                "report_time": "2026-10-24T09:00:00+09:00",
+                "people": 3,
+                "need_meals": 9,
+                "on_hand_at_report_meals": 4,
+                "approved_not_shipped_meals": 0,
+                "shipped_not_confirmed_meals": 0,
+                "still_on_its_way_meals": 0,
+                "delivered_after_report_meals": 4,
+                "unmet_meals": 1,
+                "newer_report_pending_validation": false
+              }
+            ]
+          }
+        ],
+        "shelters_without_validated_report": [
+          {
+            "shelter_id": "SH-04",
+            "shelter_name": "Nishi Public Hall",
+            "reported_at": "2026-10-24T10:10:00+09:00"
+          }
+        ],
+        "flags": [
+          "SH-03 (general): some special-needs counts are unknown, so general need may be overstated",
+          "SH-03 (halal): number of people needing 'halal' is unknown",
+          "SH-02: a newer report is pending validation; figures use the last validated report",
+          "SH-04: no validated report yet, so its needs are not calculated"
+        ]
+      }
+    },
+    {
+      "actor": "AI model",
+      "step": "writes the reply",
+      "text": "## DRAFT — for staff review only\n**Not a finalized allocation:** nothing has been approved, reserved, or dispatched.\n\n**Planning basis:** 24 hours at 3 meals per person per day. General-meal unmet demand is **1,003 meals**; available stock for Plan A is **596 meals**.\n\n### General meals\n\n| Shelter | Plan A: allocate now | Plan A: remaining shortfall | Plan B: meet validated unmet demand |\n|---|---:|---:|---:|\n| Minami Elementary School (SH-01) | 206 | 141 | 347 |\n| Kita Community Center (SH-02) | 39 | 27 | 66 |\n| Higashi Junior High Gym (SH-03) | 351 | 239 | 590 |\n| **Total** | **596** | **407** | **1,003** |\n\n**Plan B requires 407 additional general meals to be procured.**\n\n### Special diets\n\n- **Allergy-free:** 30 available; known unmet need is 6. Plan A suggests 6 for Kita Community Center (SH-02); Plan B is 6. No additional meals are needed for the known unmet demand.\n- **Infant formula:** 16 available; known unmet need is 1. Plan A suggests 1 for Minami Elementary School (SH-01); Plan B is 1. No additional meals are needed for the known unmet demand.\n- **Halal:** 0 available; the need at Higashi Junior High Gym (SH-03) is **unknown**. No split is suggested; staff must confirm the count before planning. Additional requirement is to be confirmed; known shortage is 0.\n\n### Data warnings\n\n- SH-03: some special-needs counts are unknown, so general need may be overstated; the halal count is unknown.\n- SH-02: a newer report is pending validation; figures use its last validated report.\n- SH-04 (Nishi Public Hall): no validated report yet, so needs are not calculated.\n- A newer inventory count for WH-A/ITM-BREAD is pending validation (2026-10-24T11:20:00+09:00); this draft uses the last validated count.\n\nThe plan uses validated shelter reports and available stock; staff should review the warnings and decide how to handle the unknown halal need."
+    }
+  ],
+  "tool_events_as_shown_in_ui": [
+    {
+      "tool": "calculate_allocation",
+      "detail": "args {} → DRAFT; general available 596, unmet 1003, Plan A 596, shortage 407; special: allergy_free ok, halal missing_info, infant_formula ok; 5 warnings"
+    },
+    {
+      "tool": "calculate_shelter_needs",
+      "detail": "args {} → 3 shelters, 3.0 meals/day, 24.0 h; unmet general 1003; special: allergy_free 6, halal 0+?, infant_formula 1; 4 flags"
+    }
+  ],
+  "usage_total": {
+    "requests": 2,
+    "input_tokens": 5464,
+    "output_tokens": 828,
+    "tool_calls": 2
+  },
+  "calls": [
+    {
+      "call": 1,
+      "latency_ms": 2627,
+      "portkey_cache_status": "MISS",
+      "input_tokens": 1844,
+      "cached_read_tokens": 0,
+      "cache_write_tokens": 1841,
+      "reasoning_tokens": 0,
+      "output_tokens": 48
+    },
+    {
+      "call": 2,
+      "latency_ms": 6631,
+      "portkey_cache_status": "MISS",
+      "input_tokens": 3620,
+      "cached_read_tokens": 1841,
+      "cache_write_tokens": 1776,
+      "reasoning_tokens": 283,
+      "output_tokens": 780
+    }
+  ]
+}

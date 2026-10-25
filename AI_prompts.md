@@ -415,3 +415,55 @@ My actual prompts to the AI coding assistant (Claude Code), recorded verbatim in
 > Add GitHub user zlisto as a collaborator with access to the private repository.
 > Verify that the push succeeded, the repository is accessible, and the README is displayed correctly.
 > Give me the repository URL and report any step that requires my manual action. Don't modify application behavior.
+
+## Prompt 44
+
+> Produce a polished, evidence-based report.html that is 10–15 pages when printed on US Letter paper.
+> Write for an intelligent manager who has never seen the app. Explain the real-world problem, what we built, why the design matters, and what our tests demonstrate. Avoid unnecessary technical jargon and generic AI-generated prose.
+> Follow these eight sections in this exact order:
+> 1.Title + links
+> Include the project name, my name, GitHub repository URL (https://github.com/ajk723-yale/disaster-foodbridge), and a one-sentence description. Don't claim the app is publicly deployed.
+> 2.Motivation
+> Explain the challenges of allocating emergency food across evacuation shelters when reports are incomplete, stock changes, and different dietary needs must be considered. Make the practical value clear without inventing statistics or interviews.
+> 3.What is new here
+> Compare Disaster FoodBridge honestly with named existing products and ChatGPT itself. Research and cite verifiable sources. Explain specifically what our app does differently, without claiming that existing products lack features unless verified.
+> 4.The agents
+> Explain the PydanticAI agent, its tools, the structured extraction and safety screening workflows, deterministic allocation calculations, photo analysis, and human approval. Include an architecture diagram and trace one actual agent run step by step using saved evidence and screenshots. Clearly distinguish AI decisions from deterministic calculations and staff actions.
+> 5.Tokenomics
+> Use the actual usage logs and experiments under evidence/tokenomics/. Show measured input, cached-read, cache-write, reasoning, and output tokens where available; estimated cost per workflow and per user per month; and scenarios for 100 and 10,000 users. Explain pricing assumptions, unknown Portkey billing, and the measured photo follow-up cache optimization, including its effect on answer quality. Never present estimated costs as actual bills.
+> 6.Safety
+> Describe the main risks and actual defenses: prompt injection, inaccurate extracted information, stale data, unauthorized finalization, and excessive model usage. Use our actual attack and defense experiments, including before/after detection results and screenshots. Distinguish safeguards we've implemented from limitations we haven't solved, particularly any absence of a hard token-spending cap.
+> 7.Impact
+> Use the measured allocation accuracy, reliability tests, extraction and planning times, and Dashboard defect discovery and fixes from evidence/impact/. Explain the sample size, methodology, and limitations. Do not invent real users, operational time savings, or field deployment results.
+> 8.Limits + next steps
+> Explain limitations including synthetic datasets and photos, missing or unvalidated information, unresolved inventory-recount assumptions, real-world operational validation, and future improvements.
+> Design requirements:
+> -One self-contained HTML file, with all screenshots, diagrams, CSS, and other assets embedded.
+> -Professional editorial design with readable typography, clear charts, well-formatted tables, and carefully selected screenshots from the real app.
+> -Use visual explanations where they improve understanding, not decorative filler.
+> -Include source references and captions for important evidence.
+> -Keep the writing substantive and concise; 10–15 pages of real content, not filler.
+> Evidence and quality control:
+> -Review the actual source code, saved reports, evidence_index.md, development_log.md, and relevant evidence folders before drafting.
+> -Make every important numerical claim traceable to a test, log, screenshot, calculation, or clearly identified assumption.
+> -Never invent experimental results, citations, app capabilities, or user feedback.
+> -Identify unsupported claims or missing evidence explicitly for my review.
+> -Verify that every screenshot and diagram is legible and correctly described.
+> -Open the completed HTML, inspect its print layout, and confirm the actual US Letter page count is between 10 and 15, with no clipped content or awkward page breaks.
+> -Check all eight required sections against the assignment rubric.
+> Record this exact prompt in AI_prompts.md, update development_log.md and evidence_index.md with verified results, and stop for review.
+> Tell me the report's location, verified printed page count, key evidence used, and any remaining weaknesses before we finalize it.
+
+## Prompt 45
+
+> Make three focused revisions.
+> Motivation: I have professional experience supporting government coordination related to the Fukushima nuclear accident, but I have never managed food distribution. Explain how this experience informed my interest in decision-making with incomplete information, coordination across organizations, and human accountability. Present shelter food allocation as a new application of those lessons, not as something I personally managed. Don't invent specific experiences or incidents.
+> Agent evidence: Ensure the step-by-step agent trace and screenshots are clearly identified as coming from the same execution. If they come from different runs, either collect consistent evidence from one run or label them separately.
+> Impact: Preserve the measured results and clearly distinguish technical validation from real-world impact. No external municipal staff tested the app, and no human time savings were measured.
+> Keep the rest of the report's structure and design. Verify the actual claims against saved evidence, preserve the 10–15-page printed length, and stop for review.
+
+## Prompt 46
+
+> Commit and push report.html and its supporting evidence and documentation to the existing GitHub repository.
+> Verify that the push succeeds and the repository remains private with no secrets or live data included.
+> Then stop. Don't start the slides or make further report changes yet.

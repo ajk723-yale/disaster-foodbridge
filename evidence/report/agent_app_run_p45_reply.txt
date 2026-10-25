@@ -1,0 +1,39 @@
+FoodBridge
+DRAFT — for staff review; not finalized
+
+Nothing has been approved, reserved, or dispatched.
+
+Planning window: 24 hours
+Meal rate: 3.0 meals per person per day
+
+General meals
+
+Plan A — allocate available stock (596 meals):
+
+Shelter	Plan A meals	Remaining shortfall
+Minami Elementary School	206	141
+Kita Community Center	39	27
+Higashi Junior High Gym	351	239
+
+Total unmet demand is 1,003 meals. Plan A leaves a 407-meal shortage.
+
+Plan B — meet all validated unmet demand:
+
+Shelter	Meals
+Minami Elementary School	347
+Kita Community Center	66
+Higashi Junior High Gym	590
+
+Additional general meals to procure: 407.
+
+Special diets
+Allergy-free: Status OK. Available: 30 meals; known unmet demand: 6. Plan A: 6 to Kita Community Center; Plan B: 6. Additional procurement: 0.
+Halal: Count is unknown for Higashi Junior High Gym. Available: 0; known shortage: 0. Staff must confirm the count before planning; Plan A and Plan B amounts are undetermined. Additional procurement: unknown until counts are confirmed.
+Infant formula: Status OK. Available: 16 meals; known unmet demand: 1. Plan A: 1 to Minami Elementary School; Plan B: 1. Additional procurement: 0.
+Data warnings
+Higashi Junior High Gym: some special-needs counts are unknown, so general need may be overstated; halal count is unknown.
+Kita Community Center has a newer report pending validation; figures use its last validated report.
+SH-04 has no validated report, so its needs are not calculated.
+A newer inventory count for WH-A/ITM-BREAD is pending validation (2026-10-24T11:20:00+09:00); this draft uses the last validated count.
+Tool activity (1)
+calculate_allocation — args {} → DRAFT; general available 596, unmet 1003, Plan A 596, shortage 407; special: allergy_free ok, halal missing_info, infant_formula ok; 5 warnings

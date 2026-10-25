@@ -56,6 +56,8 @@ Supporting evidence for each claim is listed in [evidence_index.md](evidence_ind
 | 34 | Fix dashboard defects F1/F2 | P41 | 218 passed |
 | 35 | Repository audit; git initialized (not committed) | P42 | 222 passed |
 | 36 | Submission cleanup; private GitHub repository | P43 | 222 passed |
+| 37 | Final report (report.html, 11 printed pages) | P44 | 222 passed |
+| 38 | Report revisions (motivation, single-run trace, impact framing; 13 pages) | P45 | 222 passed |
 
 ---
 
@@ -1832,7 +1834,7 @@ impact. No behavior changes.
   A `no_stock` diet would be missing from the action list and shown as "Enough in stock".
 - **F1 and F2 were not fixed** (no behavior changes requested).
 - **Efficiency (automated only, sample scale, one machine):**
-  - Plan A + B draft median 18.7 ms; all dashboard figures 41.4 ms; finalize and store 30.9 ms;
+  - Plan A + B draft median 21.9 ms; all dashboard figures 41.2 ms; finalize and store 30.6 ms (corrected in P44 to the saved results file; three saved runs give a Plan A + B median of 18.5–21.9 ms);
   - AI extraction + safety screen per new report (all provider calls, Portkey MISS) median 3.4 s (3.3–6.1 s);
   - the 5 earlier sample reports took 2.0 s only because their extraction was a Portkey cache HIT, which is not model
     processing time.
@@ -2010,7 +2012,128 @@ collaborator, and verify. No application behavior changes.
 
 ---
 
-## Current limitations (consolidated, as of P43)
+## Stage 37 — Final report (report.html) (P44)
+
+**Objective.** A self-contained, evidence-based `report.html` of 10–15 US Letter pages for a non-technical manager,
+in eight fixed sections (title + links, motivation, what is new, the agents, tokenomics, safety, impact, limits + next
+steps). It should cite real sources, trace one actual agent run, use real screenshots, and verify the printed layout.
+
+**New evidence collected**
+- **One fully recorded chat-agent run** (`scripts/run_agent_trace_p44.py`, isolated copy of the sample data in
+  `evidence/report/trace_case/`): "Prepare a food allocation plan for the next 24 hours." The full trace is in
+  `evidence/report/agent_trace_p44.json` and the per-call log in `agent_trace_usage_p44.jsonl`.
+  - **Call 1:** the model chose `calculate_allocation` and `calculate_shelter_needs` (1,844 input / 48 output tokens,
+    2.6 s, Portkey MISS).
+  - **Code** returned 596 available, 1,003 unmet, Plan A 206 / 39 / 351, 407 short.
+  - **Call 2:** 3,620 input tokens (1,841 cached read, 1,776 cache write), 780 output (283 reasoning), 6.6 s.
+  - Every figure in the reply was checked against the tool output.
+  - The same question asked in the app made the same two tool calls (screenshots **S35, S36**). *Corrected in
+    P45:* that app run was a Portkey cache HIT, a replay of the scripted run, so it was not an independent model
+    decision. See Stage 38.
+- **Comparison sources** were checked online on 2026-10-25:
+  - Sahana Eden homepage and OSGeo-Live overview (v0.5.4);
+  - the FEMA National Shelter System fact sheet (2011, read in full);
+  - the WFP LESS audit page (2021);
+  - the OpenAI Help Center data-analysis article, read via search extracts only (the page returned HTTP 403).
+
+**Implemented**
+- `scripts/report_figures_p44.py` computes every number in the report from saved evidence →
+  `evidence/report/report_figures_p44.json`. Monthly scenarios use the P32 hypothetical profiles and a 30-day month,
+  labeled as assumptions.
+- `scripts/build_report_p44.py` generates `report.html`:
+  - inline SVG figures: architecture, agent trace, token mix, and the P35 cache result;
+  - chart colors validated with the dataviz palette script for a white page;
+  - screenshots cropped (crop boxes in code) and embedded as base64;
+  - print CSS for US Letter.
+- **Correction of earlier evidence.** The P40 report's planning-time table did not match its saved results file (an
+  earlier run had been overwritten, e.g. Plan A + B 18.7 vs 21.9 ms). `evidence/impact/impact_eval_report.md` and
+  Stage 33 now use the saved values, with a note. The report gives the range across the 3 saved runs (18.5–21.9 ms).
+
+**Verified**
+- **Printed with Chrome headless on US Letter: 11 pages** (`evidence/report/report_print_check_p44.pdf`). Every page
+  was rendered and inspected.
+- **Fixed during inspection:**
+  - overlapping diagram labels and clipped trace text;
+  - screenshots too small to read (now cropped, at about 7 pt or larger);
+  - crops cutting a row or label;
+  - an orphaned table header;
+  - near-empty last pages;
+  - a wrong headline figure (an "under $0.001 per action" claim; the traced question costs up to $0.0013, so the
+    headline now gives the range);
+  - "rejects" corrected to "flags" for quotes that are not in the text.
+- **Self-contained:** 0 external resources, 9 embedded images, 4 inline SVGs.
+- Test suite: **222 passed** (no application code changed).
+- The section check and the list of weaker claims are in `evidence/report/report_review_p44.md`.
+
+**Limitations**
+- The course rubric document itself was not available; the sections were checked against the prompt.
+- Weaker evidence remains: the ChatGPT source read via search extracts, dated Sahana and FEMA sources, hypothetical
+  usage profiles, a single traced run, and small samples. See the review note.
+
+---
+
+## Stage 38 — Report revisions: motivation, single-run agent evidence, impact framing (P45)
+
+**Objective.** Three focused revisions, keeping the structure, design, and a 10–15-page print:
+- **Motivation** grounded in the author's Fukushima-related coordination experience, with no invented details;
+- **Agent evidence** from one identified execution;
+- **Impact** that separates technical validation from real-world impact.
+
+**Finding while collecting agent evidence**
+- The P44 screenshots S35/S36 came from an app run that Portkey answered from its **response cache (HIT)**:
+  - the response IDs equal those of the scripted P44 trace run, so the model output and tokens shown were replays;
+  - a first P45 attempt with the same wording (S37/S38) was also a HIT;
+  - the tools themselves were executed again by the app in both runs.
+- The P44 report's sentence "the same question asked in the app produced the same two tool calls" was therefore
+  misleading, and has been replaced.
+
+**Single-run evidence collected**
+- In the running app, asked "Please draft a food allocation plan for the next 24 hours." (run `ddf9fc62fb5a`).
+- **Call 1** (MISS): 1,845 input / 15 output tokens, 2.8 s; called `calculate_allocation`.
+- **Code** returned plan fingerprint `9ac32e32…` (596 available, 1,003 unmet, Plan A 206 / 39 / 351, 407 short).
+- **Call 2** (MISS): 2,622 input (1,842 cached read, 777 cache write), 562 output (92 reasoning), 4.4 s.
+- **Saved by `scripts/save_app_run_p45.py`:**
+  - `evidence/report/agent_app_run_p45.json` (steps, server-log lines, reply text read from the page, checks);
+  - `agent_app_run_p45_usage.jsonl` (the 2 usage-log lines);
+  - `agent_app_run_p45_reply.txt`;
+  - screenshots **S39, S40**.
+- **Checks (all pass):**
+  - the usage-log totals equal the server-log totals (4,467 / 577);
+  - both calls were MISS;
+  - every figure in the reply matches the tool result;
+  - the recomputed tool result has the logged fingerprint.
+
+**Report changes (`scripts/build_report_p44.py`, `scripts/report_figures_p44.py`)**
+- **Motivation:** a new opening paragraph on the author's background and three lessons; the closing sentence now
+  says there are no field interviews or statistics for shelter food distribution.
+- **Agents:**
+  - the trace diagram, numbered steps, and Figures 3–4 now all come from run `ddf9fc62fb5a`, with the run ID in the
+    text and captions;
+  - a short note says tool choice varies between runs and that the cached replays were excluded;
+  - the traced run's estimated cost is $0.000635 (30-min) / $0.000962 (12-h), about 2.2× the average chat question.
+- **Impact:**
+  - two panels: measured = technical validation; not measured = real-world impact (no external municipal staff, no
+    human time, no exercise or real use);
+  - the subsections are labeled "technical validation";
+  - the timing paragraph says these are machine times only;
+  - the title page notes that the headline numbers are technical validation;
+  - the measured values are unchanged.
+- **Layout:** body text 10.4 pt; the numbered steps are kept together.
+
+**Verified**
+- Print with Chrome headless on US Letter: **13 pages** (within 10–15); every page inspected
+  (`evidence/report/report_print_check_p44.pdf` regenerated). No clipping or orphaned headers; the last page holds the
+  remaining references.
+- Self-contained (0 external resources, 9 embedded images).
+- Tests: **222 passed** (no application code changed).
+
+**Limitations**
+- The trace is still one run.
+- The motivation paragraph reflects the author's statement in P45 and was not otherwise verified.
+
+---
+
+## Current limitations (consolidated, as of P45)
 
 Not implemented (stubs or missing):
 - AI extraction works (P25) and is reviewed and approved in Report intake (P26). Warehouse photo analysis works
