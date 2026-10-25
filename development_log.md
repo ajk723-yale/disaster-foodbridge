@@ -1994,6 +1994,22 @@ collaborator, and verify. No application behavior changes.
   publish it. The global config is unchanged, and the author name stays "Kohei Ajiki".
 - Tests before committing: **222 passed**.
 
+**Publication (verified 2026-10-25)**
+- **Repository:** private `https://github.com/ajk723-yale/disaster-foodbridge` (`gh repo create --private
+  --source=. --push`).
+- **First commit:** `15fae86` (291 files), author email the no-reply address. The remote `main` equals the local
+  HEAD.
+- **Remote tree:** 291 files; no `.env`, `data/live/*`, venv, caches, or `.DS_Store`.
+- **Anonymous access:** HTTP 404 (private, as intended).
+- **README:** GitHub's rendering API shows all 8 sections, 3 command blocks, and 2 tables.
+- **Collaborator `zlisto` (Tauhid R. Zaman):**
+  - invitation sent, permission **write**. GitHub personal repositories do not offer read-only collaborators; a
+    "read" request was rejected with HTTP 422;
+  - the invitation is **pending until zlisto accepts it** (manual step on their side).
+- The development log and evidence index were updated in a second commit after verification.
+
+---
+
 ## Current limitations (consolidated, as of P43)
 
 Not implemented (stubs or missing):

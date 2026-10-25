@@ -431,7 +431,8 @@ The P37 dashboard (section 21) was replaced; its screenshots S21–S23 show the 
 |---|---|---|
 | Temporary artifacts and exact-duplicate evidence removed (16 files) | Development log Stage 36 (list and reasons); `.gitignore` entry for `E1_planning_timing/` | ✅ |
 | No key, secret, local path, live data, or personal email in the committed files or commit metadata | Stage 36 scan of all staged files; repository-local no-reply commit email | ✅ |
-| Private repository created, `main` pushed, collaborator invited, README displayed | Stage 36 "Publication" (filled in after the push) | see Stage 36 |
+| Private repository created, `main` pushed (remote = local HEAD), README rendered | Stage 36 "Publication": `https://github.com/ajk723-yale/disaster-foodbridge`, anonymous HTTP 404, README with 8 sections | ✅ |
+| Collaborator zlisto invited | Pending invitation (write; personal repos have no read-only role) | ⏳ zlisto must accept |
 
 ## Screenshots
 
