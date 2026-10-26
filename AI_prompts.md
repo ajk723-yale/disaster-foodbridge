@@ -538,3 +538,40 @@ My actual prompts to the AI coding assistant (Claude Code), recorded verbatim in
 > Measure the setup time and document the result.
 > Also include the already completed Prompt 49 report/slide corrections and the fresh-clone test documentation in the next commit.
 > Before committing, scan all staged files for secrets and private data. If everything passes, commit and push the changes to the existing private GitHub repository.
+
+## Prompt 52
+
+> Perform a thorough read-only security audit of the entire repository, including all Git history.
+> Check for API keys, credentials, .env files, private or personal information, sensitive documents, real operational data, and local file paths.
+> Don¶t modify any files, commit, push, or change repository visibility.
+> Report whether the repository is safe to publish publicly, with any risks clearly identified.
+
+*(Recorded in P53: P52 asked for no file changes, so it was not logged at the time.)*
+
+## Prompt 53
+
+> Make the final corrections to Disaster FoodBridge before Canvas submission.
+> The GitHub repository is now PUBLIC:
+> https://github.com/ajk723-yale/disaster-foodbridge
+> The latest review identified outdated references to the repository being private in report.html and slides.html.
+> 1.Search both report.html and slides.html for all references to the GitHub repository's visibility.
+> 2.Replace outdated "private repository" or "(private)" descriptions with accurate "public repository" or "(public)" wording.
+> 3.Keep the GitHub URL clearly visible and clickable in BOTH files.
+> 4.Don’t change the statement that the app is "not publicly deployed." The GitHub repository is public, but the application itself is not hosted publicly.
+> 5.Don’t modify any other report content, slide design, application code, data, calculations, or test results.
+> 6.Verify that both HTML files open correctly without internet access, that all embedded images appear, and that the slides can be navigated.
+> 7.Verify that neither HTML file contains outdated repository-visibility statements.
+> 8.Confirm that the two HTML files are ready for submission under the instructor's requirements:
+> -HTML report
+> -HTML slides
+> -GitHub repository URL in both
+> -Optional application demo video
+> -No additional Canvas attachments
+> Record this prompt verbatim in AI_prompts.md and make any necessary minimal documentation updates.
+> Run a staged-file security check, commit and push the changes to the existing public GitHub repository, and confirm the remote main branch matches the local commit.
+> Finally, report:
+> -Exactly what changed
+> -Whether both HTML files passed verification
+> -The final commit hash
+> -The exact local paths of report.html and slides.html to upload to Canvas
+> Stop after completing these tasks. Don't implement new features or make unrelated changes.

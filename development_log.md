@@ -2252,6 +2252,36 @@ and fullscreen, and be inspected for clipping and readability.
 
 ---
 
+## Stage 43 — Repository made public; visibility wording corrected (P52–P53)
+
+- **P52 (read-only security audit, no file changes).** All 6 commits, every file version, the commit metadata, and
+  the GitHub-side settings were checked:
+  - real key values: 0 files;
+  - no `.env`, live data, or local paths;
+  - emails: only no-reply addresses;
+  - images have no EXIF or GPS data, and the PDF metadata has no author or paths.
+
+  Found: the "private" wording below and that there is no LICENSE file. The repository owner then made the
+  repository public.
+- **P53 wording fix:**
+  - `report.html` byline: "(private repository)" → "(public repository)";
+  - `slides.html` slide 1 byline: "(private)" → "(public)", and the repository address is now a clickable link
+    (`color:inherit`, underlined, so the byline style is unchanged);
+  - "not publicly deployed" is unchanged in both files;
+  - the same edits were made in `scripts/build_report_p44.py` and `scripts/build_slides_p47.py`; rebuilding in a
+    scratch copy reproduces both HTML files byte for byte.
+- **Verified offline:**
+  - headless Chrome with networking blocked (`file://`):
+    - report: 13 US Letter pages, 9 embedded images, one link to the repository;
+    - slides: reveal.js initialized with 9 slides, and the slide 1 screenshot is correct;
+  - in the browser, both pages made 0 network requests, and all images loaded (report 9/9, slides 6/6);
+  - slides: arrow keys move through 1→9 and back;
+  - neither file contains "private".
+- No other report or slide content, app code, data, or test results changed. The P44 print-check PDF still shows
+  the earlier byline; it is kept as the P44/P49 record.
+
+---
+
 ## Current limitations (consolidated, as of P49)
 
 Not implemented (stubs or missing):

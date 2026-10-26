@@ -126,7 +126,7 @@ def slides():
   <h1>Disaster <span class="pink">FoodBridge</span></h1>
   <p class="pitch">Turns incomplete shelter and warehouse reports into a reviewable plan for sharing scarce food
   between evacuation shelters: every number from tested code, every decision with staff.</p>
-  <div class="byline"><b>Kohei Ajiki</b><span>{REPO} (private) · runs locally, not publicly deployed · synthetic data</span></div>
+  <div class="byline"><b>Kohei Ajiki</b><span><a href="https://{REPO}" style="color:inherit;text-decoration:underline">{REPO}</a> (public) · runs locally, not publicly deployed · synthetic data</span></div>
   <div class="hint">← → to navigate · F for fullscreen · Esc for overview</div>
 </section>""")
     # 2. Problem

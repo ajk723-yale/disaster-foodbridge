@@ -488,6 +488,15 @@ The P37 dashboard (section 21) was replaced; its screenshots S21–S23 show the 
 | Own-key setup documented separately, `.env` not committed | `README.md` "Using your own API key instead"; `.gitignore` | ✅ |
 | App code unchanged by the README fix | `git diff --name-only e07a942 87fd5d8` lists no `app.py`, `src/`, or `tests/` file | ✅ |
 
+## 33. Public repository wording and final HTML check (P53)
+
+| Claim | Evidence | Status |
+|---|---|---|
+| Report and slides describe the repository as public, with a clickable URL in both, and still say the app is not publicly deployed | `report.html` byline; `slides.html` slide 1 byline; development log Stage 43 | ✅ |
+| Both HTML files work offline with all images | Stage 43: blocked-network headless Chrome render; browser check with 0 network requests (images 9/9 and 6/6) | ✅ |
+| Slides navigate with the arrow keys | Stage 43: 9 slides, 1→9 and back | ✅ |
+| HTML files match their build scripts | Stage 43: scratch rebuild is byte-identical | ✅ |
+
 ## Screenshots
 
 Location: [`evidence/screenshots/`](evidence/screenshots/). These are byte-for-byte copies of the screenshots captured
